@@ -6,6 +6,8 @@ sections:
         url: "index.md"
       - title: "Baza Islandia"
         url: "00-organizacja/01-baza-islandia.md"
+      - title: "Ściąga PHP INF.03"
+        url: "00-organizacja/02-sciaga-php-inf03.md"
   - title: "01 - Podstawy PHP"
     url: "01-podstawy-php/01-podstawy-php.md"
     lessons:
@@ -16,3 +18,10 @@ sections:
     lessons:
       - title: "Odczytywanie danych z bazy Islandia"
         url: "02-php-i-mariadb/01-odczyt-danych.md"
+  - title: "03 - Zapytania INF.03"
+    url: "03-zapytania-inf03/01-cztery-zapytania.md"
+    lessons:
+      - title: "Cztery zapytania SQL"
+        url: "03-zapytania-inf03/01-cztery-zapytania.md"
+      - title: "Wykonanie zapytań SQL w PHP"
+        url: "03-zapytania-inf03/02-wyniki-zapytan-w-php.md"

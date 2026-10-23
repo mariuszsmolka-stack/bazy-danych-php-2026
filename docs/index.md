@@ -12,6 +12,11 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 2. [Lekcja 1 - podstawy PHP i pierwsze tablice]({{ '/01-podstawy-php/01-podstawy-php.html' | relative_url }}) - uruchamianie skryptów, zmienne, pętle i tablice.
 3. [Lekcja 2 - PHP i odczytywanie danych z bazy Islandia]({{ '/02-php-i-mariadb/01-odczyt-danych.html' | relative_url }}) - połączenie, `SELECT` i pobieranie rekordów przez `mysqli`.
 
+4. [Lekcja 3 - Cztery zapytania SQL]({{ '/03-zapytania-inf03/01-cztery-zapytania.html' | relative_url }}).
+5. [Lekcja 4 - Wykonanie zapytań SQL w PHP]({{ '/03-zapytania-inf03/02-wyniki-zapytan-w-php.html' | relative_url }}).
+
+[Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
+
 ## Jak pracować?
 
 Czytaj wyjaśnienia, uruchamiaj przykłady i wykonuj ćwiczenia po kolei. Lekcja 1 nie wymaga połączenia z bazą. Przed lekcją 2 przygotuj bazę `Islandia` według instrukcji importu.
