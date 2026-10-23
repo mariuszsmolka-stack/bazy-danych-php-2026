@@ -41,3 +41,5 @@ sections:
     lessons:
       - title: "Generowanie HTML z danych MariaDB"
         url: "05-php-i-html/01-generowanie-html-z-bazy.md"
+      - title: "GET - parametry w adresie URL"
+        url: "05-php-i-html/02-get-parametry-url.md"

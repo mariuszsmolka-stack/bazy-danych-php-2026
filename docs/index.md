@@ -20,6 +20,8 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 
 9. [Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
 
+10. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+
 [Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
 
 ## Jak pracować?
