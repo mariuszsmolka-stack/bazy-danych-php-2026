@@ -36,3 +36,8 @@ sections:
         url: "04-grupowanie-danych/02-having.md"
       - title: "DISTINCT i DISTINCTROW"
         url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"
+  - title: "05 - PHP i HTML"
+    url: "05-php-i-html/01-generowanie-html-z-bazy.md"
+    lessons:
+      - title: "Generowanie HTML z danych MariaDB"
+        url: "05-php-i-html/01-generowanie-html-z-bazy.md"
