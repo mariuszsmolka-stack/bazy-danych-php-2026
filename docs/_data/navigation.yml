@@ -34,3 +34,5 @@ sections:
         url: "04-grupowanie-danych/01-group-by.md"
       - title: "HAVING - filtrowanie grup danych"
         url: "04-grupowanie-danych/02-having.md"
+      - title: "DISTINCT i DISTINCTROW"
+        url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"

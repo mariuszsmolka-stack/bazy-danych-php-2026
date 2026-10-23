@@ -16,6 +16,7 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 5. [Lekcja 4 - Wykonanie zapytań SQL w PHP]({{ '/03-zapytania-inf03/02-wyniki-zapytan-w-php.html' | relative_url }}).
 6. [Lekcja 5 - GROUP BY - grupowanie danych]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}).
 7. [Lekcja 6 - HAVING - filtrowanie grup danych]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}).
+8. [Lekcja 7 - DISTINCT i DISTINCTROW - usuwanie powtórzeń w SQL]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
 
 [Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
 
