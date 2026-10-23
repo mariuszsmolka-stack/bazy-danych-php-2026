@@ -1,0 +1,50 @@
+{% assign previous_title = nil %}
+{% assign previous_url = nil %}
+{% assign next_title = nil %}
+{% assign next_url = nil %}
+{% assign found_current = false %}
+
+{% for section in site.data.navigation.sections %}
+  {% for item in section.lessons %}
+    {% if found_current and next_url == nil %}
+      {% assign next_title = item.title %}
+      {% assign next_url = item.url %}
+    {% endif %}
+
+    {% if item.url == page.path %}
+      {% assign found_current = true %}
+    {% elsif found_current == false %}
+      {% assign previous_title = item.title %}
+      {% assign previous_url = item.url %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<nav class="lesson-nav" aria-label="Nawigacja lekcji">
+  <div class="lesson-nav__slot lesson-nav__slot--prev">
+    {% if previous_url %}
+      {% assign previous_href = previous_url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
+      <a class="lesson-nav__button" href="{{ previous_href }}">
+        <span class="lesson-nav__label">Poprzednia lekcja</span>
+        <span class="lesson-nav__title">{{ previous_title }}</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="lesson-nav__slot lesson-nav__slot--toc">
+    <a class="lesson-nav__button lesson-nav__button--toc" href="{{ '/' | relative_url }}">
+      <span class="lesson-nav__label">Spis treści</span>
+      <span class="lesson-nav__title">Strona główna kursu</span>
+    </a>
+  </div>
+
+  <div class="lesson-nav__slot lesson-nav__slot--next">
+    {% if next_url %}
+      {% assign next_href = next_url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
+      <a class="lesson-nav__button" href="{{ next_href }}">
+        <span class="lesson-nav__label">Następna lekcja</span>
+        <span class="lesson-nav__title">{{ next_title }}</span>
+      </a>
+    {% endif %}
+  </div>
+</nav>

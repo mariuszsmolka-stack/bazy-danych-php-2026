@@ -1,0 +1,18 @@
+sections:
+  - title: "Organizacja kursu"
+    url: "index.md"
+    lessons:
+      - title: "Strona główna"
+        url: "index.md"
+      - title: "Baza Islandia"
+        url: "00-organizacja/01-baza-islandia.md"
+  - title: "01 - Podstawy PHP"
+    url: "01-podstawy-php/01-podstawy-php.md"
+    lessons:
+      - title: "Podstawy PHP i pierwsze tablice"
+        url: "01-podstawy-php/01-podstawy-php.md"
+  - title: "02 - PHP i MariaDB"
+    url: "02-php-i-mariadb/01-odczyt-danych.md"
+    lessons:
+      - title: "Odczytywanie danych z bazy Islandia"
+        url: "02-php-i-mariadb/01-odczyt-danych.md"

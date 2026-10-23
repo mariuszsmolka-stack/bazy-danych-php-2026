@@ -1,0 +1,35 @@
+{% assign current_section = nil %}
+{% assign current_item = nil %}
+
+{% for section in site.data.navigation.sections %}
+  {% if page.path == section.url %}
+    {% assign current_section = section %}
+  {% endif %}
+
+  {% for item in section.lessons %}
+    {% if page.path == item.url %}
+      {% assign current_section = section %}
+      {% assign current_item = item %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% if page.path != 'index.md' %}
+  <nav class="course-breadcrumbs" aria-label="Ścieżka strony">
+    <a href="{{ '/' | relative_url }}">Strona główna</a>
+
+    {% if current_section %}
+      {% assign section_href = current_section.url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
+      <span aria-hidden="true">&gt;</span>
+      <a href="{{ section_href }}">{{ current_section.title }}</a>
+    {% endif %}
+
+    {% if current_item and current_item.url != current_section.url %}
+      <span aria-hidden="true">&gt;</span>
+      <span>{{ current_item.title }}</span>
+    {% elsif page.title %}
+      <span aria-hidden="true">&gt;</span>
+      <span>{{ page.title }}</span>
+    {% endif %}
+  </nav>
+{% endif %}

@@ -1,0 +1,29 @@
+<nav class="course-sidebar__nav" aria-label="Spis treści kursu">
+  {% for section in site.data.navigation.sections %}
+    {% assign section_href = section.url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
+    {% assign section_active = false %}
+    {% if page.path == section.url %}
+      {% assign section_active = true %}
+    {% endif %}
+    {% for item in section.lessons %}
+      {% if page.path == item.url %}
+        {% assign section_active = true %}
+      {% endif %}
+    {% endfor %}
+
+    <section class="course-sidebar__section{% if section_active %} is-open{% endif %}">
+      <h2 class="course-sidebar__title">
+        <a href="{{ section_href }}">{{ section.title }}</a>
+      </h2>
+
+      <ul class="course-sidebar__list">
+        {% for item in section.lessons %}
+          {% assign item_href = item.url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
+          <li>
+            <a class="course-sidebar__link{% if page.path == item.url %} is-active{% endif %}" href="{{ item_href }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</nav>
