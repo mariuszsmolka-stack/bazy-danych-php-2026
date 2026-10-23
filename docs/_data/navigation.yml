@@ -25,3 +25,8 @@ sections:
         url: "03-zapytania-inf03/01-cztery-zapytania.md"
       - title: "Wykonanie zapytań SQL w PHP"
         url: "03-zapytania-inf03/02-wyniki-zapytan-w-php.md"
+  - title: "04 - Grupowanie danych"
+    url: "04-grupowanie-danych/01-group-by.md"
+    lessons:
+      - title: "GROUP BY - grupowanie danych"
+        url: "04-grupowanie-danych/01-group-by.md"

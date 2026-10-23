@@ -35,6 +35,8 @@ Przed zakończeniem porównaj lokalny i zdalny SHA, sprawdź wynik budowania Pag
 
 ## Podpowiedzi i diagramy
 
+- W lekcji GROUP BY zachowuj małe kroki, kolejność ćwiczeń i wyjaśnienia wyników na rzeczywistych danych. Odróżniaj liczbę grup od liczby rekordów, COUNT(*) od COUNT(kolumna) i brak grupy od wyniku zero. HAVING pozostaje planem w `planowanie/PLAN_HAVING.md` do czasu osobnego zlecenia.
+
 - Pod każdym ćwiczeniem stosuj krótką podpowiedź w natywnym `<details class="lesson-hint" markdown="1">` z `<summary>Podpowiedź</summary>`. Zostaw puste wiersze wokół treści Markdown i bloków kodu. Sprawdzaj wyrenderowany HTML Kramdown.
 - Podpowiedź wskazuje kierunek, nie zawiera pełnego rozwiązania. Przy złożonym zadaniu można dodać drugą, bardziej konkretną wskazówkę.
 - Wyniki zdradzające odpowiedź umieszczaj w osobnym `Sprawdź wynik`. Dane potrzebne do wykonania polecenia pozostaw widoczne. Sekcje mają być domyślnie zamknięte.
