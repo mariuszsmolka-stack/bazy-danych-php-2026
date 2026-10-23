@@ -234,3 +234,17 @@
     text-align: left;
   }
 }
+
+/* Szerokie tabele przewijają się bez poszerzania strony na telefonie. */
+.main-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 480px) {
+  .inner { min-width: 0; }
+  #project_title, #project_tagline, .main-content h1 {
+    overflow-wrap: anywhere;
+  }
+}
