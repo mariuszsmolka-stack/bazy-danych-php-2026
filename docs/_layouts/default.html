@@ -102,7 +102,8 @@
       </footer>
     </div>
     {% if page.mermaid %}
-    <script type="module" src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>
+    <script defer src="{{ '/assets/vendor/mermaid/mermaid.min.js' | relative_url }}"></script>
+    <script defer src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>
     {% endif %}
   </body>
 </html>

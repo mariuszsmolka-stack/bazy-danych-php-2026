@@ -267,4 +267,6 @@
   overflow-x: auto;
 }
 .lesson-diagram svg { display: block; max-width: 100%; height: auto; margin: auto; }
+.lesson-diagram .mermaid-source,
+.lesson-diagram [hidden] { display: none !important; }
 .lesson-diagram figcaption { margin-top: 0.75rem; font-size: 0.95rem; }
