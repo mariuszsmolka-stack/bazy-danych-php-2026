@@ -75,7 +75,7 @@ if (isset($_GET["id"])) {
 
 ### 4. Ćwiczenie 2 - wartość albo komunikat
 
-W swoim `obiekt.php` połącz odczyt z kontrolą obecności. Dla `?id=46` oraz `?id=47` pokaż wartość, a bez `id` komunikat. Nie używaj jeszcze bazy.
+W swoim `obiekt.php` połącz odczyt z kontrolą obecności. W rozwiązaniu znajdziesz również gotowy wzorzec techniczny `is_string()`, który sprawdza, czy otrzymaliśmy pojedynczy tekst; nie musisz go samodzielnie budować. Dla `?id=46` oraz `?id=47` pokaż wartość, a bez `id` komunikat. Nie używaj jeszcze bazy.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 2</summary>
@@ -102,7 +102,7 @@ if (isset($_GET["id"])) {
 ?>
 ```
 
-Dodatkowe `is_string()` sprawdza, czy wartość jest pojedynczym tekstem. Zwykłe `?id=46` spełnia ten warunek. Zapis `?id[]=46` przekazuje tablicę, której nie należy podawać do `htmlspecialchars()`. To przygotowana kontrola kształtu danych, nie sprawdzenie poprawności identyfikatora. Dla `?id=abc` ten program pokaże `abc` jako tekst.
+W tym rozwiązaniu `is_string()` jest gotową kontrolą: pozwala wyświetlić pojedynczy tekst. Skopiuj ją wraz z kodem. Na razie skup się na dwóch drogach: parametr jest obecny => pokazujemy wartość; parametru nie ma => pokazujemy komunikat. Szczegóły dodatkowej kontroli znajdują się w części B.
 
 
 </details>
@@ -141,9 +141,9 @@ Użytkownik może wpisać dowolny adres. Dlatego przed SQL stosujemy gotowy wzor
 $idObiekt = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 ```
 
-`INPUT_GET` wskazuje parametry adresu, `"id"` nazwę parametru, a `FILTER_VALIDATE_INT` sprawdzenie liczby całkowitej. Nie musisz zapamiętywać argumentów. Zrozum wynik: liczba oznacza udaną kontrolę, `null` brak parametru, a `false` niepoprawną wartość.
+Ta instrukcja odczytuje `id` z adresu i sprawdza, czy jest liczbą całkowitą. Traktuj `filter_input()` wraz z argumentami jako gotowy wzorzec, nie materiał do zapamiętania. Nasz cel: przepuścić do zapytania tylko poprawny numer obiektu.
 
-Sprawdzamy także, czy liczba jest dodatnia:
+Poniższy gotowy blok sprawdza brak parametru, poprawność liczby oraz to, czy jest większa od zera. Skopiuj go w całości; jego szczegóły omówimy w części B:
 
 ```php
 $idObiekt = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
@@ -155,12 +155,12 @@ if ($idObiekt === false || $idObiekt <= 0) {
 }
 ```
 
-`===` porównuje wartość i typ, więc nie mylimy `false` ani `null` z liczbą `0`. `||` oznacza „lub”: odrzucamy nieudaną walidację **lub** liczbę nie większą od zera. `exit()` pokazuje komunikat i kończy program, zanim dojdziemy do SQL.
+Jeśli brakuje parametru albo numer jest niepoprawny, blok pokazuje komunikat i kończy program. Dopiero poprawna dodatnia liczba pozwala przejść dalej. Nie musisz jeszcze analizować każdego operatora - sprawdź działanie na adresach z tabeli.
 
-| Adres | Wynik sprawdzenia | Decyzja |
+| Adres | Co otrzymaliśmy? | Decyzja |
 | --- | --- | --- |
-| Bez `id` | `null` | Komunikat o braku parametru |
-| `?id=abc` | `false` | Niepoprawny identyfikator |
+| Bez `id` | Brak parametru | Komunikat o braku parametru |
+| `?id=abc` | Tekst zamiast liczby | Niepoprawny identyfikator |
 | `?id=-1` | Liczba -1 | Niepoprawny identyfikator |
 | `?id=0` | Liczba 0 | Niepoprawny identyfikator |
 | `?id=46` | Liczba 46 | Można wykonać SELECT |
@@ -172,11 +172,11 @@ Dopiero **po przejściu obu kontroli** budujemy zapytanie:
 $zapytanie = "SELECT nazwa, panstwo, opis FROM obiekty WHERE idObiekt = " . $idObiekt;
 ```
 
-W tym jednym wzorcu do SQL trafia wyłącznie zweryfikowana dodatnia liczba całkowita. Nigdy nie wstawiaj surowego `$_GET["id"]` do SQL. `htmlspecialchars()` służy do wyświetlania HTML, nie do ochrony zapytań. Ogólnym rozwiązaniem dla danych w SQL są zapytania parametryzowane; tutaj nie wprowadzamy dodatkowej rodziny funkcji, żeby skupić się na zależności GET => SELECT.
+W tym jednym wzorcu do SQL trafia wyłącznie zweryfikowana dodatnia liczba całkowita. Nigdy nie wstawiaj surowego `$_GET["id"]` do SQL. `htmlspecialchars()` służy do wyświetlania HTML, nie do ochrony zapytań. W tym przykładzie bezpieczeństwo zapytania zależy od wcześniejszego sprawdzenia numeru.
 
 ### 7. Jeden program szczegółów - obiekt.php
 
-Zastąp dotychczasowy mały przykład poniższym programem. Uruchom Apache i MariaDB, przygotuj bazę `Islandia` z `baza/baza1.sql`. Zapisz plik w UTF-8 w tym samym katalogu `C:\xampp\htdocs\kurs-php`. Używaj adresu `http://localhost/kurs-php/obiekt.php?id=46`, nie ścieżki pliku na dysku.
+Zastąp dotychczasowy mały przykład poniższym programem. Początkowe kontrole i obsługa błędów są przygotowanym wzorcem technicznym. Nie pisz ich od nowa. Śledź przede wszystkim drogę: `$idObiekt` => warunek SELECT => `$rekord` => wyświetlany obiekt. Uruchom Apache i MariaDB, przygotuj bazę `Islandia` z `baza/baza1.sql`. Zapisz plik w UTF-8 w tym samym katalogu `C:\xampp\htdocs\kurs-php`. Używaj adresu `http://localhost/kurs-php/obiekt.php?id=46`, nie ścieżki pliku na dysku.
 
 Konto `root` bez hasła jest przeznaczone wyłącznie do lokalnego stanowiska XAMPP. GitHub Pages publikuje tę lekcję, ale nie wykonuje PHP.
 
@@ -236,8 +236,8 @@ Czytaj program od góry:
 2. Znany z lekcji 8 blok łączy z bazą i ustawia `utf8mb4`. `MYSQLI_REPORT_OFF` oznacza, że sami sprawdzamy powodzenie operacji.
 3. `mysqli_query()` wykonuje SELECT z poprawną liczbą. Niepowodzenie kończy pracę po zamknięciu połączenia.
 4. `mysqli_fetch_array(..., MYSQLI_ASSOC)` pobiera jeden rekord z kluczami `nazwa`, `panstwo`, `opis`. Nie potrzebujemy pętli: szukamy po unikalnym identyfikatorze.
-5. Po pobraniu zamykamy połączenie. Tablica `$rekord` nadal jest dostępna w PHP. `false` oznacza błąd odczytu, a `null` brak pasującego rekordu.
-6. `htmlspecialchars()` przygotowuje każdą wartość tekstową do HTML. Nagłówek pokazuje nazwę, a akapity państwo i opis.
+5. Po pobraniu zamykamy połączenie. Tablica `$rekord` nadal jest dostępna w PHP. Gotowe kontrole zatrzymują program, gdy odczyt się nie udał lub obiektu nie znaleziono.
+6. `htmlspecialchars()` przygotowuje każdą wartość tekstową do HTML. Zachowaj podane argumenty; nie musisz ich teraz zapamiętywać. Nagłówek pokazuje nazwę, a akapity państwo i opis.
 
 Wszystkie kontrole są przed dokumentem HTML, więc zakończenie po błędzie nie zostawia otwartych elementów strony. Dla `46` zobaczysz nagłówek Strokkur, państwo Islandia i opis gejzeru z bazy.
 
@@ -289,6 +289,22 @@ Niepoprawna wartość jest odrzucana przed bazą. Poprawna liczba bez rekordu da
 ## Część B - rozszerzenie
 
 Przejdź tutaj po wykonaniu czterech ćwiczeń części A. Program `obiekt.php` już działa; dodamy do niego wejście przez listę linków.
+
+### Gotowe kontrole z części A - jak działają?
+
+Do wykonania ćwiczeń podstawowych wystarczyło korzystać z przygotowanych kontroli. Teraz możesz przyjrzeć się ich szczegółom.
+
+**Pojedynczy tekst czy tablica?** Zwykłe `?id=46` daje tekst. Nietypowy zapis `?id[]=46` przekazuje tablicę. `is_string()` w rozwiązaniu ćwiczenia 2 sprawdza, czy wartość jest tekstem, zanim przekażemy ją do `htmlspecialchars()`. Dzięki temu tablica nie trafia do funkcji oczekującej tekstu. Ta kontrola nie sprawdza jeszcze, czy tekst jest poprawnym numerem.
+
+**Jak działa walidacja numeru?** W `filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT)` pierwszy argument wskazuje parametry adresu, drugi nazwę `id`, a trzeci sprawdzenie liczby całkowitej. W użytym wzorcu funkcja zwraca liczbę po udanej walidacji, `null` przy braku parametru i `false` dla niepoprawnej wartości, w tym tablicy. Potem osobno odrzucamy liczby mniejsze od 1.
+
+- `===` porównuje wartość i typ, więc odróżnia `false`, `null` i liczbę `0`.
+- `||` oznacza „lub”: wystarczy nieudana walidacja albo liczba nie większa od zera, aby odrzucić parametr.
+- `exit()` wyświetla komunikat i kończy wykonywanie programu. Dlatego błędny parametr nie dociera do SQL.
+
+Przy odczycie wyniku `mysqli_fetch_array()` wartości te mają inne znaczenie: `null` oznacza brak kolejnego rekordu, a `false` błąd odczytu. Sprawdzamy je dopiero po udanym zapytaniu.
+
+**Dwie różne kontrole bezpieczeństwa.** Walidacja dopuszcza do naszego SQL tylko dodatnią liczbę całkowitą. `htmlspecialchars()` przygotowuje tekst do HTML i nie zabezpiecza SQL. Ogólnym rozwiązaniem dla wartości przekazywanych do SQL są zapytania parametryzowane; nie wprowadzamy tutaj nowej rodziny funkcji, aby nie przesłonić tematu GET. Zachowaj cały wzorzec walidacji, a nie tylko rzutowanie wartości na liczbę.
 
 ### 8. Zwykły link zamiast ręcznego wpisywania adresu
 
