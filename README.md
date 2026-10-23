@@ -17,4 +17,8 @@ Materiałem odniesienia jest arkusz CKE INF.03-01-26.06-SG, egzamin praktyczny z
 
 ## Publikacja
 
-Źródłem publikacji GitHub Pages jest gałąź `main`, katalog `/docs`. Zasady pracy i sprawdzania publikacji opisuje [AGENTS.md](AGENTS.md).
+Źródłem publikacji GitHub Pages jest gałąź `main`, katalog `/docs`.
+
+## Licencja
+
+Autorskie materiały dydaktyczne Mariusza Smółki są udostępniane na licencji [CC BY-NC-SA 4.0](License.md). Materiały zewnętrzne zachowują własne warunki wykorzystania, w tym licencję MIT biblioteki Mermaid.
