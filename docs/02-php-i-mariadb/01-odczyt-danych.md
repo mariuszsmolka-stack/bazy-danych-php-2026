@@ -1,5 +1,6 @@
 ---
 title: PHP i odczytywanie danych z bazy Islandia
+mermaid: true
 ---
 
 # Lekcja 2 - PHP i odczytywanie danych z bazy Islandia
@@ -418,9 +419,17 @@ Nie rozwijamy jeszcze stronicowania ani innych wariantów `LIMIT`. Na dziś wyst
 
 ## 11. Schemat pracy z bazą
 
-```text
-mysqli_connect() => mysqli_query() => mysqli_fetch_row() lub mysqli_fetch_all() => odczyt danych => mysqli_close()
-```
+<figure class="lesson-diagram">
+<pre class="mermaid-source" hidden>
+flowchart TD
+    A["mysqli_connect()"] --> B["mysqli_query()"]
+    B --> C["Pobranie rekordów"]
+    C --> D["Użycie danych"]
+    D --> E["mysqli_close()"]
+</pre>
+<p class="diagram-fallback">mysqli_connect() =&gt; mysqli_query() =&gt; pobranie rekordów =&gt; użycie danych =&gt; mysqli_close()</p>
+<figcaption>Kolejność pracy przy poprawnym połączeniu i zapytaniu SELECT. Rekordy pobieramy przez mysqli_fetch_row() lub mysqli_fetch_all().</figcaption>
+</figure>
 
 - Możemy wykonać kilka zapytań w ramach jednego połączenia.
 - Dla `SELECT` najpierw wykonujemy zapytanie, później pobieramy rekordy.
@@ -444,6 +453,13 @@ Nie zmieniaj danych w bazie. Każde zadanie zapisz w oddzielnym pliku `.php` lub
 
 **Sprawdź:** czy komunikat pojawia się tylko przy poprawnym połączeniu?
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Wróć do przykładu `polaczenie.php`. Wynik `mysqli_connect()` zapisz w zmiennej i sprawdź przed zamknięciem połączenia. W tym ćwiczeniu zachowaj ustawienie `mysqli_report()` z przykładu.
+
+</details>
+
 ### Ćwiczenie 2 - SQL i gwiazdka
 
 W phpMyAdmin wykonaj trzy zapytania:
@@ -465,6 +481,13 @@ Wyjaśnij własnymi słowami:
 - Dlaczego pierwsze dwa zapytania zwracają ten sam zestaw rekordów?
 - Czego brakuje w wyniku trzeciego zapytania?
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Porównaj osobno liczbę wierszy i nazwy kolumn wyników. Zastanów się, czy warunek `WHERE 1` może odrzucić którykolwiek wiersz.
+
+</details>
+
 ### Ćwiczenie 3 - Pierwszy i drugi turysta
 
 - Nawiąż połączenie i wykonaj `SELECT * FROM turysci ORDER BY idTurysta`.
@@ -472,7 +495,19 @@ Wyjaśnij własnymi słowami:
 - Wyświetl obie pobrane tablice przez `print_r()`.
 - Wyświetl przy użyciu `echo` tylko nick drugiego turysty.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Oba odczyty wykonaj na tym samym `$wynik`, bez ponawiania zapytania między nimi. Numer kolumny z nickiem odczytaj ze schematu wyniku w sekcji 6.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
+
 **Oczekiwany nick:** `Monika`.
+
+</details>
 
 ### Ćwiczenie 4 - Tryby pobierania
 
@@ -481,13 +516,35 @@ Wyjaśnij własnymi słowami:
 - Wyświetl strukturę danych przez `print_r()`.
 - Wypisz przez `echo` nick i punkty pierwszego turysty, odwołując się do nazw kolumn.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Najpierw wybierz pierwszy element zewnętrznej tablicy. Potem odczytaj z niego pola przez nazwy kolumn, nie ich numery.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
+
 **Oczekiwany wynik:** `Ewa - 23`.
+
+</details>
 
 ### Ćwiczenie 5 - Trzy pierwsze rekordy
 
 - Pobierz wszystkie rekordy jako `MYSQLI_ASSOC`.
 - Użyj `array_slice()` do wybrania pierwszych trzech rekordów.
 - Za pomocą `foreach` wypisz same nicki tych trzech turystów.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Elementem tablicy `$pierwsi` jest kolejna tablica asocjacyjna. W pętli `foreach` odwołaj się do klucza `nick` bieżącego rekordu.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
 
 **Oczekiwany wynik:**
 
@@ -497,7 +554,7 @@ Monika
 Janek
 ```
 
-Wskazówka: elementem tablicy `$pierwsi` jest kolejna tablica asocjacyjna.
+</details>
 
 ### Ćwiczenie 6 - Liczba rekordów
 
@@ -506,9 +563,23 @@ Wskazówka: elementem tablicy `$pierwsi` jest kolejna tablica asocjacyjna.
 - Zapisz fragment trzech rekordów do `$pierwsi`.
 - Wyświetl przez `count()` liczbę elementów tablicy `$pierwsi`.
 
-**Dla niezmienionej bazy:** liczby `13` oraz `3`.
+
 
 Wyjaśnij, dlaczego użycie `array_slice()` nie zmieniło liczby elementów tablicy `$turysci`.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Wywołaj `count()` osobno dla obu zmiennych. Sprawdź, do której zmiennej przypisano wynik `array_slice()`.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
+
+**Dla niezmienionej bazy:** liczby `13` oraz `3`.
+
+</details>
 
 ### Ćwiczenie 7 - LIMIT a array_slice()
 
@@ -516,6 +587,13 @@ Wyjaśnij, dlaczego użycie `array_slice()` nie zmieniło liczby elementów tabl
 - Sprawdź, ile wierszy zwróciło zapytanie.
 - W PHP porównaj ten wynik z pierwszymi trzema rekordami wybranymi przez `array_slice()` z pełnej tablicy.
 - Napisz jedno zdanie wyjaśniające, która metoda ogranicza wynik już w bazie danych.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Rozdziel dwa etapy: wykonanie zapytania w MariaDB i pracę na gotowej tablicy w PHP. W którym z nich działa każda z porównywanych metod?
+
+</details>
 
 ### Ćwiczenie 8 - Zrozumienie kolejnych odczytów
 
@@ -525,7 +603,19 @@ Wyjaśnij, dlaczego użycie `array_slice()` nie zmieniło liczby elementów tabl
 - Sprawdź przez `count()`, ile rekordów znalazło się w tablicy `$pozostali`.
 - Wyjaśnij, dlaczego nie ma tam Ewy.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Pierwszy odczyt przesuwa pozycję w wyniku zapytania. Przed `mysqli_fetch_all()` nie wykonuj nowego zapytania. Porównaj liczbę pozostałych rekordów z liczbą wszystkich turystów.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
+
 **Dla niezmienionej bazy:** tablica `$pozostali` ma `12` rekordów.
+
+</details>
 
 ## 13. Pytania sprawdzające
 

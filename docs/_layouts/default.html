@@ -101,5 +101,8 @@
         <p>{{ site.title }}</p>
       </footer>
     </div>
+    {% if page.mermaid %}
+    <script type="module" src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>

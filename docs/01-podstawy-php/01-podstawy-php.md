@@ -78,6 +78,13 @@ Gdy plik zawiera tylko kod PHP, nie trzeba umieszczać na końcu znacznika `?>`.
 
 Zmień wartość `$wiek` na `16`, uruchom ponownie program i sprawdź, czy komunikat o pełnoletności nadal się pojawia. Wyjaśnij dlaczego.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Sprawdź wartość warunku `$wiek >= 18` po zmianie wieku. Które instrukcje są wewnątrz bloku `if`?
+
+</details>
+
 ## 3. Konfiguracja Visual Studio Code
 
 ### 3.1. Otwarcie projektu
@@ -282,6 +289,16 @@ W naszym przykładzie:
 
 Napisz program, który sprawdza liczby od 1 do 20 i wypisuje tylko te podzielne przez 3. Użyj operatora `%`, który zwraca resztę z dzielenia.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+W każdej iteracji pętli oblicz resztę z dzielenia bieżącej liczby przez 3. Zastanów się, jaka reszta oznacza podzielność.
+
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
+
 Oczekiwany wynik:
 
 ```text
@@ -292,6 +309,8 @@ Oczekiwany wynik:
 15
 18
 ```
+
+</details>
 
 ## 6. Tablice indeksowane
 
@@ -384,14 +403,24 @@ Program powinien:
 - Policzyć średnią na podstawie sumy oraz `count($oceny)`.
 - Wyświetlić średnią z dokładnością do dwóch miejsc po przecinku za pomocą `number_format()`.
 
-Wskazówka:
+Na razie nie używaj `array_sum()`. Celem ćwiczenia jest utrwalenie pętli.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Przed pętlą ustaw sumę na zero. W pętli dodawaj bieżącą ocenę. Średnią oblicz dopiero po zakończeniu pętli.
+
+Fragmenty, które możesz wykorzystać w odpowiednich miejscach:
 
 ```php
 $suma = 0;
 $suma += $ocena;
 ```
 
-Na razie nie używaj `array_sum()`. Celem ćwiczenia jest utrwalenie pętli.
+</details>
+
+<details class="lesson-hint" markdown="1">
+<summary>Sprawdź wynik</summary>
 
 Oczekiwane podsumowanie:
 
@@ -399,6 +428,8 @@ Oczekiwane podsumowanie:
 Suma ocen: 28
 Srednia: 4.00
 ```
+
+</details>
 
 ## 8. Komentarze w PHP
 
@@ -553,6 +584,13 @@ Napisz program, który:
 - Usunie klucz `kraj` za pomocą `unset()`.
 - Wyświetli wynik.
 
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Zapis `$turysta["klucz"] = wartość;` służy zarówno do dodawania, jak i zmieniania elementu. Po `unset()` sprawdź całą tablicę przez `print_r()`.
+
+</details>
+
 ## 10. `echo`, `print_r()` i `var_dump()`
 
 Pytanie: jak zobaczyć wszystkie elementy tablicy bez wypisywania każdego osobno?
@@ -622,6 +660,13 @@ Utwórz tablicę z kluczami `nick`, `punkty` i `idTurysta`. Następnie:
 - Wyświetl całą tablicę przez `print_r()`.
 - Wyświetl całą tablicę przez `var_dump()`.
 - Wyjaśnij, czym różnią się otrzymane wyniki.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Do `echo` przekaż wartość spod jednego klucza. Do `print_r()` i `var_dump()` przekaż całą tablicę. Porównaj, które wywołanie pokazuje także typy danych.
+
+</details>
 
 ## 11. `array_slice()` - pobieranie fragmentu tablicy
 
@@ -722,6 +767,13 @@ $kolory = ["czerwony", "zielony", "niebieski", "żółty"];
 ```
 
 Wykorzystaj `array_slice()`, aby otrzymać nową tablicę z elementami `zielony` i `niebieski`. Wyświetl ją przez `print_r()`. Następnie sprawdź, czy oryginalna tablica nadal zawiera wszystkie cztery kolory.
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź</summary>
+
+Indeksy liczymy od zera. Drugi argument `array_slice()` wskazuje początek, a trzeci liczbę elementów, nie indeks końca. Zapisz wynik pod nową nazwą.
+
+</details>
 
 ## 12. Typowe błędy początkujących
 
