@@ -399,13 +399,4 @@ Szukaj odpowiednio `section`, `aside` i `.miniatury`.
 
 Powyższe numery i wymagania odpowiadają kryteriom oceniania CKE dla rezultatu R.4. **Aby zdobyć punkty, właściwości muszą działać na stronie**, a nie tylko znajdować się w pliku CSS.
 
-### Ostatnia kontrola
-
-- [ ] Działa `styl.css` na obu stronach.
-- [ ] Bloki tworzą poprawne dwie kolumny i nie nachodzą na siebie.
-- [ ] Stopka znajduje się pod kolumnami.
-- [ ] Sekcja ma obramowanie, marginesy i przewijanie.
-- [ ] Miniatury reagują płynnie na najechanie kursorem.
-- [ ] Zostawiono dokładne wartości kolorów, wymiarów i odstępów wymagane w arkuszu.
-
 [Wróć do HTML](01-html-portal-islandii.html) | [Materiały dodatkowe - spis](index.html)
