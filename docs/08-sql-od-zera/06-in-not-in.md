@@ -1,8 +1,8 @@
 ---
-title: SQL 0F - IN i NOT IN
+title: SQL 0F - IN oraz NOT IN
 ---
 
-# SQL 0F - IN i NOT IN
+# SQL 0F - IN oraz NOT IN
 
 W [SQL 0C]({{ '/08-sql-od-zera/03-warunki-i-like.html' | relative_url }}) łączyliśmy warunki przez `OR`. Teraz sprawdzimy kilka możliwych wartości **jednej kolumny**.
 
@@ -72,6 +72,18 @@ Wynik ma **11 rekordów**. Nie ma w nim Moniki (4) ani Krzyśka (5).
 | `NOT IN (4, 5)` | Pomija osoby z 4 i 5 punktami. |
 
 `IN` służy do sprawdzenia wartości z podanego zestawu. Nie zastępuje każdego rodzaju warunku SQL.
+
+Możesz pominąć także wskazane teksty:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick NOT IN ('Ewa', 'Ela');
+```
+
+Wynik ma **11 rekordów**. Nie ma Ewy ani Eli. Wartości tekstowe zapisujemy w apostrofach.
+
+Jeżeli w danych lub na liście pojawi się `NULL`, działanie `NOT IN` wymaga dodatkowej uwagi. Wrócimy do tego w [SQL 0I]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).
 
 ## 4. Ćwiczenia
 
@@ -155,4 +167,4 @@ Wynik ma **9 rekordów**. Odpadają Ewa i Paula (23) oraz Jowita i Adam (11).
 
 </details>
 
-**Następny krok:** [SQL 0G - NOT i nierówności]({{ '/08-sql-od-zera/07-not-i-nierownosci.html' | relative_url }}).
+**Następny krok:** [SQL 0G - Operatory porównania i NOT]({{ '/08-sql-od-zera/07-not-i-nierownosci.html' | relative_url }}).

@@ -1,8 +1,8 @@
 ---
-title: SQL 0G - NOT i nierówności
+title: SQL 0G - Operatory porównania i NOT
 ---
 
-# SQL 0G - NOT i nierówności
+# SQL 0G - Operatory porównania i NOT
 
 Jak wybrać rekordy, które **nie** spełniają warunku? Sprawdzimy to na tabeli `turysci` z bazy `Islandia`.
 
@@ -29,6 +29,16 @@ WHERE NOT (punkty >= 20);
 Wynik ma **6 rekordów**: Monika (4), Janek (12), Krzysiek (5), Ania (7), Jowita (11) i Adam (11). Kolejność może być inna.
 
 `NOT` oznacza zaprzeczenie. Nawias pokazuje, **który** warunek odwracamy. Osoby z wynikiem 20 lub wyższym nie pojawiają się w drugim wyniku.
+
+Ten sam wynik otrzymasz przez `WHERE punkty < 20`:
+
+```sql
+SELECT nick, punkty
+FROM turysci
+WHERE punkty < 20;
+```
+
+Oba warunki dają **6 rekordów**. Dla każdej zapisanej liczby zaprzeczenie `>= 20` oznacza `< 20`. Gdy `punkty` ma wartość `NULL`, żaden z tych warunków nie wybierze rekordu: wynik porównania jest wtedy nieznany. Wyjaśnimy to w [SQL 0I]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).
 
 **Małe pytanie:** Czy Ela z 51 punktami spełnia `NOT (punkty >= 20)`?
 
@@ -89,7 +99,20 @@ Wynik ma **11 rekordów**. Nie ma w nim Ani ani Adama.
 
 **Małe pytanie:** Czy `Ewa` pasuje do drugiego warunku?
 
-## 4. Ćwiczenia
+## 4. Wybierz właściwe porównanie
+
+| Zapis | Pytanie o punkty | Przykład dla wartości 23 |
+| --- | --- | --- |
+| `punkty = 23` | Czy są równe 23? | Tak |
+| `punkty <> 23` lub `punkty != 23` | Czy są różne od 23? | Nie |
+| `punkty > 23` | Czy są większe od 23? | Nie |
+| `punkty < 23` | Czy są mniejsze od 23? | Nie |
+| `punkty >= 23` | Czy są większe lub równe 23? | Tak |
+| `punkty <= 23` | Czy są mniejsze lub równe 23? | Tak |
+
+Najpierw zdecyduj, czy wartość graniczna ma należeć do wyniku. Na przykład `punkty > 23` pomija Ewę i Paulę, a `punkty >= 23` je uwzględnia.
+
+## 5. Ćwiczenia
 
 Najpierw przewidź wynik. Potem wpisz zapytanie w phpMyAdmin i porównaj z rozwiązaniem.
 

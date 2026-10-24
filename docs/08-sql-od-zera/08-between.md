@@ -111,4 +111,28 @@ Wynik ma **10 rekordów**. Nie ma Ewy i Pauli (23) ani Piotrka (21).
 
 </details>
 
-To koniec modułu. Możesz wrócić do [wprowadzenia SQL od zera]({{ '/08-sql-od-zera/index.html' | relative_url }}).
+### Ćwiczenie 3 - wybierz warunek
+
+Wyświetl nicki i punkty osób z wynikiem od 45 do 51 punktów, razem z obiema granicami. Sam wybierz zapis warunku. Kto znajdzie się w wyniku?
+
+<details class="lesson-hint" markdown="1">
+<summary>Podpowiedź - ćwiczenie 3</summary>
+
+Potrzebujesz dwóch granic. Obie mają należeć do przedziału.
+
+</details>
+
+<details class="lesson-solution" markdown="1">
+<summary>Rozwiązanie - ćwiczenie 3</summary>
+
+```sql
+SELECT nick, punkty
+FROM turysci
+WHERE punkty BETWEEN 45 AND 51;
+```
+
+Wynik ma **3 rekordy**: Grzesiek (45), Tomek (46) i Ela (51).
+
+</details>
+
+**Następny krok:** [SQL 0I - NULL, IS NULL i IS NOT NULL]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).

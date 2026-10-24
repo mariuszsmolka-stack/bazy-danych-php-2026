@@ -119,4 +119,4 @@ Wynik to kolejno: Ela (51), Tomek (46), Grzesiek (45), Ola (31) i Ewa (23). Ewa 
 
 </details>
 
-**Następny krok:** [SQL 0E - LIKE. Znaki % i _]({{ '/08-sql-od-zera/05-like-maski.html' | relative_url }}).
+**Następny krok:** [SQL 0E - LIKE, NOT LIKE i znaki wzorca]({{ '/08-sql-od-zera/05-like-maski.html' | relative_url }}).

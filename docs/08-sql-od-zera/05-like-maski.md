@@ -1,8 +1,8 @@
 ---
-title: SQL 0E - LIKE. Znaki % i _
+title: SQL 0E - LIKE, NOT LIKE i znaki wzorca
 ---
 
-# SQL 0E - LIKE. Znaki % i _
+# SQL 0E - LIKE, NOT LIKE i znaki wzorca
 
 W [SQL 0C]({{ '/08-sql-od-zera/03-warunki-i-like.html' | relative_url }}) używaliśmy `LIKE`. Teraz sprawdzimy dokładnie, jak działają dwa znaki wzorca.
 
@@ -127,7 +127,63 @@ Wynik: **0 rekordów**. W tabeli nie ma nicka zapisanego dosłownie jako `J%`.
 
 **Małe pytanie:** Którego zapisu użyjesz, gdy chcesz znaleźć początek nicka: `=` czy `LIKE`?
 
-## 8. Ćwiczenia
+## 8. Dosłowne znaki % i _
+
+Gdy szukasz znaku `%` jako części tekstu, poprzedź go znakiem ucieczki. Po `ESCAPE` podaj ten znak. Tutaj jest nim `!`:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick LIKE '%!%%' ESCAPE '!';
+```
+
+Pierwszy i ostatni `%` oznaczają dowolne znaki. Zapis `!%` oznacza dosłowny znak procentu. Wynik to **0 rekordów**, bo żaden nick go nie zawiera.
+
+Możesz sprawdzić samą zasadę bez zmiany tabeli:
+
+```sql
+SELECT '50%' LIKE '%!%%' ESCAPE '!' AS pasuje;
+```
+
+Wynik to `1`, czyli prawda.
+
+Tak samo wyszukasz dosłowny znak `_`:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick LIKE '%!_%' ESCAPE '!';
+```
+
+Zapis `!_` oznacza znak podkreślenia, a nie jedno dowolne miejsce. Wynik to **0 rekordów**.
+
+```sql
+SELECT 'a_b' LIKE '%!_%' ESCAPE '!' AS pasuje;
+```
+
+Wynik to `1`. Tekst `a_b` zawiera dosłowny znak `_`.
+
+Porównywanie tekstów zależy też od ustawień kolumny. `nick` w bazie Islandia ma ustawienie `utf8_polish_ci`, które nie rozróżnia wielkości liter. Dlatego w tej bazie `LIKE 'j%'` znajduje także Janka i Jowitę:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick LIKE 'j%';
+```
+
+W innej bazie wynik może być inny. Nie zakładaj, że `LIKE` zawsze odróżnia małą literę od wielkiej.
+
+Gdy chcesz wybrać nicki **niepasujące** do wzorca, użyj `NOT LIKE`:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick NOT LIKE 'J%';
+```
+
+Wynik ma **11 rekordów**. Nie ma Janka ani Jowity.
+
+## 9. Ćwiczenia
 
 Najpierw przewidź wynik. Potem uruchom swoje zapytanie w phpMyAdmin i porównaj z rozwiązaniem.
 
@@ -203,4 +259,4 @@ Wynik: **Ania** i **Adam** - dwa rekordy. Każdy `_` oznacza jeden znak.
 
 </details>
 
-**Następny krok:** [SQL 0F - IN i NOT IN]({{ '/08-sql-od-zera/06-in-not-in.html' | relative_url }}).
+**Następny krok:** [SQL 0F - IN oraz NOT IN]({{ '/08-sql-od-zera/06-in-not-in.html' | relative_url }}).
