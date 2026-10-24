@@ -4,6 +4,10 @@ title: DISTINCT i DISTINCTROW - usuwanie powtórzeń w SQL
 
 # Lekcja 7 - DISTINCT i DISTINCTROW - usuwanie powtórzeń w SQL
 
+Jeśli dopiero poznajesz `DISTINCT`, zacznij od [krótkiej lekcji 7A]({{ '/04-grupowanie-danych/03a-distinct-podstawy.html' | relative_url }}).
+
+Tutaj znajdziesz też trudniejsze przykłady i dodatkowe ćwiczenia.
+
 **Cel:** wybrać właściwy sposób odpowiedzi na pytanie: potrzebuję listy różnych wartości, ich liczby czy podsumowania każdej grupy?
 
 Pracujemy w phpMyAdmin na bazie `Islandia` z niezmienionego pliku `baza1.sql`. Wykonuj zapytania pojedynczo. Przykłady jedynie odczytują dane. W bazie jest 13 turystów i 25 obiektów.
