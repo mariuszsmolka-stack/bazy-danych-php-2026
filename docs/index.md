@@ -23,11 +23,12 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 12. [Lekcja 6C - HAVING i JOIN]({{ '/04-grupowanie-danych/02c-having-i-join.html' | relative_url }}).
 13. [HAVING - pełne opracowanie]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}).
 14. [Lekcja 7A - podstawy DISTINCT]({{ '/04-grupowanie-danych/03a-distinct-podstawy.html' | relative_url }}).
-15. [DISTINCT i DISTINCTROW - pełne opracowanie]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
+15. [Lekcja 7B - DISTINCT i DISTINCTROW]({{ '/04-grupowanie-danych/03b-distinct-wiele-kolumn.html' | relative_url }}).
+16. [DISTINCT i DISTINCTROW - pełne opracowanie]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
 
-16. [Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
+17. [Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
 
-17. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+18. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
 
 [Od zadania do programu - jak zaplanować rozwiązanie INF.03?]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 

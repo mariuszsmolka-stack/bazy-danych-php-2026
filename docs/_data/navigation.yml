@@ -50,6 +50,8 @@ sections:
         url: "04-grupowanie-danych/02-having.md"
       - title: "Lekcja 7A - podstawy DISTINCT"
         url: "04-grupowanie-danych/03a-distinct-podstawy.md"
+      - title: "Lekcja 7B - DISTINCT i DISTINCTROW"
+        url: "04-grupowanie-danych/03b-distinct-wiele-kolumn.md"
       - title: "DISTINCT i DISTINCTROW - pełne opracowanie"
         url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"
   - title: "05 - PHP i HTML"
