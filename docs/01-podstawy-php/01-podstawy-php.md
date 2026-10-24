@@ -4,28 +4,20 @@ title: Podstawy PHP i pierwsze tablice
 
 # Lekcja 1 - Podstawy PHP i pierwsze tablice
 
-**Temat:** Uruchamianie PHP w XAMPP i Visual Studio Code. Podstawy składni, pętle, tablice indeksowane i asocjacyjne.
+Znasz już podstawy Pythona: zmienne, warunki, pętle i listy. Teraz poznasz PHP. Zobaczysz, jak zapisać podobne programy w nowym języku.
 
-**Wymagania wstępne:** Znajomość podstaw Pythona - zmiennych, instrukcji warunkowych, pętli i list.
+Każdy przykład uruchomisz samodzielnie na komputerze z Windows. Użyjesz XAMPP, Visual Studio Code i PowerShella. Na tej lekcji poznasz też tablice. Z bazą danych połączymy się na następnej lekcji.
 
-**Środowisko:** Windows, XAMPP, Visual Studio Code, terminal PowerShell.
-
-**Cel lekcji:** Samodzielnie napisać i uruchomić skrypt PHP, korzystać z tablic oraz rozumieć różnicę między wyświetlaniem wartości a wyświetlaniem całej tablicy.
-
-**Sposób pracy:** Najpierw krótki przykład, później uruchomienie, zmiana kodu i samodzielne ćwiczenie. Na tej lekcji nie łączymy się jeszcze z bazą danych.
-
-**Uwaga do przykładów:** Kompletny plik PHP zaczynamy od `<?php`. Krótsze przykłady bez tego znacznika są fragmentami przeznaczonymi do dopisania w już otwartym bloku PHP.
-
----
+Kompletny plik PHP zaczynamy od `<?php`. Krótsze przykłady bez tego znacznika dopisujemy w już otwartym bloku PHP.
 
 ## 1. PHP a Python - co już potrafimy?
 
-W Pythonie poznaliśmy już zmienne, warunki, pętle i listy. Nie musimy uczyć się tych zagadnień od początku. W PHP wykonujemy podobne operacje, ale zapisujemy je trochę inaczej.
+W PHP wykonujemy podobne operacje jak w Pythonie. Zapisujemy je jednak inaczej.
 
 PHP możemy uruchamiać na dwa sposoby:
 
-- W terminalu - interpreter wykonuje plik i wyświetla wynik. Ten sposób wykorzystamy do nauki składni.
-- Przez serwer WWW Apache - przeglądarka wysyła żądanie do serwera, PHP wykonuje kod, a przeglądarka otrzymuje wynik. Ten sposób przyda się później przy formularzach.
+- W terminalu - interpreter PHP uruchamia plik i pokazuje wynik. Interpreter to program, który wykonuje kod PHP. Tak będziemy uczyć się składni.
+- Przez serwer Apache - przeglądarka otwiera stronę. Apache uruchamia PHP i odsyła wynik. Ten sposób przyda się później przy formularzach.
 
 Prosty schemat:
 
@@ -35,7 +27,7 @@ Plik .php => interpreter PHP => wynik w terminalu
 Przeglądarka => Apache w XAMPP => PHP => wynik w przeglądarce
 ```
 
-**Ważne:** Do uruchomienia programu PHP w terminalu nie musimy włączać Apache. Do pracy w przeglądarce przez `localhost` uruchamiamy Apache w panelu XAMPP.
+Do uruchomienia PHP w terminalu nie trzeba włączać Apache. Aby zobaczyć wynik w przeglądarce przez `localhost`, uruchom Apache w panelu XAMPP.
 
 ## 2. Katalog projektu i pierwszy plik
 
@@ -61,10 +53,12 @@ if ($wiek >= 18) {
 }
 ```
 
-Co oznaczają poszczególne elementy?
+Program zapisuje imię i wiek. Następnie wypisuje powitanie. Jeśli wiek wynosi co najmniej 18 lat, wypisuje też drugi komunikat.
+
+Zmienna `$wiek` przechowuje liczbę `18`. Pozostałe elementy kodu znaczą:
 
 - `<?php` - początek kodu PHP.
-- `$imie`, `$wiek` - zmienne. W PHP nazwy zmiennych rozpoczynają się od `$`.
+- `$imie`, `$wiek` - zmienne. Ich nazwy zaczynają się od `$`.
 - `=` - przypisanie wartości do zmiennej.
 - `;` - zakończenie instrukcji.
 - `echo` - wypisanie wartości.
@@ -72,11 +66,11 @@ Co oznaczają poszczególne elementy?
 - `{` i `}` - początek i koniec bloku instrukcji.
 - `\n` - nowy wiersz w terminalu, jeśli znajduje się w tekście zapisanym w podwójnych cudzysłowach.
 
-Gdy plik zawiera tylko kod PHP, nie trzeba umieszczać na końcu znacznika `?>`. Jego pominięcie jest zalecaną praktyką. Jeśli w jednym pliku mieszamy PHP i zwykły HTML, znacznik `?>` pozwala zakończyć fragment PHP.
+Gdy plik zawiera tylko kod PHP, nie umieszczamy na końcu znacznika `?>`. Jeśli w pliku jest też HTML, ten znacznik pozwala zakończyć fragment PHP.
 
 ### Ćwiczenie 1
 
-Zmień wartość `$wiek` na `16`, uruchom ponownie program i sprawdź, czy komunikat o pełnoletności nadal się pojawia. Wyjaśnij dlaczego.
+Zmień wartość `$wiek` na `16`. Uruchom program ponownie. Sprawdź, czy komunikat o pełnoletności nadal się pojawia, i wyjaśnij dlaczego.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>
@@ -94,7 +88,7 @@ Sprawdź wartość warunku `$wiek >= 18` po zmianie wieku. Które instrukcje są
 - Wskaż `C:\xampp\htdocs\kurs-php`.
 - Otwórz plik `index.php`.
 
-Dzięki otwarciu całego folderu wszystkie pliki ćwiczeniowe będą widoczne po lewej stronie edytora.
+Po otwarciu folderu zobaczysz pliki ćwiczeniowe po lewej stronie edytora.
 
 ### 3.2. Rozszerzenie PHP
 
@@ -102,13 +96,13 @@ Dzięki otwarciu całego folderu wszystkie pliki ćwiczeniowe będą widoczne po
 - Wyszukaj `PHP Intelephense`.
 - Zainstaluj rozszerzenie autorstwa Bena Mewburna.
 
-Rozszerzenie pomaga podczas pisania kodu: podpowiada nazwy, ułatwia poruszanie się po plikach i wskazuje część błędów. Nie zastępuje interpretera PHP z XAMPP.
+Rozszerzenie podpowiada nazwy i wskazuje część błędów. Ułatwia też poruszanie się po plikach. Do uruchamiania programów nadal potrzebujesz PHP z XAMPP.
 
-### 3.3. Ustawienie interpretera w `settings.json`
+### 3.3. Wskazanie pliku `php.exe` w VS Code
 
 - Naciśnij `Ctrl + Shift + P`.
 - Uruchom polecenie `Preferences: Open User Settings (JSON)`.
-- Otworzy się globalny plik ustawień użytkownika. W typowej instalacji Windows znajduje się w katalogu `%APPDATA%\Code\User\settings.json`.
+- Otworzy się plik `settings.json` z ustawieniami VS Code. W typowej instalacji Windows jest w katalogu `%APPDATA%\Code\User\settings.json`.
 
 Dodaj ustawienie:
 
@@ -118,16 +112,18 @@ Dodaj ustawienie:
 }
 ```
 
-Jeśli `settings.json` zawiera już inne ustawienia, dopisz tylko właściwość `"php.validate.executablePath"` do istniejącego obiektu JSON. Zachowaj prawidłowe przecinki. Nie usuwaj pozostałych ustawień.
+Jeśli w pliku są już inne ustawienia, dopisz tylko `"php.validate.executablePath"`. Nie usuwaj pozostałych ustawień. Oddziel je przecinkami zgodnie ze składnią JSON.
 
-To ustawienie wskazuje plik interpretera wbudowanemu mechanizmowi sprawdzania składni PHP w VS Code. Nie uruchamia Apache, nie konfiguruje Xdebug i nie dodaje automatycznie przycisku wykonywania programu.
+VS Code musi wiedzieć, gdzie znajduje się PHP. Dlatego podajemy ścieżkę do `php.exe`. Dzięki temu edytor może sprawdzać składnię kodu.
 
-**Dodatkowa informacja:** Ustawienie można też umieścić w pliku `.vscode/settings.json` wewnątrz folderu projektu. Wówczas dotyczy tylko tego projektu. Na tych zajęciach korzystamy z ustawienia globalnego.
+To ustawienie nie uruchamia Apache ani programu PHP. Nie włącza też debugowania przez Xdebug.
+
+Później możesz umieścić to ustawienie w pliku `.vscode/settings.json` w folderze projektu. Wtedy będzie działać tylko w tym projekcie. Tutaj ustawiamy je dla całego VS Code.
 
 ### 3.4. Uruchomienie programu w terminalu
 
 - Otwórz `Terminal => New Terminal`.
-- Sprawdź, czy terminal pracuje w katalogu `C:\xampp\htdocs\kurs-php`.
+- Terminal to okno, w którym wpisujesz polecenia. Sprawdź, czy wskazuje katalog `C:\xampp\htdocs\kurs-php`.
 - Wpisz:
 
 ```powershell
@@ -147,7 +143,7 @@ Możesz również użyć:
 & "C:\xampp\php\php.exe" index.php
 ```
 
-Znak `&` to operator wywołania w PowerShell. Jest potrzebny wtedy, gdy ścieżka programu jest podana jako tekst w cudzysłowie. W naszym przykładzie z niecytowaną ścieżką bez spacji można go pominąć.
+Znak `&` uruchamia program wskazany w cudzysłowie. W pierwszym poleceniu ścieżka nie ma spacji i nie jest ujęta w cudzysłów, więc `&` nie jest potrzebny.
 
 Przydatne polecenia:
 
@@ -166,15 +162,17 @@ Po zmianie kodu zapisuj plik przez `Ctrl + S` i ponownie uruchamiaj polecenie w 
 - W panelu XAMPP uruchom `Apache`.
 - Otwórz adres `http://localhost/kurs-php/index.php`.
 
-Kod PHP wykonuje się na serwerze. Przeglądarka otrzymuje wynik działania programu, a nie kod źródłowy PHP.
+Apache uruchamia kod PHP na serwerze. Przeglądarka pokazuje wynik, a nie kod źródłowy PHP.
 
-**Uwaga:** `\n` tworzy nowy wiersz tekstu, ale przeglądarka nie musi wyświetlić go jako nowej linii na stronie HTML. Później nauczymy się używać znaczników HTML do formatowania wyniku.
+Znak `\n` tworzy nowy wiersz tekstu w terminalu. W przeglądarce może nie dać widocznego przejścia do nowej linii. Później użyjemy do tego HTML.
 
-Na razie nie konfigurujemy skrótu `Ctrl + F5` ani debugowania krokowego. Do ćwiczeń wystarczy terminal VS Code.
+Do tych ćwiczeń wystarczy terminal VS Code. Nie trzeba ustawiać skrótu `Ctrl + F5` ani debugowania krokowego.
 
 ## 4. Zmienne, tekst i warunki
 
 ### 4.1. Zmienne - porównanie z Pythonem
+
+Zmienna `$wiek` przechowuje liczbę `18`. Zobacz, jak przypisanie wartości wygląda w obu językach.
 
 Python:
 
@@ -241,7 +239,7 @@ if ($wiek >= 18) {
 }
 ```
 
-Warunek umieszczamy w nawiasach `()`, a instrukcje w nawiasach klamrowych `{}`.
+Warunek zapisujemy w nawiasach `()`. Instrukcje wykonywane po spełnieniu warunku umieszczamy między `{` i `}`.
 
 ## 5. Pętla `for`
 
@@ -279,15 +277,17 @@ Wynik:
 for (wartość początkowa; warunek; zmiana licznika)
 ```
 
-W naszym przykładzie:
+W naszym przykładzie pętla najpierw ustawia licznik na `1`. Potem sprawdza warunek i wypisuje liczbę. Po każdym obiegu zwiększa licznik.
+
+Poszczególne części zapisu oznaczają:
 
 - `$liczba = 1` - zaczynamy od 1.
-- `$liczba <= 5` - wykonujemy pętlę, dopóki warunek jest prawdziwy.
-- `$liczba++` - po każdej iteracji zwiększamy licznik o 1.
+- `$liczba <= 5` - wykonujemy pętlę, dopóki liczba nie przekroczy 5.
+- `$liczba++` - po każdym obiegu zwiększamy licznik o 1. Gdy osiągnie 6, pętla się zatrzyma.
 
 ### Ćwiczenie 2 - liczby podzielne przez 3
 
-Napisz program, który sprawdza liczby od 1 do 20 i wypisuje tylko te podzielne przez 3. Użyj operatora `%`, który zwraca resztę z dzielenia.
+Sprawdź w pętli liczby od 1 do 20. Wypisz tylko te podzielne przez 3. Użyj operatora `%`, który zwraca resztę z dzielenia.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>
@@ -314,7 +314,7 @@ Oczekiwany wynik:
 
 ## 6. Tablice indeksowane
 
-Tablica przechowuje wiele wartości pod jedną nazwą. W tablicy indeksowanej odwołujemy się do elementów przy użyciu indeksów liczbowych.
+Tablica przechowuje wiele wartości pod jedną nazwą. Każdy element ma numer, czyli indeks. Taki zapis nazywamy tablicą indeksowaną.
 
 Python:
 
@@ -356,7 +356,7 @@ Porównanie:
 
 ## 7. Pętla `foreach`
 
-`foreach` przechodzi po kolejnych elementach tablicy. Nie musimy sami ustawiać i zwiększać indeksu.
+`foreach` przechodzi po elementach tablicy po kolei. Nie trzeba samodzielnie zwiększać numeru elementu.
 
 Python:
 
@@ -386,7 +386,7 @@ Wynik:
 40
 ```
 
-**Jak to działa?** Przy pierwszym obiegu `$liczba` ma wartość 10, przy drugim 20, później 30 i 40. Pętla kończy się po przejściu przez wszystkie elementy.
+Najpierw `$liczba` ma wartość `10`, potem `20`. Kolejne wartości to `30` i `40`. Po ostatnim elemencie pętla się zatrzymuje.
 
 ### Ćwiczenie 3 - suma i średnia ocen
 
@@ -396,14 +396,14 @@ Utwórz tablicę:
 $oceny = [4, 5, 3, 5, 4, 2, 5];
 ```
 
-Program powinien:
+Wykonaj po kolei:
 
 - Wyświetlić każdą ocenę za pomocą `foreach`.
 - Policzyć sumę ocen, dodając je w pętli.
 - Policzyć średnią na podstawie sumy oraz `count($oceny)`.
 - Wyświetlić średnią z dokładnością do dwóch miejsc po przecinku za pomocą `number_format()`.
 
-Na razie nie używaj `array_sum()`. Celem ćwiczenia jest utrwalenie pętli.
+Nie używaj `array_sum()`. W tym ćwiczeniu sumę liczysz w pętli.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>
@@ -464,25 +464,11 @@ W VS Code:
 - `Ctrl + /` - komentowanie lub odkomentowanie zaznaczonych wierszy.
 - `Shift + Alt + A` - dodawanie lub usuwanie komentarza blokowego.
 
-## 9. Tablice asocjacyjne - odpowiednik słowników Pythona
+## 9. Tablice asocjacyjne
 
-W Pythonie poznaliśmy słowniki (`dict`). Słownik przechowuje pary `klucz => wartość`. W PHP podobną rolę pełni tablica asocjacyjna.
+W zwykłej tablicy szukamy elementu po numerze. Możemy też używać nazw, na przykład `nick` i `punkty`. Zobacz taki zapis w PHP:
 
-W zwykłej tablicy indeksowanej używaliśmy numerów `0`, `1`, `2`. W tablicy asocjacyjnej możemy posługiwać się nazwami, np. `nick` i `punkty`.
-
-### 9.1. Słownik w Pythonie
-
-```python
-turysta = {
-    "nick": "Ewa",
-    "punkty": 23
-}
-
-print(turysta["nick"])
-print(turysta["punkty"])
-```
-
-### 9.2. Tablica asocjacyjna w PHP
+### 9.1. Tablica w PHP
 
 ```php
 <?php
@@ -513,9 +499,23 @@ Schemat zawartości tablicy:
 - `Ewa` i `23` - wartości.
 - `=>` - znak łączący klucz z wartością przy tworzeniu elementu tablicy.
 
-Przykład nie jest przypadkowy. Turystka Ewa, która ma 23 punkty, występuje w tabeli `turysci` z bazy `Islandia`. W tej lekcji wpisujemy te wartości ręcznie do PHP. Nie pobieramy jeszcze danych z bazy.
+To **tablica asocjacyjna**. Wartość odczytujemy po nazwie klucza, na przykład `$turysta["nick"]`. W tablicy indeksowanej używaliśmy zamiast tego numerów `0`, `1`, `2`.
 
-### 9.3. Zmiana wartości istniejącego klucza
+Podobny zapis znasz ze słownika (`dict`) w Pythonie:
+
+```python
+turysta = {
+    "nick": "Ewa",
+    "punkty": 23
+}
+
+print(turysta["nick"])
+print(turysta["punkty"])
+```
+
+Ewa i jej 23 punkty występują w tabeli `turysci` z bazy `Islandia`. Tutaj wpisujemy te wartości ręcznie. Dane z bazy pobierzemy na następnej lekcji.
+
+### 9.2. Zmiana wartości istniejącego klucza
 
 ```php
 <?php
@@ -537,7 +537,7 @@ Wynik:
 
 Zmieniliśmy wartość z 23 na 30. Nazwa klucza `punkty` pozostała bez zmian.
 
-### 9.4. Dodawanie nowego elementu
+### 9.3. Dodawanie nowego elementu
 
 Aby dodać identyfikator turysty, wpisujemy:
 
@@ -553,9 +553,9 @@ Teraz tablica zawiera:
 "idTurysta"  => 1
 ```
 
-Zwróć uwagę: ta sama składnia służy do zmiany wartości istniejącego klucza i dodania nowego klucza. Jeśli podana nazwa klucza nie istnieje, PHP utworzy nowy element.
+Jeśli klucz już istnieje, taki zapis zmienia jego wartość. Jeśli go nie ma, PHP dodaje nowy element.
 
-### 9.5. Usuwanie elementu
+### 9.4. Usuwanie elementu
 
 W Pythonie możemy użyć `del`:
 
@@ -593,7 +593,7 @@ Zapis `$turysta["klucz"] = wartość;` służy zarówno do dodawania, jak i zmie
 
 ## 10. `echo`, `print_r()` i `var_dump()`
 
-Pytanie: jak zobaczyć wszystkie elementy tablicy bez wypisywania każdego osobno?
+Jedną wartość możesz wyświetlić przez `echo`. Całą tablicę obejrzysz przez `print_r()`. Jeśli chcesz też sprawdzić typy danych, użyj `var_dump()`.
 
 ### 10.1. `echo` - pojedyncza wartość
 
@@ -634,7 +634,7 @@ Array
 )
 ```
 
-`print_r()` pokazuje klucze i wartości. Jest przydatna do szybkiego sprawdzenia struktury danych.
+`print_r()` pokazuje klucze i wartości. Dzięki temu możesz obejrzeć całą tablicę.
 
 ### 10.3. `var_dump()` - wartości i typy danych
 
@@ -642,7 +642,7 @@ Array
 var_dump($turysta);
 ```
 
-Wynik zawiera również informację, że `nick` to tekst, a `punkty` to liczba całkowita. Widać w nim między innymi `string(3) "Ewa"` oraz `int(23)`.
+W wyniku zobaczysz też typy danych. `nick` jest tekstem: `string(3) "Ewa"`. `punkty` są liczbą całkowitą: `int(23)`.
 
 Zapamiętaj:
 
@@ -670,9 +670,7 @@ Do `echo` przekaż wartość spod jednego klucza. Do `print_r()` i `var_dump()` 
 
 ## 11. `array_slice()` - pobieranie fragmentu tablicy
 
-Ta funkcja jest przydatna, ale na początku nauki wystarczy znać jej podstawowe zastosowanie.
-
-Załóżmy, że mamy tablicę:
+To dalsze ćwiczenie z tablicami. `array_slice()` wybiera ich fragment. Zobacz przykład:
 
 ```php
 <?php
@@ -743,13 +741,13 @@ print_r($as);      // Tylko jeden element
 
 ### 11.3. Co zrobić, jeśli wynik pojawia się dwa razy?
 
-Najpierw sprawdź, czy tego samego elementu nie wyświetlasz w dwóch miejscach programu, np. raz przez `echo`, a drugi raz wewnątrz `foreach`.
+Sprawdź, czy nie wyświetlasz elementu dwa razy: przez `echo` i wewnątrz `foreach`.
 
 Samo `array_slice($turysta, 0, 1)` nie powoduje dwukrotnego wyświetlenia wartości. Ta funkcja przygotowuje fragment tablicy, ale niczego nie wypisuje.
 
 ### Czy trzeba dobrze znać `array_slice()`?
 
-Warto wiedzieć, do czego służy, ale nie trzeba poświęcać jej dużo czasu na pierwszej lekcji. Na obecnym etapie ważniejsze są:
+Na tej lekcji wystarczy rozumieć prosty przykład `array_slice()`. Najpierw utrwal:
 
 - `foreach` - przechodzenie przez elementy tablicy.
 - `count()` - liczenie elementów.
@@ -766,7 +764,7 @@ Utwórz tablicę:
 $kolory = ["czerwony", "zielony", "niebieski", "żółty"];
 ```
 
-Wykorzystaj `array_slice()`, aby otrzymać nową tablicę z elementami `zielony` i `niebieski`. Wyświetl ją przez `print_r()`. Następnie sprawdź, czy oryginalna tablica nadal zawiera wszystkie cztery kolory.
+Użyj `array_slice()`, aby wybrać `zielony` i `niebieski` do nowej tablicy. Wyświetl wynik przez `print_r()`. Sprawdź też, czy w oryginalnej tablicy nadal są cztery kolory.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>

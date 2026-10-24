@@ -5,15 +5,11 @@ mermaid: true
 
 # Lekcja 2 - PHP i odczytywanie danych z bazy Islandia
 
-## Informacje o lekcji
+Do tej pory PHP korzystało z danych wpisanych w programie. Teraz pobierzemy dane z bazy MariaDB. Najpierw połączymy się z bazą. Potem wykonamy zapytanie `SELECT` i zobaczymy pobrane rekordy.
 
-- Temat: połączenie PHP z MariaDB, zapytanie `SELECT` i pobieranie rekordów.
-- Środowisko: XAMPP, phpMyAdmin, Visual Studio Code, terminal PowerShell.
-- Baza: `Islandia`, zaimportowana z pliku `baza1.sql`.
-- Tabela używana w ćwiczeniach: `turysci`.
-- Wymagania wstępne: zmienne, `if`, tablice indeksowane i asocjacyjne, `print_r()`, `array_slice()` oraz podstawy SQL.
-- Zakres: odczyt danych. Nie dodajemy, nie zmieniamy i nie usuwamy rekordów.
-- Przygotowanie do INF.03: stosujemy proceduralne funkcje MySQLi spotykane w materiałach egzaminacyjnych. Składnię funkcji sprawdzamy w udostępnionej dokumentacji lub w tabeli dołączonej do arkusza, jeśli taka tabela się w nim znajduje.
+Pracujemy w XAMPP, phpMyAdmin, Visual Studio Code i PowerShellu. Użyjemy bazy `Islandia` zaimportowanej z `baza1.sql` oraz tabeli `turysci`. Przydadzą się podstawy SQL i wiedza z lekcji 1: zmienne, `if`, tablice, `print_r()` i `array_slice()`.
+
+Na tej lekcji tylko odczytujemy dane. Nie dodajemy, nie zmieniamy ani nie usuwamy rekordów. Korzystamy z proceduralnych funkcji MySQLi używanych na egzaminie INF.03. Ich składnię możesz sprawdzić w dokumentacji lub tabeli dołączonej do arkusza, jeśli się w nim znajduje.
 
 ## 1. Cel lekcji
 
@@ -39,7 +35,7 @@ Na tej lekcji **nie korzystamy jeszcze z formularzy HTML** ani z bardziej złoż
 4. Wybierz bazę `Islandia`, a następnie tabelę `turysci`.
 5. Otwórz w VS Code dotychczasowy katalog projektu, np. `C:\xampp\htdocs\kurs-php`.
 
-Programy PHP uruchamiane w terminalu nie wymagają uruchomionego Apache. Do połączenia z bazą serwer MariaDB musi działać.
+Do połączenia z bazą MariaDB musi działać. Apache nie jest potrzebny, jeśli uruchamiasz PHP w terminalu.
 
 W tabeli `turysci` są trzy kolumny:
 
@@ -78,7 +74,7 @@ SELECT idTurysta, nick, punkty
 FROM turysci;
 ```
 
-W naszej tabeli oba zapytania wybierają te same kolumny, ponieważ są w niej tylko trzy pola. W większych tabelach wypisanie konkretnych kolumn pozwala określić dokładnie, co ma zostać pobrane.
+W tabeli `turysci` są tylko trzy kolumny. Dlatego oba zapytania wybierają te same dane. W większej tabeli podanie nazw kolumn pozwala wybrać tylko potrzebne pola.
 
 ### 3.1. Co oznacza WHERE 1?
 
@@ -88,7 +84,7 @@ phpMyAdmin może pokazywać zapytanie:
 SELECT * FROM turysci WHERE 1;
 ```
 
-`WHERE 1` jest warunkiem zawsze prawdziwym. Nie usuwa żadnego wiersza z wyniku. Dlatego:
+Warunek `WHERE 1` jest zawsze prawdziwy. Nie odrzuca żadnego wiersza. Dlatego:
 
 ```sql
 SELECT * FROM turysci;
@@ -117,9 +113,11 @@ W zapytaniu pisanym samodzielnie wystarczy `WHERE punkty > 20`.
 SELECT * FROM turysci ORDER BY idTurysta;
 ```
 
-`ORDER BY idTurysta` porządkuje wynik według identyfikatora. Dzięki temu możemy przewidzieć, że pierwszy będzie rekord Ewy, a drugi Moniki. Bez `ORDER BY` SQL nie gwarantuje kolejności rekordów.
+`ORDER BY idTurysta` ustawia rekordy według identyfikatora. Pierwsza będzie Ewa, a druga Monika. Bez `ORDER BY` SQL nie gwarantuje kolejności.
 
 ## 4. Nawiązanie połączenia - mysqli_connect()
+
+PHP musi połączyć się z serwerem bazy. Służy do tego `mysqli_connect()`. Najpierw uruchom prosty test połączenia.
 
 W VS Code utwórz plik `polaczenie.php`:
 
@@ -151,7 +149,7 @@ mysqli_connect("adres_serwera", "uzytkownik", "haslo", "nazwa_bazy");
 
 Nie należy używać konta `root` bez hasła w aplikacji udostępnianej w sieci. To ustawienie występuje w niektórych lokalnych instalacjach szkolnych; w innym środowisku wpisujemy dane właściwego użytkownika.
 
-`mysqli_report(MYSQLI_REPORT_OFF)` wyłącza automatyczne zgłaszanie wyjątków MySQLi. Ułatwia to początkującym wykonanie prostego testu `if ($polaczenie)`. Od PHP 8.1 domyślnie włączony jest tryb zgłaszania wyjątków, dlatego bez tej linii błędne połączenie może zakończyć działanie programu wyjątkiem.
+`mysqli_report(MYSQLI_REPORT_OFF)` pozwala sprawdzić wynik połączenia przez `if ($polaczenie)`. Bez tej linii błędne połączenie może przerwać program, zanim wykona się `if`. Od PHP 8.1 MySQLi domyślnie zgłasza takie błędy jako wyjątki.
 
 Uruchom w terminalu PowerShell:
 
@@ -165,11 +163,11 @@ Wynik poprawnego połączenia:
 Połączenie z bazą działa.
 ```
 
-`mysqli_close($polaczenie)` zamyka połączenie. Przed zamknięciem połączenia wykonujemy zapytania i pobieramy potrzebne dane.
+`mysqli_close($polaczenie)` zamyka połączenie. Najpierw wykonujemy zapytania i pobieramy dane. Dopiero potem zamykamy połączenie.
 
 ## 5. Wykonanie zapytania - mysqli_query()
 
-Połączenie to dopiero pierwszy krok. Aby pobrać dane, wysyłamy zapytanie SQL:
+Połączenie to pierwszy krok. Zapytanie `SELECT` wybiera dane. Funkcja `mysqli_query()` wysyła je do bazy:
 
 ```php
 $sql = "SELECT * FROM turysci ORDER BY idTurysta";
@@ -181,9 +179,7 @@ $wynik = mysqli_query($polaczenie, $sql);
 - pierwszy argument - połączenie z bazą;
 - drugi argument - treść zapytania SQL.
 
-Dla zapytania `SELECT` poprawne wykonanie zwraca obiekt `mysqli_result`.
-
-Ważne: **`$wynik` nie jest jeszcze zwykłą tablicą turystów**. Zawiera wynik zapytania, z którego dopiero pobierzemy rekordy.
+Po poprawnym wykonaniu `SELECT` zmienna `$wynik` zawiera wynik zapytania (`mysqli_result`). **Nie jest jeszcze tablicą turystów.** Rekordy pobierzemy z niego w następnym kroku.
 
 Możemy sprawdzić, czy zapytanie się wykonało:
 
@@ -197,7 +193,7 @@ W tym miejscu nadal nie wyświetlamy pól turystów.
 
 ## 6. Pobranie jednego rekordu - mysqli_fetch_row()
 
-Poniższy przykład jest kompletnym programem. Zapisz go np. jako `jeden_turysta.php`:
+`mysqli_fetch_row()` pobiera jeden rekord. Pola tego rekordu odczytujemy po numerach. Zapisz poniższy program jako `jeden_turysta.php`:
 
 ```php
 <?php
@@ -225,7 +221,7 @@ print_r($turysta);
 mysqli_close($polaczenie);
 ```
 
-`mysqli_fetch_row($wynik)` pobiera **jeden kolejny rekord** jako tablicę indeksowaną.
+`mysqli_fetch_row($wynik)` pobiera **jeden kolejny rekord** jako tablicę indeksowaną. Pierwszy odczyt pobiera Ewę.
 
 Początek oczekiwanego wyniku:
 
@@ -249,9 +245,11 @@ $turysta2 = mysqli_fetch_row($wynik);
 print_r($turysta2);
 ```
 
-otrzymamy następny rekord, czyli Monikę. Po wyczerpaniu wierszy funkcja zwraca `null`.
+otrzymamy następny rekord, czyli Monikę. Gdy zabraknie rekordów, funkcja zwróci `null`.
 
 ## 7. Pobranie pozostałych rekordów - mysqli_fetch_all()
+
+`mysqli_fetch_all()` pobiera wszystkie rekordy, których jeszcze nie odczytaliśmy. Zapisuje je w jednej tablicy. Każdy jej element to jeden rekord.
 
 W osobnym programie albo po ponownym wykonaniu zapytania możemy napisać:
 
@@ -260,7 +258,7 @@ $turysci = mysqli_fetch_all($wynik);
 print_r($turysci);
 ```
 
-`mysqli_fetch_all()` pobiera **wszystkie pozostałe rekordy** do jednej tablicy. Każdy rekord jest kolejną tablicą, więc otrzymujemy tablicę dwuwymiarową.
+Ponieważ każdy rekord też jest tablicą, wynik nazywamy tablicą dwuwymiarową.
 
 Początek wyniku:
 
@@ -285,7 +283,9 @@ Array
 
 W przykładzie pokazano początek wyniku; przy pełnym zapytaniu rekordów jest więcej.
 
-**Ważna pułapka:** jeżeli najpierw pobraliśmy Ewę przez `mysqli_fetch_row($wynik)`, późniejsze `mysqli_fetch_all($wynik)` zacznie od następnego rekordu. Nie otrzymamy ponownie Ewy. Jeśli chcemy zacząć pobieranie od początku w prostych ćwiczeniach, wykonujemy nowe zapytanie `mysqli_query()`.
+Słowo **pozostałe** ma znaczenie. Jeśli wcześniej pobraliśmy Ewę przez `mysqli_fetch_row($wynik)`, następny odczyt zacznie się od Moniki. Ewy nie będzie w tablicy zwróconej przez `mysqli_fetch_all($wynik)`.
+
+Jeśli chcemy znów zacząć od Ewy, wykonujemy nowe zapytanie przez `mysqli_query()`. Wtedy `mysqli_fetch_all()` może pobrać wszystkie rekordy z nowego wyniku.
 
 ## 8. Drugi parametr mysqli_fetch_all()
 
@@ -295,7 +295,9 @@ Pełny zapis:
 mysqli_fetch_all($wynik, TRYB);
 ```
 
-Drugi parametr określa rodzaj tablic zwracanych przez funkcję.
+Nick Ewy możemy odczytać po numerze kolumny: `$turysci[0][1]`. Możemy też użyć jej nazwy: `$turysci[0]["nick"]`.
+
+Drugi parametr mówi funkcji, jak ma zapisać pobrane rekordy. Od niego zależy, który zapis będzie działał:
 
 | Tryb | Jakie klucze otrzymamy? | Przykład odczytu nicku Ewy |
 | --- | --- | --- |
@@ -322,7 +324,7 @@ $turysci = mysqli_fetch_all($wynik, MYSQLI_ASSOC);
 echo $turysci[0]["nick"] . "\n";
 ```
 
-W tablicy asocjacyjnej nazwy kluczy odpowiadają nazwom kolumn w wyniku zapytania.
+W tym trybie klucze mają nazwy kolumn z wyniku zapytania.
 
 - `$turysci[0]` - pierwszy rekord.
 - `["nick"]` - wartość z kolumny `nick`.
@@ -338,7 +340,7 @@ echo $turysci[0][1] . "\n";
 echo $turysci[0]["nick"] . "\n";
 ```
 
-Oba polecenia wypiszą `Ewa`. To dwa sposoby dostępu do tej samej wartości, nie dwa rekordy.
+Oba polecenia wypiszą `Ewa`. To ta sama wartość odczytana na dwa sposoby.
 
 **Uwaga egzaminacyjna:** `mysqli_fetch_all()` domyślnie używa `MYSQLI_NUM`, natomiast `mysqli_fetch_array()` domyślnie używa `MYSQLI_BOTH`. Nie należy mylić tych funkcji.
 
@@ -371,7 +373,7 @@ Pamiętaj:
 
 ## 10. Ograniczanie danych - array_slice()
 
-Funkcję `array_slice()` znamy z poprzedniej lekcji. Możemy jej użyć także do tablicy rekordów pobranych z MariaDB.
+`array_slice()` wybiera fragment tablicy, którą mamy już w PHP. Możemy tak wybrać część rekordów pobranych z MariaDB.
 
 ```php
 $turysci = mysqli_fetch_all($wynik, MYSQLI_ASSOC);
@@ -386,9 +388,9 @@ Znaczenie argumentów:
 - `0` - początek fragmentu;
 - `3` - liczba pobieranych elementów.
 
-Wynik zawiera trzy pierwsze rekordy. `array_slice()` **nie modyfikuje** tablicy `$turysci`. Zwraca nową tablicę z wybranym fragmentem.
+Wynik zawiera trzy pierwsze rekordy. Oryginalna tablica `$turysci` pozostaje bez zmian. `array_slice()` zwraca nową tablicę.
 
-Jeśli rekordy pobrano wcześniej przez `mysqli_fetch_all()`, to nadal zostały one wcześniej pobrane z bazy do PHP. `array_slice()` ogranicza tylko fragment tej tablicy.
+Wszystkie rekordy zostały już pobrane do PHP przez `mysqli_fetch_all()`. `array_slice()` wybiera tylko fragment tej gotowej tablicy.
 
 ### 10.1. A czym jest LIMIT?
 
@@ -400,7 +402,7 @@ ORDER BY idTurysta
 LIMIT 3;
 ```
 
-Teraz sam wynik zapytania zawiera najwyżej trzy wiersze.
+`LIMIT 3` ogranicza wynik zapytania SQL do najwyżej trzech wierszy. Baza przekazuje więc do PHP mniej rekordów.
 
 Prosty schemat:
 
@@ -415,7 +417,7 @@ SELECT z LIMIT => baza zwraca najwyżej 3 rekordy => pobranie wyniku do PHP
 | `array_slice()` | W PHP | Fragment istniejącej tablicy |
 | `LIMIT` | W SQL | Liczbę wierszy wyniku zapytania |
 
-Nie rozwijamy jeszcze stronicowania ani innych wariantów `LIMIT`. Na dziś wystarczy rozumieć tę różnicę.
+Na razie wystarczy zapamiętać tę różnicę. Inne zastosowania `LIMIT` poznamy później.
 
 ## 11. Schemat pracy z bazą
 
@@ -439,9 +441,11 @@ flowchart TD
 
 ## 12. Ćwiczenia dla uczniów
 
-Pracuj na bazie `Islandia` i tabeli `turysci`. W każdym ćwiczeniu, w którym odczytujesz pierwsze rekordy, użyj w SQL `ORDER BY idTurysta`.
+Podstawy przećwiczysz w zadaniach 1-5. Zadania 6-8 pomogą ci utrwalić różnice między kolejnymi odczytami, `array_slice()` i `LIMIT`.
 
-Nie zmieniaj danych w bazie. Każde zadanie zapisz w oddzielnym pliku `.php` lub wykonuj po kolei w jednym pliku, pamiętając o ponownym wykonaniu zapytania przed nowym odczytem wyników.
+Pracuj na bazie `Islandia` i tabeli `turysci`. Gdy odczytujesz pierwsze rekordy, użyj w SQL `ORDER BY idTurysta`.
+
+Nie zmieniaj danych w bazie. Możesz zapisać każde zadanie w osobnym pliku `.php`. Możesz też pracować w jednym pliku. Przed nowym odczytem wykonaj wtedy ponownie zapytanie.
 
 ### Ćwiczenie 1 - Sprawdzenie połączenia
 
@@ -490,7 +494,8 @@ Porównaj osobno liczbę wierszy i nazwy kolumn wyników. Zastanów się, czy wa
 
 ### Ćwiczenie 3 - Pierwszy i drugi turysta
 
-- Nawiąż połączenie i wykonaj `SELECT * FROM turysci ORDER BY idTurysta`.
+- Połącz się z bazą.
+- Wykonaj `SELECT * FROM turysci ORDER BY idTurysta`.
 - Użyj dwa razy `mysqli_fetch_row()`.
 - Wyświetl obie pobrane tablice przez `print_r()`.
 - Wyświetl przy użyciu `echo` tylko nick drugiego turysty.
@@ -514,7 +519,7 @@ Oba odczyty wykonaj na tym samym `$wynik`, bez ponawiania zapytania między nimi
 - Wykonaj zapytanie pobierające turystów uporządkowanych według identyfikatora.
 - Pobierz rekordy przez `mysqli_fetch_all($wynik, MYSQLI_ASSOC)`.
 - Wyświetl strukturę danych przez `print_r()`.
-- Wypisz przez `echo` nick i punkty pierwszego turysty, odwołując się do nazw kolumn.
+- Użyj nazw kolumn, aby wypisać przez `echo` nick i punkty pierwszego turysty.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>
@@ -585,8 +590,8 @@ Wywołaj `count()` osobno dla obu zmiennych. Sprawdź, do której zmiennej przyp
 
 - W phpMyAdmin uruchom `SELECT * FROM turysci ORDER BY idTurysta LIMIT 3;`.
 - Sprawdź, ile wierszy zwróciło zapytanie.
-- W PHP porównaj ten wynik z pierwszymi trzema rekordami wybranymi przez `array_slice()` z pełnej tablicy.
-- Napisz jedno zdanie wyjaśniające, która metoda ogranicza wynik już w bazie danych.
+- W PHP pobierz pełną tablicę i wybierz z niej trzy pierwsze rekordy przez `array_slice()`.
+- Porównaj oba wyniki. Napisz, która metoda ogranicza wynik już w bazie danych.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź</summary>
@@ -600,7 +605,7 @@ Rozdziel dwa etapy: wykonanie zapytania w MariaDB i pracę na gotowej tablicy w 
 - Wykonaj zapytanie `SELECT * FROM turysci ORDER BY idTurysta`.
 - Pobierz pierwszy rekord przez `mysqli_fetch_row()`.
 - Następnie pobierz pozostałe przez `mysqli_fetch_all($wynik, MYSQLI_ASSOC)`.
-- Sprawdź przez `count()`, ile rekordów znalazło się w tablicy `$pozostali`.
+- Policz przez `count()` rekordy w tablicy `$pozostali`.
 - Wyjaśnij, dlaczego nie ma tam Ewy.
 
 <details class="lesson-hint" markdown="1">
