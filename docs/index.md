@@ -27,9 +27,10 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 16. [DISTINCT i DISTINCTROW - pełne opracowanie]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
 
 17. [Lekcja 8A - PHP generuje HTML]({{ '/05-php-i-html/01a-php-tworzy-html.html' | relative_url }}).
-18. [Lekcja 8 - pełne opracowanie]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
+18. [Lekcja 8B - lista danych z MariaDB]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}).
+19. [Lekcja 8 - pełne opracowanie]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
 
-19. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+20. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
 
 [Od zadania do programu - jak zaplanować rozwiązanie INF.03?]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 

@@ -59,6 +59,8 @@ sections:
     lessons:
       - title: "Lekcja 8A - PHP generuje HTML"
         url: "05-php-i-html/01a-php-tworzy-html.md"
+      - title: "Lekcja 8B - lista danych z MariaDB"
+        url: "05-php-i-html/01b-php-lista-z-bazy.md"
       - title: "Lekcja 8 - pełne opracowanie"
         url: "05-php-i-html/01-generowanie-html-z-bazy.md"
       - title: "GET - parametry w adresie URL"

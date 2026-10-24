@@ -6,6 +6,8 @@ title: Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB
 
 Jeśli dopiero zaczynasz generować HTML za pomocą PHP, zacznij od [lekcji 8A]({{ '/05-php-i-html/01a-php-tworzy-html.html' | relative_url }}).
 
+Następnie przejdź do [lekcji 8B - listy danych z MariaDB]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}).
+
 Tutaj znajdziesz dalsze przykłady wyświetlania danych z bazy.
 
 **Cel: wyświetlić tabelę turystów i ich punktów z bazy Islandia.** Zamiast wpisywać każdy wiersz ręcznie, polecimy PHP: pobierz rekord i utwórz dla niego wiersz HTML.
