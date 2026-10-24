@@ -5,6 +5,10 @@ mermaid: true
 
 # Lekcja 5 - GROUP BY - grupowanie danych krok po kroku
 
+Jeśli dopiero poznajesz `GROUP BY`, zacznij od [krótkiej lekcji 5A]({{ '/04-grupowanie-danych/01a-group-by-podstawy.html' | relative_url }}).
+
+Tutaj znajdziesz więcej przykładów i trudniejsze zadania.
+
 Chcemy sprawdzić, ilu turystów zdobyło tyle samo punktów. Najpierw zobaczysz, czym jest grupa i jak policzyć należące do niej osoby. Potem przejdziesz do obiektów i trudniejszych przykładów.
 
 Ta lekcja ma trzy poziomy. Wybierz je po kolei:
