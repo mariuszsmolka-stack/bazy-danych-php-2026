@@ -45,6 +45,11 @@ sections:
         url: "05-php-i-html/01-generowanie-html-z-bazy.md"
       - title: "GET - parametry w adresie URL"
         url: "05-php-i-html/02-get-parametry-url.md"
+  - title: "07 - Projekt INF.03"
+    url: "07-projekt-inf03/01-jak-zaplanowac-zadanie.md"
+    lessons:
+      - title: "Od zadania do programu - plan pracy"
+        url: "07-projekt-inf03/01-jak-zaplanowac-zadanie.md"
   - title: "06 - HTML i CSS (materiały dodatkowe)"
     url: "06-html-css-dodatkowe/index.md"
     lessons:

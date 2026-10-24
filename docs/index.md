@@ -22,6 +22,8 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 
 10. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
 
+[Od zadania do programu - jak zaplanować rozwiązanie INF.03?]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
+
 [Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
 
 ## Materiały dodatkowe
