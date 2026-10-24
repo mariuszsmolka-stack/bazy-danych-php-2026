@@ -90,3 +90,7 @@ Ten dział znajduje się tymczasowo na końcu kursu. Możesz zacząć od niego b
 3. [SQL 0B - WHERE. Wybieramy rekordy]({{ '/08-sql-od-zera/02-where-podstawy.html' | relative_url }}).
 4. [SQL 0C - Kilka warunków i LIKE]({{ '/08-sql-od-zera/03-warunki-i-like.html' | relative_url }}).
 5. [SQL 0D - Sortowanie i ograniczanie wyników]({{ '/08-sql-od-zera/04-sortowanie-limit.html' | relative_url }}).
+6. [SQL 0E - LIKE. Znaki % i _]({{ '/08-sql-od-zera/05-like-maski.html' | relative_url }}).
+7. [SQL 0F - IN i NOT IN]({{ '/08-sql-od-zera/06-in-not-in.html' | relative_url }}).
+8. [SQL 0G - NOT i nierówności]({{ '/08-sql-od-zera/07-not-i-nierownosci.html' | relative_url }}).
+9. [SQL 0H - BETWEEN i NOT BETWEEN]({{ '/08-sql-od-zera/08-between.html' | relative_url }}).
