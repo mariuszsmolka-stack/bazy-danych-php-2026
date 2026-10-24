@@ -32,12 +32,19 @@ Tabela `osiagniecia` jest obecnie pusta. W bazie nie ma zapisanych osiągnięć.
 <pre class="mermaid-source" hidden>
 erDiagram
     RODZAJE ||--o{ OBIEKTY : "idRodzaj"
-    KONTYNENTY ||--o{ OBIEKTY : "idKontynent"
-    TURYSCI ||--o{ OSIAGNIECIA : "idTurysta"
-    OBIEKTY ||--o{ OSIAGNIECIA : "idObiekt"
 </pre>
-<p class="diagram-fallback">rodzaje.idRodzaj =&gt; obiekty.idRodzaj; kontynenty.idKontynent =&gt; obiekty.idKontynent; turysci.idTurysta =&gt; osiagniecia.idTurysta; obiekty.idObiekt =&gt; osiagniecia.idObiekt.</p>
-<figcaption>Powiązania tabel w bazie Islandia. Tabela osiagniecia nie zawiera jeszcze rekordów.</figcaption>
+<p class="diagram-fallback">rodzaje.idRodzaj (PRIMARY KEY) =&gt; obiekty.idRodzaj (FOREIGN KEY).</p>
+<figcaption>Klucz obcy obiektu wskazuje klucz główny rodzaju.</figcaption>
+</figure>
+
+<figure class="lesson-diagram">
+<pre class="mermaid-source" hidden>
+flowchart TD
+    A["turysci.idTurysta"] --> B["osiagniecia: idTurysta, idObiekt"]
+    B --> C["obiekty.idObiekt"]
+</pre>
+<p class="diagram-fallback">turysci.idTurysta =&gt; osiagniecia.idTurysta; osiagniecia.idObiekt =&gt; obiekty.idObiekt. Tabela osiagniecia jest pusta.</p>
+<figcaption>Tabela pośrednia łączy turystów i obiekty. Obecnie nie ma w niej rekordów.</figcaption>
 </figure>
 
 **Integralność referencyjna** oznacza, że obowiązujący klucz obcy nie może wskazywać nieistniejącego rekordu. W `baza1.sql` ograniczenia `FOREIGN KEY` są dodawane przez `ALTER TABLE`. Dla tych połączeń zapisano `ON DELETE NO ACTION` i `ON UPDATE NO ACTION`: operacja naruszająca powiązanie nie powinna się powieść. W tej lekcji nie zmieniamy danych.
