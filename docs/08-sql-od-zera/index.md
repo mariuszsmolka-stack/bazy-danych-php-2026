@@ -4,12 +4,6 @@ title: SQL od zera - Wprowadzenie
 
 # SQL od zera - Wprowadzenie
 
-## Uwaga dotycząca kolejności kursu
-
-Ten dział znajduje się tymczasowo na końcu kursu. Jest przeznaczony dla osób, które dopiero zaczynają naukę baz danych i SQL.
-
-W przyszłości dział zostanie przeniesiony na początek ścieżki nauki. Możesz korzystać z niego już teraz. Nie musisz znać PHP.
-
 ## Co przechowuje baza danych?
 
 Baza danych przechowuje uporządkowane informacje. W bazie **Islandia** są między innymi informacje o turystach i obiektach turystycznych.
