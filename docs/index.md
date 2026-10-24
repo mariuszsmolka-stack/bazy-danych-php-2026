@@ -46,6 +46,8 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 
 [Lekcja 10D - Zdjęcie jako link do obiektu]({{ '/07-projekt-inf03/10d-zdjecia-jako-linki.html' | relative_url }}).
 
+[Lekcja 10E - Od zdjęcia do szczegółów obiektu]({{ '/07-projekt-inf03/10e-strona-szczegolow.html' | relative_url }}).
+
 [Pełny przykład po etapach 10A-10D - Od zapytania SQL do galerii zdjęć]({{ '/07-projekt-inf03/02-galeria-z-bazy.html' | relative_url }}).
 
 [Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
