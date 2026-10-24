@@ -49,6 +49,12 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 23. [Lekcja 10D - Zdjęcie jako link do obiektu]({{ '/07-projekt-inf03/10d-zdjecia-jako-linki.html' | relative_url }}).
 24. [Lekcja 10E - Od zdjęcia do szczegółów obiektu]({{ '/07-projekt-inf03/10e-strona-szczegolow.html' | relative_url }}).
 
+### SPRAWDZIAN SAMODZIELNOŚCI
+
+Ukończyłeś lekcje 1-10E? Sprawdź, czy umiesz samodzielnie połączyć SQL, PHP i GET.
+
+[Sprawdzian samodzielności - Ranking turystów]({{ '/07-projekt-inf03/sprawdzian-samodzielnosci.html' | relative_url }}).
+
 ### Pełne opracowania - dodatkowe
 
 - [GROUP BY - pełne opracowanie]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}).

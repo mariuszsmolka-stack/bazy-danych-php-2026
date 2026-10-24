@@ -102,6 +102,11 @@ sections:
       - title: "Lekcja 10E - Od zdjęcia do szczegółów obiektu"
         url: "07-projekt-inf03/10e-strona-szczegolow.md"
         course_path: true
+  - title: "SPRAWDZIAN SAMODZIELNOŚCI"
+    url: "07-projekt-inf03/sprawdzian-samodzielnosci.md"
+    lessons:
+      - title: "Sprawdzian samodzielności - Ranking turystów"
+        url: "07-projekt-inf03/sprawdzian-samodzielnosci.md"
   - title: "Pełne opracowania - materiały uzupełniające"
     url: "04-grupowanie-danych/01-group-by.md"
     lessons:

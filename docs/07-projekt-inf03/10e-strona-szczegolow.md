@@ -197,3 +197,7 @@ Wartość `999` przejdzie walidację. Zapytanie wykona się, lecz w kursowej baz
 ## 8. Zapamiętaj
 
 Kliknięcie zdjęcia przekazuje `id` do `obiekty.php`. Program sprawdza numer, pobiera jeden rekord i wyświetla jego tekst oraz zdjęcie. Nazwa zdjęcia pochodzi z pola `plik` tego rekordu.
+
+## Sprawdzian samodzielności
+
+Zakończyłeś projekt? [Przejdź do sprawdzianu samodzielności]({{ '/07-projekt-inf03/sprawdzian-samodzielnosci.html' | relative_url }}).
