@@ -14,7 +14,7 @@ W [lekcji 10C]({{ '/07-projekt-inf03/10c-galeria-w-petli.html' | relative_url }}
 | Skogafoss | `obiekty.php?id=47` |
 | Hekla | `obiekty.php?id=52` |
 
-Parametr `id` znasz z [lekcji 9]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}). W tamtej lekcji plik nazywał się `obiekt.php`; w przykładzie portalu używamy nazwy `obiekty.php`.
+W [lekcji 9B]({{ '/05-php-i-html/02b-get-rekord-z-bazy.html' | relative_url }}) parametr `id` wybierał rekord, a w [lekcji 9C]({{ '/05-php-i-html/02c-get-linki-do-rekordow.html' | relative_url }}) tworzyliśmy linki do rekordów. W tamtych przykładach plik szczegółów nazywał się `obiekt.php`; w portalu używamy nazwy `obiekty.php`.
 
 ## Zobacz jeden zwykły link
 

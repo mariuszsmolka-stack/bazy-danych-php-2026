@@ -539,8 +539,8 @@ Przed pisaniem SQL powiedz własnymi słowami, co ma oznaczać jeden wiersz odpo
 
 ## Materiały odniesienia
 
-- [GROUP BY - grupowanie danych]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}).
-- [HAVING - filtrowanie grup]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}).
+- [Lekcja 5A - podstawy GROUP BY]({{ '/04-grupowanie-danych/01a-group-by-podstawy.html' | relative_url }}).
+- [Lekcja 6A - podstawy HAVING]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}).
 - [MariaDB - SELECT, DISTINCT i DISTINCTROW](https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select#distinct).
 - [MariaDB - COUNT DISTINCT](https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/count-distinct).
 - [MariaDB - GROUP BY](https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/group-by).

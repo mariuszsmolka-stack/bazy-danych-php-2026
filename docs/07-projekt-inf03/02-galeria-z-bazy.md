@@ -4,13 +4,15 @@ title: Lekcja 10 - Od zapytania SQL do galerii zdjęć
 
 # Lekcja 10 - Od zapytania SQL do galerii zdjęć
 
+Jeżeli dopiero uczysz się tworzyć galerię z danych MariaDB, rozpocznij od [lekcji 10A]({{ '/07-projekt-inf03/10a-nazwy-z-bazy.html' | relative_url }}) i przejdź kolejno do lekcji 10E.
+
 W tabeli `obiekty` są informacje o miejscach turystycznych. Kolumna `plik` zawiera nazwę zdjęcia. PHP może użyć tej nazwy w HTML. Przeglądarka pobierze wtedy obraz z odpowiedniego pliku.
 
 **MariaDB => SELECT => PHP => HTML => zdjęcie w przeglądarce**
 
 Znasz już większość potrzebnych instrukcji. Teraz połączysz je małymi krokami: nazwy => jedno zdjęcie => galeria => linki.
 
-Powtórka: [połączenie z bazą - lekcja 2]({{ '/02-php-i-mariadb/01-odczyt-danych.html' | relative_url }}), [zapytania SQL - lekcja 3]({{ '/03-zapytania-inf03/01-cztery-zapytania.html' | relative_url }}), [HTML z danych - lekcja 8]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}) i [GET - lekcja 9]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+Powtórka: [połączenie z bazą - lekcja 2]({{ '/02-php-i-mariadb/01-odczyt-danych.html' | relative_url }}), [zapytania SQL - lekcja 3]({{ '/03-zapytania-inf03/01-cztery-zapytania.html' | relative_url }}), [lista z danych - lekcja 8B]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}), [rekord wybrany przez GET - lekcja 9B]({{ '/05-php-i-html/02b-get-rekord-z-bazy.html' | relative_url }}) i [linki do rekordów - lekcja 9C]({{ '/05-php-i-html/02c-get-linki-do-rekordow.html' | relative_url }}).
 
 Jeśli nie wiesz, od czego zacząć, wróć do [przewodnika planowania INF.03]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 
@@ -367,4 +369,4 @@ Powstanie 9 podpisów. Nie przenoś instrukcji poza pętlę, bo każdy rekord ma
 
 Umiesz przejść od wyniku SELECT do nazw, obrazów i linków. Wiesz, że nazwa zdjęcia w bazie i plik obrazu to dwie różne rzeczy. Jedna iteracja pętli zamienia jeden rekord w jeden element galerii.
 
-Na następnej lekcji wykorzystasz identyfikator z linku do pokazania szczegółów miejsca. Pomoc dotycząca wyglądu strony jest w [materiałach dodatkowych HTML i CSS]({{ '/06-html-css-dodatkowe/index.html' | relative_url }}).
+Identyfikator z linku wykorzystasz do pokazania szczegółów miejsca w [lekcji 10E]({{ '/07-projekt-inf03/10e-strona-szczegolow.html' | relative_url }}). Pomoc dotycząca wyglądu strony jest w [materiałach dodatkowych HTML i CSS]({{ '/06-html-css-dodatkowe/index.html' | relative_url }}).

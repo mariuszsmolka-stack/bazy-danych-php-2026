@@ -12,7 +12,7 @@ W [lekcji 9C]({{ '/05-php-i-html/02c-get-linki-do-rekordow.html' | relative_url 
 
 Jak sprawić, żeby ten sam plik pokazywał raz gejzer, a raz wodospad? Przekażemy numer obiektu w adresie. Cel lekcji: wyjaśnić i uruchomić drogę **kliknięcie linku => parametr id => SELECT => szczegóły obiektu**.
 
-Korzystamy z bazy `Islandia` oraz umiejętności z [lekcji 8]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}). Najpierw wykonaj część A. Część B dodaje listę linków do tego samego programu.
+Korzystamy z bazy `Islandia` oraz umiejętności z [lekcji 8B]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}). Najpierw wykonaj część A. Część B dodaje listę linków do tego samego programu.
 
 ## Część A - podstawowa, obowiązkowa
 

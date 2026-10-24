@@ -17,77 +17,104 @@ sections:
     lessons:
       - title: "Podstawy PHP i pierwsze tablice"
         url: "01-podstawy-php/01-podstawy-php.md"
+        course_path: true
   - title: "02 - PHP i MariaDB"
     url: "02-php-i-mariadb/01-odczyt-danych.md"
     lessons:
       - title: "Odczytywanie danych z bazy Islandia"
         url: "02-php-i-mariadb/01-odczyt-danych.md"
+        course_path: true
   - title: "03 - Zapytania INF.03"
     url: "03-zapytania-inf03/01-cztery-zapytania.md"
     lessons:
       - title: "Cztery zapytania SQL"
         url: "03-zapytania-inf03/01-cztery-zapytania.md"
+        course_path: true
       - title: "Wykonanie zapytań SQL w PHP"
         url: "03-zapytania-inf03/02-wyniki-zapytan-w-php.md"
+        course_path: true
   - title: "04 - Grupowanie danych"
     url: "04-grupowanie-danych/01a-group-by-podstawy.md"
     lessons:
       - title: "Lekcja 5A - podstawy GROUP BY"
         url: "04-grupowanie-danych/01a-group-by-podstawy.md"
+        course_path: true
       - title: "Lekcja 5B - SUM, AVG, MIN i MAX"
         url: "04-grupowanie-danych/01b-obliczenia-w-grupach.md"
+        course_path: true
       - title: "Lekcja 5C - GROUP BY z dwiema kolumnami i JOIN"
         url: "04-grupowanie-danych/01c-group-by-i-join.md"
-      - title: "GROUP BY - pełne opracowanie"
-        url: "04-grupowanie-danych/01-group-by.md"
+        course_path: true
       - title: "Lekcja 6A - podstawy HAVING"
         url: "04-grupowanie-danych/02a-having-podstawy.md"
+        course_path: true
       - title: "Lekcja 6B - WHERE i HAVING"
         url: "04-grupowanie-danych/02b-where-i-having.md"
+        course_path: true
       - title: "Lekcja 6C - HAVING i JOIN"
         url: "04-grupowanie-danych/02c-having-i-join.md"
-      - title: "HAVING - pełne opracowanie"
-        url: "04-grupowanie-danych/02-having.md"
+        course_path: true
       - title: "Lekcja 7A - podstawy DISTINCT"
         url: "04-grupowanie-danych/03a-distinct-podstawy.md"
+        course_path: true
       - title: "Lekcja 7B - DISTINCT i DISTINCTROW"
         url: "04-grupowanie-danych/03b-distinct-wiele-kolumn.md"
-      - title: "DISTINCT i DISTINCTROW - pełne opracowanie"
-        url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"
+        course_path: true
   - title: "05 - PHP i HTML"
     url: "05-php-i-html/01a-php-tworzy-html.md"
     lessons:
       - title: "Lekcja 8A - PHP generuje HTML"
         url: "05-php-i-html/01a-php-tworzy-html.md"
+        course_path: true
       - title: "Lekcja 8B - lista danych z MariaDB"
         url: "05-php-i-html/01b-php-lista-z-bazy.md"
+        course_path: true
       - title: "Lekcja 8C - tabela danych z MariaDB"
         url: "05-php-i-html/01c-php-tabela-z-bazy.md"
-      - title: "Lekcja 8 - pełne opracowanie"
-        url: "05-php-i-html/01-generowanie-html-z-bazy.md"
+        course_path: true
       - title: "Lekcja 9A - podstawy GET"
         url: "05-php-i-html/02a-get-podstawy.md"
+        course_path: true
       - title: "Lekcja 9B - rekord z MariaDB"
         url: "05-php-i-html/02b-get-rekord-z-bazy.md"
+        course_path: true
       - title: "Lekcja 9C - linki do rekordów"
         url: "05-php-i-html/02c-get-linki-do-rekordow.md"
-      - title: "Lekcja 9 - pełne opracowanie"
-        url: "05-php-i-html/02-get-parametry-url.md"
+        course_path: true
   - title: "07 - Projekt INF.03"
     url: "07-projekt-inf03/01-jak-zaplanowac-zadanie.md"
     lessons:
       - title: "Od zadania do programu - plan pracy"
         url: "07-projekt-inf03/01-jak-zaplanowac-zadanie.md"
+        course_path: true
       - title: "Lekcja 10A - Od SELECT do nazw obiektów"
         url: "07-projekt-inf03/10a-nazwy-z-bazy.md"
+        course_path: true
       - title: "Lekcja 10B - Jedna nazwa pliku, jedno zdjęcie"
         url: "07-projekt-inf03/10b-jedno-zdjecie.md"
+        course_path: true
       - title: "Lekcja 10C - Galeria zdjęć z pętli"
         url: "07-projekt-inf03/10c-galeria-w-petli.md"
+        course_path: true
       - title: "Lekcja 10D - Zdjęcie jako link do obiektu"
         url: "07-projekt-inf03/10d-zdjecia-jako-linki.md"
+        course_path: true
       - title: "Lekcja 10E - Od zdjęcia do szczegółów obiektu"
         url: "07-projekt-inf03/10e-strona-szczegolow.md"
+        course_path: true
+  - title: "Pełne opracowania - materiały uzupełniające"
+    url: "04-grupowanie-danych/01-group-by.md"
+    lessons:
+      - title: "GROUP BY - pełne opracowanie"
+        url: "04-grupowanie-danych/01-group-by.md"
+      - title: "HAVING - pełne opracowanie"
+        url: "04-grupowanie-danych/02-having.md"
+      - title: "DISTINCT i DISTINCTROW - pełne opracowanie"
+        url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"
+      - title: "Lekcja 8 - pełne opracowanie"
+        url: "05-php-i-html/01-generowanie-html-z-bazy.md"
+      - title: "Lekcja 9 - pełne opracowanie"
+        url: "05-php-i-html/02-get-parametry-url.md"
       - title: "Pełny przykład po etapach 10A-10D - Od SQL do galerii zdjęć"
         url: "07-projekt-inf03/02-galeria-z-bazy.md"
   - title: "06 - HTML i CSS (materiały dodatkowe)"

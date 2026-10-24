@@ -4,7 +4,7 @@ title: Lekcja 10A - Od SELECT do nazw obiektów
 
 # Lekcja 10A - Od SELECT do nazw obiektów
 
-Znasz już `SELECT` z [lekcji 2]({{ '/02-php-i-mariadb/01-odczyt-danych.html' | relative_url }}). W [lekcji 4]({{ '/03-zapytania-inf03/02-wyniki-zapytan-w-php.html' | relative_url }}) łączyłeś PHP z bazą MariaDB. W [lekcji 8]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}) używałeś pętli `while` do wyświetlania rekordów.
+Znasz już `SELECT` z [lekcji 2]({{ '/02-php-i-mariadb/01-odczyt-danych.html' | relative_url }}). W [lekcji 4]({{ '/03-zapytania-inf03/02-wyniki-zapytan-w-php.html' | relative_url }}) łączyłeś PHP z bazą MariaDB. W [lekcji 8B]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}) używałeś pętli `while` do wyświetlania rekordów.
 
 Teraz połączysz te umiejętności. Z tabeli `obiekty` pokażesz na stronie dziewięć nazw miejsc z Islandii. Jeśli trudno Ci zacząć, zajrzyj do [przewodnika planowania pracy]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 

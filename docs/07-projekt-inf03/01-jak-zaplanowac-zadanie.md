@@ -57,11 +57,11 @@ Nie musisz pamiętać wszystkiego. Wybierz czynność i wróć do odpowiedniej l
 | Pobrać wybrane dane | `SELECT`, `WHERE` | [Lekcja 3 - zapytania SQL]({{ '/03-zapytania-inf03/01-cztery-zapytania.html' | relative_url }}) |
 | Połączyć dane z dwóch tabel | `JOIN` i kolumny łączące tabele | [Lekcja 3 - zapytania SQL]({{ '/03-zapytania-inf03/01-cztery-zapytania.html' | relative_url }}) |
 | Wykonać zapytanie w PHP | `mysqli_query()` i odczyt wyniku | [Lekcja 4]({{ '/03-zapytania-inf03/02-wyniki-zapytan-w-php.html' | relative_url }}) |
-| Policzyć obiekty w grupach | `GROUP BY`, `COUNT()` | [Lekcja 5]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}) |
-| Wybrać grupy spełniające warunek | `HAVING` | [Lekcja 6]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}) |
-| Usunąć powtórzenia z wyniku | `DISTINCT` | [Lekcja 7]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}) |
-| Wyświetlić wiele rekordów na stronie | `while` i `mysqli_fetch_array()` | [Lekcja 8]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}) |
-| Wybrać obiekt przez adres | GET i sprawdzenie identyfikatora | [Lekcja 9]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}) |
+| Policzyć obiekty w grupach | `GROUP BY`, `COUNT()` | [Lekcja 5A]({{ '/04-grupowanie-danych/01a-group-by-podstawy.html' | relative_url }}) |
+| Wybrać grupy spełniające warunek | `HAVING` | [Lekcja 6A]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}) |
+| Usunąć powtórzenia z wyniku | `DISTINCT` | [Lekcja 7A]({{ '/04-grupowanie-danych/03a-distinct-podstawy.html' | relative_url }}) |
+| Wyświetlić wiele rekordów na stronie | `while` i `mysqli_fetch_array()` | [Lekcja 8B]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}) |
+| Wybrać obiekt przez adres | GET i sprawdzenie identyfikatora | [Lekcja 9B]({{ '/05-php-i-html/02b-get-rekord-z-bazy.html' | relative_url }}) |
 
 Nie każde zadanie wymaga wszystkich tych umiejętności. Dobierz je do poleceń w arkuszu.
 

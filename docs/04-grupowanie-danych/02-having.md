@@ -13,7 +13,7 @@ Tutaj znajdziesz więcej przykładów i trudniejsze zadania.
 
 Pracujemy w phpMyAdmin na bazie `Islandia`, zaimportowanej z niezmienionego `baza1.sql`. Wykonuj zapytania pojedynczo w zakładce SQL. Wszystkie wyniki dotyczą oryginalnych danych. Niczego nie usuwamy ani nie dopisujemy.
 
-To kontynuacja [lekcji o GROUP BY]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}). Potrzebujesz grupowania, `COUNT()`, sortowania i podstaw łączenia tabel.
+To kontynuacja [lekcji 5A o GROUP BY]({{ '/04-grupowanie-danych/01a-group-by-podstawy.html' | relative_url }}). Potrzebujesz grupowania, `COUNT()`, sortowania i podstaw łączenia tabel.
 
 ## 1. Przypomnienie - grupy turystów
 
@@ -511,7 +511,7 @@ FROM / JOIN => WHERE: wybierz rekordy => GROUP BY: utwórz grupy
 
 ## Materiały odniesienia
 
-- [GROUP BY - poprzednia lekcja]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}).
+- [Lekcja 5A - podstawy GROUP BY]({{ '/04-grupowanie-danych/01a-group-by-podstawy.html' | relative_url }}).
 - [Baza Islandia - przygotowanie danych]({{ '/00-organizacja/01-baza-islandia.html' | relative_url }}).
 - [MariaDB - GROUP BY i HAVING](https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/group-by).
 - [MariaDB - COUNT](https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/count).

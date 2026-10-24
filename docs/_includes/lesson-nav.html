@@ -6,23 +6,25 @@
 
 {% for section in site.data.navigation.sections %}
   {% for item in section.lessons %}
-    {% if found_current and next_url == nil %}
-      {% assign next_title = item.title %}
-      {% assign next_url = item.url %}
-    {% endif %}
+    {% if item.course_path %}
+      {% if found_current and next_url == nil %}
+        {% assign next_title = item.title %}
+        {% assign next_url = item.url %}
+      {% endif %}
 
-    {% if item.url == page.path %}
-      {% assign found_current = true %}
-    {% elsif found_current == false %}
-      {% assign previous_title = item.title %}
-      {% assign previous_url = item.url %}
+      {% if item.url == page.path %}
+        {% assign found_current = true %}
+      {% elsif found_current == false %}
+        {% assign previous_title = item.title %}
+        {% assign previous_url = item.url %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endfor %}
 
 <nav class="lesson-nav" aria-label="Nawigacja lekcji">
   <div class="lesson-nav__slot lesson-nav__slot--prev">
-    {% if previous_url %}
+    {% if found_current and previous_url %}
       {% assign previous_href = previous_url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
       <a class="lesson-nav__button" href="{{ previous_href }}">
         <span class="lesson-nav__label">Poprzednia lekcja</span>
@@ -39,7 +41,7 @@
   </div>
 
   <div class="lesson-nav__slot lesson-nav__slot--next">
-    {% if next_url %}
+    {% if found_current and next_url %}
       {% assign next_href = next_url | replace: 'index.md', '' | replace: 'README.md', '' | replace: '.md', '.html' | relative_url %}
       <a class="lesson-nav__button" href="{{ next_href }}">
         <span class="lesson-nav__label">Następna lekcja</span>
