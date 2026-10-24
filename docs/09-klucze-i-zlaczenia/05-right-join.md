@@ -35,11 +35,10 @@ W poniższym schemacie lewą tabelą są `obiekty`, a prawą `rodzaje`.
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
-flowchart TD
+flowchart LR
     A["obiekty + rodzaje"] --> B["INNER JOIN: 25"]
     A --> C["LEFT JOIN: 25"]
     A --> D["RIGHT JOIN: 26"]
-    D --> E["rzeka: NULL"]
 </pre>
 <p class="diagram-fallback">Te same tabele, trzy osobne złączenia: INNER JOIN =&gt; 25; LEFT JOIN =&gt; 25; RIGHT JOIN =&gt; 26, w tym rzeka | NULL.</p>
 <figcaption>Trzy osobne warianty złączenia tych samych tabel. RIGHT JOIN zachowuje także rzekę.</figcaption>
