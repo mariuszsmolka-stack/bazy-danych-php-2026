@@ -52,6 +52,8 @@ sections:
         url: "07-projekt-inf03/01-jak-zaplanowac-zadanie.md"
       - title: "Lekcja 10A - Od SELECT do nazw obiektów"
         url: "07-projekt-inf03/10a-nazwy-z-bazy.md"
+      - title: "Lekcja 10B - Jedna nazwa pliku, jedno zdjęcie"
+        url: "07-projekt-inf03/10b-jedno-zdjecie.md"
       - title: "Pełny przykład po etapach 10A-10D - Od SQL do galerii zdjęć"
         url: "07-projekt-inf03/02-galeria-z-bazy.md"
   - title: "06 - HTML i CSS (materiały dodatkowe)"
