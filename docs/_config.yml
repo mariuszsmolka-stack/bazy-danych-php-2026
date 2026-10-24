@@ -18,3 +18,7 @@ defaults:
       path: "assets/vendor"
     values:
       sitemap: false
+  - scope:
+      path: "06-html-css-dodatkowe/przyklady"
+    values:
+      sitemap: false
