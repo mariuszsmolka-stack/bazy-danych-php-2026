@@ -397,7 +397,7 @@ Szukaj odpowiednio `section`, `aside` i `.miniatury`.
 | R.4.9 | Wysokość miniatur 200px, padding 10px, opacity 0.8, tranzycja 1s | `.miniatury` |
 | R.4.10 | Zmiana opacity na 1 po najechaniu | `.miniatury:hover` |
 
-Powyższe numery i wymagania odpowiadają oficjalnej tabeli R.4 w dostarczonym kluczu oceniania. **Aby zdobyć punkty, właściwości muszą działać na stronie**, a nie tylko znajdować się w pliku CSS.
+Powyższe numery i wymagania odpowiadają kryteriom oceniania CKE dla rezultatu R.4. **Aby zdobyć punkty, właściwości muszą działać na stronie**, a nie tylko znajdować się w pliku CSS.
 
 ### Ostatnia kontrola
 

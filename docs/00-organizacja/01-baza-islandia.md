@@ -49,6 +49,6 @@ Wszystkie cztery klucze obce mają `ON DELETE NO ACTION` i `ON UPDATE NO ACTION`
 
 ## Odniesienie do INF.03
 
-Arkusz CKE **INF.03-01-26.06-SG** (egzamin praktyczny, czerwiec 2026) dotyczy portalu turystycznego. Zadanie egzaminacyjne wykorzystuje tabele `kontynenty`, `rodzaje` i `obiekty`; dostarczony zrzut ma również `turysci` i `osiagniecia`. W lekcji 2 ćwiczymy odczyt na tabeli `turysci`.
+Arkusz CKE **INF.03-01-26.06-SG** (egzamin praktyczny, czerwiec 2026) dotyczy portalu turystycznego. Zadanie egzaminacyjne wykorzystuje tabele `kontynenty`, `rodzaje` i `obiekty`. Baza danych zawiera również tabele `turysci` i `osiagniecia`. W lekcji 2 ćwiczymy odczyt na tabeli `turysci`.
 
 Arkusz podaje nazwę bazy `islandia` małymi literami. W tym kursie zgodnie z przyjętą konfiguracją używamy `Islandia`; twórz bazę i zapisuj połączenia konsekwentnie z tą samą nazwą. PDF pozostaje materiałem odniesienia i nie jest tu publikowany.
