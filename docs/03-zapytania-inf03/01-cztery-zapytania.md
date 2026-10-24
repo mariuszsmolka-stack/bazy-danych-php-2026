@@ -5,15 +5,15 @@ mermaid: true
 
 # Lekcja 3 - Cztery zapytania SQL z arkusza INF.03
 
-**Cel:** odczytać treść polecenia egzaminacyjnego i samodzielnie przygotować zapytanie SQL. Pracujemy na bazie `Islandia` zaimportowanej z `baza1.sql`.
+Na egzaminie trzeba przełożyć polecenie na zapytanie SQL. W tej lekcji przećwiczysz cztery takie zapytania na bazie `Islandia` z pliku `baza1.sql`.
 
-**Źródło zadań:** INF.03-01-26.06-SG, czerwiec 2026, strona 2, część "Operacje na bazie danych". Ćwiczenia wykorzystują zakres i nazwy pól wskazane w arkuszu. Zapytania i wyniki poniżej dotyczą niezmienionych danych z `baza1.sql`.
+Zadania pochodzą z arkusza INF.03-01-26.06-SG, czerwiec 2026, strona 2, część „Operacje na bazie danych”. Ćwiczenia wykorzystują zakres i nazwy pól wskazane w arkuszu. Podane wyniki dotyczą niezmienionych danych z `baza1.sql`.
 
-W phpMyAdmin wybierz bazę `Islandia`, otwórz zakładkę `SQL` i wykonuj zapytania po kolei. **Nie zmieniaj danych w tabelach.**
+Otwórz w phpMyAdmin bazę `Islandia`, a potem zakładkę `SQL`. Wykonuj zapytania po kolei. **Nie zmieniaj danych w tabelach.**
 
 ## Zapytanie 1 - Obiekty z Islandii
 
-**Treść zadania:** Wybierz jedynie pola `idObiekt`, `plik` i `nazwa` z tabeli `obiekty` dla Islandii.
+**Zadanie:** W tabeli `obiekty` znajdź rekordy z Islandii. Wyświetl tylko pola `idObiekt`, `plik` i `nazwa`.
 
 To proste filtrowanie jednej tabeli. Wystarczy `SELECT`, `FROM` i `WHERE`.
 
@@ -23,13 +23,13 @@ FROM obiekty
 WHERE panstwo = 'Islandia';
 ```
 
-**Sprawdzenie:** zapytanie zwraca 9 wierszy. Jednym z obiektów jest `Strokkur`.
+**Sprawdź wynik:** zapytanie zwraca 9 wierszy. Jednym z obiektów jest `Strokkur`.
 
 ## Zapytanie 2 - Dane obiektu 46
 
-**Treść zadania:** Wybierz pola `plik`, `nazwa`, `nazwaCechy`, `wartoscCechy`, `opis` z tabeli `obiekty` oraz odpowiadające pole `rodzaj` z tabeli `rodzaje` dla obiektu o identyfikatorze 46. Użyj relacji tabel.
+**Zadanie:** Znajdź obiekt o identyfikatorze 46. Z tabeli `obiekty` wybierz pola `plik`, `nazwa`, `nazwaCechy`, `wartoscCechy` i `opis`. Z tabeli `rodzaje` dołącz odpowiadające mu pole `rodzaj`.
 
-Tutaj łączymy `obiekty` i `rodzaje` za pomocą wspólnego pola `idRodzaj`.
+Nazwa rodzaju jest w innej tabeli niż dane obiektu. `JOIN` łączy wiersze z obu tabel przez pole `idRodzaj`.
 
 ```sql
 SELECT o.plik, o.nazwa, o.nazwaCechy, o.wartoscCechy,
@@ -39,13 +39,13 @@ JOIN rodzaje AS r ON o.idRodzaj = r.idRodzaj
 WHERE o.idObiekt = 46;
 ```
 
-**Sprawdzenie:** jeden wiersz - `Strokkur`, rodzaj `gorące źródło`, cecha `wysokość`, wartość `30`.
+**Sprawdź wynik:** jeden wiersz - `Strokkur`, rodzaj `gorące źródło`, cecha `wysokość`, wartość `30`.
 
 ## Zapytanie 3 - Wodospady z Islandii
 
-**Treść zadania:** Wybierz jedynie nazwy obiektów z Islandii, których identyfikator rodzaju to `10`.
+**Zadanie:** Wybierz obiekty z Islandii, których identyfikator rodzaju to `10`. Wyświetl tylko ich nazwy.
 
-Zastanów się, z ilu warunków składa się polecenie. Najpierw spróbuj samodzielnie napisać SQL.
+Potrzebujesz dwóch warunków: państwa i rodzaju. Spróbuj samodzielnie napisać SQL.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - jakie warunki są potrzebne?</summary>
@@ -72,9 +72,11 @@ WHERE panstwo = 'Islandia' AND idRodzaj = 10;
 
 ## Zapytanie 4 - Liczba obiektów każdego rodzaju
 
-**Treść zadania:** Wybierz `rodzaj` z tabeli `rodzaje` oraz liczbę obiektów tego rodzaju. Kolumnie z liczbą nadaj alias `Liczba obiektów`. Wykorzystaj relację i grupowanie.
+**Zadanie:** Pokaż nazwy rodzajów z tabeli `rodzaje`. Obok każdej nazwy pokaż liczbę obiektów tego rodzaju. Kolumnę z liczbą nazwij `Liczba obiektów`.
 
-Tu potrzebujemy trzech mechanizmów, dlatego przejdź po nich w tej kolejności:
+Nazwa rodzaju jest w tabeli `rodzaje`. Obiekty są w tabeli `obiekty`. Najpierw połącz tabele przez `JOIN`.
+
+Potem `GROUP BY` utworzy grupę dla każdego rodzaju. `COUNT(o.idObiekt)` policzy obiekty w każdej grupie. Diagram pokazuje te kroki:
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
