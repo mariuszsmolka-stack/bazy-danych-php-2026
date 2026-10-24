@@ -5,8 +5,16 @@ baseurl: "/bazy-danych-php-2026"
 lang: pl-PL
 theme: jekyll-theme-slate
 markdown: kramdown
+
+plugins:
+  - jekyll-sitemap
+
 defaults:
   - scope:
       path: ""
     values:
       layout: default
+  - scope:
+      path: "assets/vendor"
+    values:
+      sitemap: false
