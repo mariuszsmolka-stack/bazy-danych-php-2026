@@ -55,9 +55,11 @@ sections:
       - title: "DISTINCT i DISTINCTROW - pełne opracowanie"
         url: "04-grupowanie-danych/03-distinct-i-distinctrow.md"
   - title: "05 - PHP i HTML"
-    url: "05-php-i-html/01-generowanie-html-z-bazy.md"
+    url: "05-php-i-html/01a-php-tworzy-html.md"
     lessons:
-      - title: "Generowanie HTML z danych MariaDB"
+      - title: "Lekcja 8A - PHP generuje HTML"
+        url: "05-php-i-html/01a-php-tworzy-html.md"
+      - title: "Lekcja 8 - pełne opracowanie"
         url: "05-php-i-html/01-generowanie-html-z-bazy.md"
       - title: "GET - parametry w adresie URL"
         url: "05-php-i-html/02-get-parametry-url.md"
