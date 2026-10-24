@@ -67,6 +67,8 @@ sections:
         url: "05-php-i-html/01-generowanie-html-z-bazy.md"
       - title: "Lekcja 9A - podstawy GET"
         url: "05-php-i-html/02a-get-podstawy.md"
+      - title: "Lekcja 9B - rekord z MariaDB"
+        url: "05-php-i-html/02b-get-rekord-z-bazy.md"
       - title: "Lekcja 9 - pełne opracowanie"
         url: "05-php-i-html/02-get-parametry-url.md"
   - title: "07 - Projekt INF.03"

@@ -6,6 +6,8 @@ title: Lekcja 9 - PHP i GET - parametry w adresie URL
 
 Jeśli dopiero poznajesz parametry w adresie, zacznij od [lekcji 9A]({{ '/05-php-i-html/02a-get-podstawy.html' | relative_url }}).
 
+W [lekcji 9B]({{ '/05-php-i-html/02b-get-rekord-z-bazy.html' | relative_url }}) zobaczysz, jak numer z adresu wybiera jeden rekord z MariaDB.
+
 Jak sprawić, żeby ten sam plik pokazywał raz gejzer, a raz wodospad? Przekażemy numer obiektu w adresie. Cel lekcji: wyjaśnić i uruchomić drogę **kliknięcie linku => parametr id => SELECT => szczegóły obiektu**.
 
 Korzystamy z bazy `Islandia` oraz umiejętności z [lekcji 8]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}). Najpierw wykonaj część A. Część B dodaje listę linków do tego samego programu.
