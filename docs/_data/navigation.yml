@@ -54,6 +54,8 @@ sections:
       - title: "Lekcja 6C - HAVING i JOIN"
         url: "04-grupowanie-danych/02c-having-i-join.md"
         course_path: true
+      - title: "ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań"
+        url: "04-grupowanie-danych/04-zadania-group-by-having.md"
       - title: "Lekcja 7A - podstawy DISTINCT"
         url: "04-grupowanie-danych/03a-distinct-podstawy.md"
         course_path: true
@@ -158,3 +160,5 @@ sections:
         url: "08-sql-od-zera/09-null.md"
       - title: "SQL 0J - AND, OR, NOT i kolejność warunków"
         url: "08-sql-od-zera/10-warunki-logiczne.md"
+      - title: "ZBIÓR ZADAŃ 1 - SELECT. 20 zadań"
+        url: "08-sql-od-zera/11-zadania-select.md"

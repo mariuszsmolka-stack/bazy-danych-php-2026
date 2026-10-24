@@ -55,4 +55,6 @@ Nie musisz zapamiętywać definicji słowo w słowo. Spróbuj własnymi słowami
 9. [SQL 0I - NULL, IS NULL i IS NOT NULL]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).
 10. [SQL 0J - AND, OR, NOT i kolejność warunków]({{ '/08-sql-od-zera/10-warunki-logiczne.html' | relative_url }}).
 
+- [ZBIÓR ZADAŃ 1 - SELECT. 20 zadań]({{ '/08-sql-od-zera/11-zadania-select.html' | relative_url }}).
+
 **Następny krok:** [SQL 0A - Pierwsze zapytanie SELECT]({{ '/08-sql-od-zera/01-select-podstawy.html' | relative_url }}).

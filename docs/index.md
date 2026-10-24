@@ -25,6 +25,7 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 8. [Lekcja 6A - podstawy HAVING]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}).
 9. [Lekcja 6B - WHERE i HAVING]({{ '/04-grupowanie-danych/02b-where-i-having.html' | relative_url }}).
 10. [Lekcja 6C - HAVING i JOIN]({{ '/04-grupowanie-danych/02c-having-i-join.html' | relative_url }}).
+    - [ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).
 11. [Lekcja 7A - podstawy DISTINCT]({{ '/04-grupowanie-danych/03a-distinct-podstawy.html' | relative_url }}).
 12. [Lekcja 7B - DISTINCT i DISTINCTROW]({{ '/04-grupowanie-danych/03b-distinct-wiele-kolumn.html' | relative_url }}).
 
@@ -96,3 +97,5 @@ Ten dział znajduje się tymczasowo na końcu kursu. Możesz zacząć od niego b
 9. [SQL 0H - BETWEEN i NOT BETWEEN]({{ '/08-sql-od-zera/08-between.html' | relative_url }}).
 10. [SQL 0I - NULL, IS NULL i IS NOT NULL]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).
 11. [SQL 0J - AND, OR, NOT i kolejność warunków]({{ '/08-sql-od-zera/10-warunki-logiczne.html' | relative_url }}).
+
+- [ZBIÓR ZADAŃ 1 - SELECT. 20 zadań]({{ '/08-sql-od-zera/11-zadania-select.html' | relative_url }}).

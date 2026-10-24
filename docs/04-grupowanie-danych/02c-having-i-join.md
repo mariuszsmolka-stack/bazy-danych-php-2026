@@ -152,3 +152,5 @@ Wynik ma **jedną grupę**. Wszystkie cztery obiekty z Polski są wodospadami.
 Potrafisz wyjaśnić, skąd pochodzi nazwa rodzaju? Która część zapytania wybiera państwo, a która wybiera grupy według ich liczności?
 
 `JOIN` daje nam nazwę z drugiej tabeli. `GROUP BY` tworzy grupy, a `HAVING` pozostawia te, które spełniają warunek.
+
+[ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).
