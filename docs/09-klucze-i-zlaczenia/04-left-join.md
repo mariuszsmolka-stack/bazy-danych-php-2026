@@ -27,13 +27,11 @@ Cały wynik ma **26 wierszy**: 25 obiektów oraz jeden wiersz dla rzeki. Tabela 
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
-flowchart LR
-    A["Lewo: rodzaje, 9 rekordów"] --> B["Dopasuj po idRodzaj"]
-    C["Prawo: obiekty, 25 rekordów"] --> B
-    B --> D["25 wierszy z obiektem"]
-    B --> E["rzeka: nazwa obiektu NULL"]
-    D --> F["Razem: 26 wierszy"]
-    E --> F
+flowchart TD
+    A["Lewo: rodzaje, 9 rekordów"] --> B["LEFT JOIN obiekty po idRodzaj"]
+    B --> C["25 wierszy z obiektem"]
+    C --> D["rzeka: obiekt NULL"]
+    D --> E["Razem: 26 wierszy"]
 </pre>
 <p class="diagram-fallback">rodzaje (lewo) + obiekty (prawo) =&gt; 25 dopasowanych wierszy + rzeka | NULL =&gt; 26 wierszy.</p>
 <figcaption>Jeden rodzaj może dać wiele wierszy, a rzeka zostaje zachowana bez obiektu.</figcaption>

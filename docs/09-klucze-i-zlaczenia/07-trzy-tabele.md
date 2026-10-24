@@ -47,11 +47,10 @@ Pełny wynik ma **25 wierszy**. Pokazane dwa wiersze są przykładami z tej bazy
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
-flowchart LR
-    A["obiekty: nazwa, idRodzaj, idKontynent"] -->|"idRodzaj"| B["rodzaje: rodzaj"]
-    A -->|"idKontynent"| C["kontynenty: nazwa"]
-    B --> D["Wynik: obiekt, rodzaj, kontynent"]
-    C --> D
+flowchart TD
+    A["obiekty: nazwa i klucze obce"] --> B["Dołącz rodzaje po idRodzaj"]
+    B --> C["Dołącz kontynenty po idKontynent"]
+    C --> D["Wynik: obiekt, rodzaj, kontynent"]
 </pre>
 <p class="diagram-fallback">obiekty.idRodzaj =&gt; rodzaje.idRodzaj; obiekty.idKontynent =&gt; kontynenty.idKontynent; wynik: obiekt | rodzaj | kontynent.</p>
 <figcaption>Dwa połączenia prowadzą od obiektu do nazw rodzaju i kontynentu.</figcaption>

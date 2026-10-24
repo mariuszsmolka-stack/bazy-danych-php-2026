@@ -24,9 +24,9 @@ Wspólna wartość `10` łączy Skogafoss z wodospadem. Wartość `15` łączy S
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
-flowchart LR
-    A["obiekty: Skogafoss, idRodzaj 10"] --> C["Dopasuj idRodzaj 10"]
-    B["rodzaje: 10, wodospad"] --> C
+flowchart TD
+    A["obiekty: Skogafoss, 10"] --> B["Porównaj idRodzaj"]
+    B --> C["rodzaje: 10, wodospad"]
     C --> D["Wynik: Skogafoss, wodospad"]
 </pre>
 <p class="diagram-fallback">obiekty: Skogafoss, 10 + rodzaje: 10, wodospad =&gt; dopasowanie po idRodzaj =&gt; Skogafoss | wodospad.</p>

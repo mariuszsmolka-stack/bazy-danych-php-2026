@@ -19,10 +19,11 @@ Encja należy do modelu danych. Tabela jest strukturą w relacyjnej bazie. Są z
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
-flowchart LR
-    A["Encja: Turysta"] --> B["Atrybuty: idTurysta, nick, punkty"]
-    B --> C["Tabela: turysci"]
-    C --> D["Rekord: 1, Ewa, 23"]
+flowchart TD
+    A["Encja: Turysta"] --> B["Atrybuty"]
+    B --> C["idTurysta, nick, punkty"]
+    C --> D["Tabela: turysci"]
+    D --> E["Rekord: 1, Ewa, 23"]
 </pre>
 <p class="diagram-fallback">Encja Turysta =&gt; atrybuty idTurysta, nick, punkty =&gt; tabela turysci =&gt; rekord 1 | Ewa | 23.</p>
 <figcaption>Od modelu turysty do jego rekordu w tabeli.</figcaption>

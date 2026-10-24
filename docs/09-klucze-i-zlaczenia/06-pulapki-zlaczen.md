@@ -34,10 +34,8 @@ Gdy brak pasującego obiektu, `o.panstwo` jest `NULL`. Warunek `WHERE o.panstwo 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
 flowchart TD
-    A["rodzaje LEFT JOIN obiekty"] --> B["Filtr Islandia w ON"]
-    A --> C["Filtr Islandia w WHERE"]
-    B --> D["Wszystkie 9 rodzajów, także z zerem"]
-    C --> E["Tylko rodzaje z obiektem Islandii"]
+    A["rodzaje LEFT JOIN obiekty"] --> B["Filtr w ON: 9 rodzajów"]
+    B --> C["Filtr w WHERE: 5 rodzajów"]
 </pre>
 <p class="diagram-fallback">LEFT JOIN + filtr w ON =&gt; 9 rodzajów, także z zerem; LEFT JOIN + filtr w WHERE =&gt; tylko rodzaje z obiektem Islandii.</p>
 <figcaption>Miejsce warunku zmienia to, które rodzaje pozostają w wyniku.</figcaption>
