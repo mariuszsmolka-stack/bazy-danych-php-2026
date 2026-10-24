@@ -24,6 +24,10 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 
 [Ściąga PHP INF.03 - funkcje z arkusza]({{ '/00-organizacja/02-sciaga-php-inf03.html' | relative_url }}).
 
+## Materiały dodatkowe
+
+[HTML i CSS - materiały dodatkowe INF.03]({{ '/06-html-css-dodatkowe/index.html' | relative_url }}).
+
 ## Jak pracować?
 
 Czytaj wyjaśnienia, uruchamiaj przykłady i wykonuj ćwiczenia po kolei. Lekcja 1 nie wymaga połączenia z bazą. Przed lekcją 2 przygotuj bazę `Islandia` według instrukcji importu.
