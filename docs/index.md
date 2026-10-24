@@ -28,6 +28,10 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 
 [HTML i CSS - materiały dodatkowe INF.03]({{ '/06-html-css-dodatkowe/index.html' | relative_url }}).
 
+[Ściąga VS Code i Emmet]({{ '/00-organizacja/03-sciaga-vscode-emmet.html' | relative_url }}).
+
+[Ściąga HTML i CSS - INF.03]({{ '/06-html-css-dodatkowe/03-sciaga-html-css-inf03.html' | relative_url }}).
+
 ## Jak pracować?
 
 Czytaj wyjaśnienia, uruchamiaj przykłady i wykonuj ćwiczenia po kolei. Lekcja 1 nie wymaga połączenia z bazą. Przed lekcją 2 przygotuj bazę `Islandia` według instrukcji importu.

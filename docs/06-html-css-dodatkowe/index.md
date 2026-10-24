@@ -15,6 +15,8 @@ Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminac
 1. [HTML - budujemy szkielet portalu Islandii](01-html-portal-islandii.html) - wspólne bloki, listy, obrazy, linki, struktura dwóch stron.
 2. [CSS - odtwarzamy wygląd portalu Islandii](02-css-portal-islandii.html) - wszystkie wymagane właściwości z arkusza, przykład działającego arkusza stylów.
 
+3. [Ściąga HTML i CSS - INF.03](03-sciaga-html-css-inf03.html).
+
 **[Pobierz pliki HTML i CSS (ZIP)](portal-islandii-html-css.zip)** - pliki HTML i CSS.
 
 ## Uruchom gotowe przykłady
