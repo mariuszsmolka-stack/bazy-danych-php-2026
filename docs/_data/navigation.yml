@@ -60,7 +60,7 @@ sections:
         url: "09-klucze-i-zlaczenia/06-pulapki-zlaczen.md"
       - title: "SQL 1G - Łączenie trzech tabel"
         url: "09-klucze-i-zlaczenia/07-trzy-tabele.md"
-      - title: "ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań"
+      - title: "ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań"
         url: "09-klucze-i-zlaczenia/08-zadania-klucze-i-join.md"
   - title: "01 - Podstawy PHP"
     url: "01-podstawy-php/01-podstawy-php.md"
@@ -104,7 +104,7 @@ sections:
       - title: "Lekcja 6C - HAVING i JOIN"
         url: "04-grupowanie-danych/02c-having-i-join.md"
         course_path: true
-      - title: "ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań"
+      - title: "ZBIÓR ZADAŃ 3 - GROUP BY I HAVING. 20 zadań"
         url: "04-grupowanie-danych/04-zadania-group-by-having.md"
       - title: "Lekcja 7A - podstawy DISTINCT"
         url: "04-grupowanie-danych/03a-distinct-podstawy.md"

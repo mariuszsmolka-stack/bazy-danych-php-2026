@@ -4,7 +4,11 @@ title: Spis treści
 
 # Bazy danych i PHP - aplikacje WWW w XAMPP
 
-Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odczytywać dane z MariaDB. Pracujemy lokalnie w XAMPP, z phpMyAdmin i Visual Studio Code.
+Ten kurs jest przeznaczony dla uczniów technikum informatycznego. Zaczynamy od podstaw baz danych i języka SQL.
+
+Następnie poznajemy PHP i tworzymy aplikacje korzystające z bazy MariaDB. Pracujemy w XAMPP, phpMyAdmin i Visual Studio Code.
+
+Materiały przygotowują do egzaminu INF.03.
 
 ## Spis treści
 
@@ -39,7 +43,7 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 6. [SQL 1E - RIGHT JOIN]({{ '/09-klucze-i-zlaczenia/05-right-join.html' | relative_url }}).
 7. [SQL 1F - Pułapki złączeń SQL]({{ '/09-klucze-i-zlaczenia/06-pulapki-zlaczen.html' | relative_url }}).
 8. [SQL 1G - Łączenie trzech tabel]({{ '/09-klucze-i-zlaczenia/07-trzy-tabele.html' | relative_url }}).
-9. [ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
+9. [ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
 
 ### 01 - Podstawy PHP
 
@@ -59,7 +63,7 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 8. [Lekcja 6A - podstawy HAVING]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}).
 9. [Lekcja 6B - WHERE i HAVING]({{ '/04-grupowanie-danych/02b-where-i-having.html' | relative_url }}).
 10. [Lekcja 6C - HAVING i JOIN]({{ '/04-grupowanie-danych/02c-having-i-join.html' | relative_url }}).
-    - [ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).
+    - [ZBIÓR ZADAŃ 3 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).
 11. [Lekcja 7A - podstawy DISTINCT]({{ '/04-grupowanie-danych/03a-distinct-podstawy.html' | relative_url }}).
 12. [Lekcja 7B - DISTINCT i DISTINCTROW]({{ '/04-grupowanie-danych/03b-distinct-wiele-kolumn.html' | relative_url }}).
 

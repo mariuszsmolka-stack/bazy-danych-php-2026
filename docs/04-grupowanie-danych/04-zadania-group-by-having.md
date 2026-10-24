@@ -1,8 +1,8 @@
 ---
-title: ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań
+title: ZBIÓR ZADAŃ 3 - GROUP BY I HAVING. 20 zadań
 ---
 
-# ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań
+# ZBIÓR ZADAŃ 3 - GROUP BY I HAVING. 20 zadań
 
 Pracuj na niezmienionej bazie `Islandia`. Najpierw napisz własne zapytanie w phpMyAdmin. Potem rozwiń rozwiązanie i sprawdź wynik. Możesz dojść do poprawnego wyniku także innym zapytaniem.
 

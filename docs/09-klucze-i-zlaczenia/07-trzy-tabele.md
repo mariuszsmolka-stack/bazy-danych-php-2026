@@ -136,4 +136,4 @@ Sprawdź liczbę wierszy tabeli pośredniej.
 
 </details>
 
-[Dalej: ZBIÓR ZADAŃ 3 - Klucze i JOIN]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
+[Dalej: ZBIÓR ZADAŃ 2 - Klucze i JOIN]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).

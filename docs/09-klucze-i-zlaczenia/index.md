@@ -13,4 +13,4 @@ W bazie `Islandia` informacje o obiektach, rodzajach, kontynentach i turystach s
 5. [SQL 1E - RIGHT JOIN]({{ '/09-klucze-i-zlaczenia/05-right-join.html' | relative_url }}).
 6. [SQL 1F - Pułapki złączeń SQL]({{ '/09-klucze-i-zlaczenia/06-pulapki-zlaczen.html' | relative_url }}).
 7. [SQL 1G - Łączenie trzech tabel]({{ '/09-klucze-i-zlaczenia/07-trzy-tabele.html' | relative_url }}).
-8. [ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
+8. [ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).

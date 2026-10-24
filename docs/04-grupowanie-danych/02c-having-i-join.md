@@ -153,4 +153,4 @@ Potrafisz wyjaśnić, skąd pochodzi nazwa rodzaju? Która część zapytania wy
 
 `JOIN` daje nam nazwę z drugiej tabeli. `GROUP BY` tworzy grupy, a `HAVING` pozostawia te, które spełniają warunek.
 
-[ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).
+[ZBIÓR ZADAŃ 3 - GROUP BY I HAVING. 20 zadań]({{ '/04-grupowanie-danych/04-zadania-group-by-having.html' | relative_url }}).

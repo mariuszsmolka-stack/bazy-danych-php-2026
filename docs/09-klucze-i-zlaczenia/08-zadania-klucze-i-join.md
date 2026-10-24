@@ -1,8 +1,8 @@
 ---
-title: ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań
+title: ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań
 ---
 
-# ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań
+# ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań
 
 Pracuj na niezmienionej bazie `Islandia`. Rozwiązuj zadania samodzielnie w phpMyAdmin. Potem rozwiń odpowiedź i sprawdź wynik.
 
@@ -456,3 +456,11 @@ Wynik: **7 wierszy**. Pierwsze wartości: `Azja` / `6` / `1`; `Afryka` / `5` / `
 Drugie złączenie dopasowuje tylko wodospady. `COUNT` pomija brak dopasowania.
 
 </details>
+
+## Co dalej?
+
+Potrafisz już pobierać dane z jednej i wielu tabel.
+
+Teraz poznasz podstawy PHP, a następnie nauczysz się wykonywać zapytania SQL w PHP.
+
+[Lekcja 1 - Podstawy PHP i pierwsze tablice]({{ '/01-podstawy-php/01-podstawy-php.html' | relative_url }}).

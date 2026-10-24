@@ -353,3 +353,11 @@ ORDER BY panstwo, idRodzaj;
 Wynik: **6 rekordów**. Pierwsze wartości: `Islandia` / `10`; `Islandia` / `11`; `Islandia` / `13`.
 
 </details>
+
+## Co dalej?
+
+Ukończyłeś podstawy SELECT.
+
+Teraz poznasz klucze główne, klucze obce, relacje i złączenia tabel.
+
+[Klucze, relacje i złączenia SQL]({{ '/09-klucze-i-zlaczenia/index.html' | relative_url }}).
