@@ -56,6 +56,8 @@ sections:
         url: "07-projekt-inf03/10b-jedno-zdjecie.md"
       - title: "Lekcja 10C - Galeria zdjęć z pętli"
         url: "07-projekt-inf03/10c-galeria-w-petli.md"
+      - title: "Lekcja 10D - Zdjęcie jako link do obiektu"
+        url: "07-projekt-inf03/10d-zdjecia-jako-linki.md"
       - title: "Pełny przykład po etapach 10A-10D - Od SQL do galerii zdjęć"
         url: "07-projekt-inf03/02-galeria-z-bazy.md"
   - title: "06 - HTML i CSS (materiały dodatkowe)"
