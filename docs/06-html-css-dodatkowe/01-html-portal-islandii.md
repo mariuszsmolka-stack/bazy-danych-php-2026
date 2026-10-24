@@ -12,7 +12,7 @@ title: HTML - szkielet portalu Islandii
 
 Przygotowaliśmy także [gotowy podgląd galerii](przyklady/islandia.html) i [podgląd strony szczegółów](przyklady/obiekty.html). Możesz otworzyć oba przykłady w przeglądarce.
 
-Zdjęcia nie są publikowane w tym kursie ani w ZIP-ie przykładów. [Pobierz oryginalne załączniki egzaminacyjne](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść dziewięć zdjęć obok plików HTML i CSS, zachowując ich nazwy. Podgląd online pokazuje układ i style bez fotografii; pełny podgląd ze zdjęciami uruchom lokalnie.
+Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminacyjnych](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść je w katalogu z plikami HTML i CSS, zachowując oryginalne nazwy.
 
 ## 1. Najpierw zrozum układ
 
@@ -75,8 +75,6 @@ Omówmy elementy, które naprawdę będą potrzebne:
 - `<title>` określa tytuł karty przeglądarki - w arkuszu musi być **Islandia**.
 - `<link ... href="styl.css">` podłącza **zewnętrzny** arkusz stylów. Nie wstawiamy tutaj reguł CSS.
 - `<body>` zawiera treść widoczną dla odbiorcy.
-
-Komentarz autorski w HTML jest niewidoczny na stronie. Można go zobaczyć w kodzie źródłowym. **To informacja o autorstwie opracowania, nie zabezpieczenie przed kopiowaniem.**
 
 ## 3. Nagłówek z odnośnikiem
 
@@ -216,7 +214,7 @@ Oprócz wspólnego nagłówka „Opis miejsca” w `<main>` arkusz wymaga **nazw
 - [Otwórz kompletny przykład `obiekty.html`](przyklady/obiekty.html)
 - [Otwórz `styl.css`](przyklady/styl.css)
 
-W każdym pliku HTML jest ukryty w kodzie komentarz `przygotował Mariusz Smółka`. W przykładach zdjęcia, nazwy i listy są stałe - **to demonstracja warstwy HTML/CSS, nie rozwiązanie PHP**.
+W przykładach zdjęcia, nazwy i listy są stałe - **to demonstracja warstwy HTML/CSS, nie rozwiązanie PHP**.
 
 ## 11. Ćwiczenia
 

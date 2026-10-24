@@ -8,14 +8,14 @@ Ten dział jest **uzupełnieniem dla zainteresowanych uczniów**, a nie obowiąz
 
 W głównym kursie uczymy się pracy z bazą danych i programowania w PHP. Tutaj pokazujemy, **jak przygotować strukturę i wygląd strony**, do której w kolejnych lekcjach będzie można dodać skrypty PHP.
 
-Zdjęcia nie są publikowane w tym kursie ani w ZIP-ie przykładów. [Pobierz oryginalne załączniki egzaminacyjne](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść dziewięć zdjęć obok plików HTML i CSS, zachowując ich nazwy. Podgląd online pokazuje układ i style bez fotografii; pełny podgląd ze zdjęciami uruchom lokalnie.
+Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminacyjnych](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść je w katalogu z plikami HTML i CSS, zachowując oryginalne nazwy.
 
 ## Opracowania
 
 1. [HTML - budujemy szkielet portalu Islandii](01-html-portal-islandii.html) - wspólne bloki, listy, obrazy, linki, struktura dwóch stron.
 2. [CSS - odtwarzamy wygląd portalu Islandii](02-css-portal-islandii.html) - wszystkie wymagane właściwości z arkusza, przykład działającego arkusza stylów.
 
-**[Pobierz pliki HTML i CSS (ZIP)](portal-islandii-html-css.zip)** - pliki HTML i CSS bez zdjęć.
+**[Pobierz pliki HTML i CSS (ZIP)](portal-islandii-html-css.zip)** - pliki HTML i CSS.
 
 ## Uruchom gotowe przykłady
 
@@ -29,7 +29,7 @@ Przykłady są **statycznymi stronami HTML**. Zdjęcia i listy zostały wpisane 
 
 Dziewięć zdjęć do pobrania osobno to pliki z **załączników do zadania INF.03-01-26.06-SG**. W przykładach używamy oryginalnych nazw, m.in. `Strokkur.jpg`, `Skogafoss.jpg` i `godafoss.jpg`, ponieważ takie nazwy znajdują się również w kolumnie `plik` tabeli `obiekty`.
 
-Źródło zadania i paczki `pliki1.7z`: [Portal turystyczny Islandii - INF.03-01-26.06-SG](https://zawodowe.edu.pl/arkusze-praktyczne/inf-03/inf03-2026-czerwiec-01/). Hasło do oryginalnego archiwum egzaminacyjnego jest podane w arkuszu zadania. **Zdjęć nie przedstawiamy jako własnych fotografii ani nie przypisujemy im licencji kursowych tekstów.**
+Źródło zadania i paczki `pliki1.7z`: [Portal turystyczny Islandii - INF.03-01-26.06-SG](https://zawodowe.edu.pl/arkusze-praktyczne/inf-03/inf03-2026-czerwiec-01/). Hasło do oryginalnego archiwum egzaminacyjnego jest podane w arkuszu zadania.
 
 ## Jak korzystać lokalnie?
 

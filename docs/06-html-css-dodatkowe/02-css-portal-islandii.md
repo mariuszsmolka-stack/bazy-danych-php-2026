@@ -12,7 +12,7 @@ title: CSS - wygląd portalu Islandii
 
 [Otwórz podgląd galerii z gotowym stylem](przyklady/islandia.html) i [podgląd opisu obiektu](przyklady/obiekty.html).
 
-Zdjęcia nie są publikowane w tym kursie ani w ZIP-ie przykładów. [Pobierz oryginalne załączniki egzaminacyjne](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść dziewięć zdjęć obok plików HTML i CSS, zachowując ich nazwy. Podgląd online pokazuje układ i style bez fotografii; pełny podgląd ze zdjęciami uruchom lokalnie.
+Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminacyjnych](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść je w katalogu z plikami HTML i CSS, zachowując oryginalne nazwy.
 
 ## 1. HTML jest konstrukcją, CSS jest wyglądem
 
@@ -253,8 +253,6 @@ section {
 ```
 
 Gotowy plik: [styl.css](przyklady/styl.css).
-
-Zwróć uwagę na komentarz `przygotował Mariusz Smółka` umieszczony w pliku CSS. Nie wpływa on na działanie stylów i nie jest widoczny na stronie.
 
 ## 11. Jak sprawdzić działanie CSS?
 
