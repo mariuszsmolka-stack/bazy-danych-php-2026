@@ -8,6 +8,8 @@ Jeśli dopiero zaczynasz generować HTML za pomocą PHP, zacznij od [lekcji 8A](
 
 Następnie przejdź do [lekcji 8B - listy danych z MariaDB]({{ '/05-php-i-html/01b-php-lista-z-bazy.html' | relative_url }}).
 
+W [lekcji 8C]({{ '/05-php-i-html/01c-php-tabela-z-bazy.html' | relative_url }}) utworzysz tabelę z rekordów bazy.
+
 Tutaj znajdziesz dalsze przykłady wyświetlania danych z bazy.
 
 **Cel: wyświetlić tabelę turystów i ich punktów z bazy Islandia.** Zamiast wpisywać każdy wiersz ręcznie, polecimy PHP: pobierz rekord i utwórz dla niego wiersz HTML.
