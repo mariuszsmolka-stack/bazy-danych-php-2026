@@ -36,13 +36,13 @@ W poniższym schemacie lewą tabelą są `obiekty`, a prawą `rodzaje`.
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
 flowchart TD
-    A["obiekty lewo, rodzaje prawo"] --> B["INNER JOIN: 25 dopasowań"]
-    B --> C["LEFT JOIN: 25 obiektów"]
-    C --> D["RIGHT JOIN: 26 wierszy"]
-    D --> E["rzeka, obiekt NULL"]
+    A["obiekty + rodzaje"] --> B["INNER JOIN: 25"]
+    A --> C["LEFT JOIN: 25"]
+    A --> D["RIGHT JOIN: 26"]
+    D --> E["rzeka: NULL"]
 </pre>
-<p class="diagram-fallback">obiekty LEFT + rodzaje RIGHT: INNER JOIN =&gt; 25; LEFT JOIN =&gt; 25; RIGHT JOIN =&gt; 26, w tym rzeka | NULL.</p>
-<figcaption>Rodzaj rzeka zostaje zachowany tylko wtedy, gdy złączenie obejmuje wszystkie rodzaje.</figcaption>
+<p class="diagram-fallback">Te same tabele, trzy osobne złączenia: INNER JOIN =&gt; 25; LEFT JOIN =&gt; 25; RIGHT JOIN =&gt; 26, w tym rzeka | NULL.</p>
+<figcaption>Trzy osobne warianty złączenia tych samych tabel. RIGHT JOIN zachowuje także rzekę.</figcaption>
 </figure>
 
 `LEFT JOIN` w tym konkretnym ustawieniu ma 25 wierszy, bo każdy obiekt ma pasujący rodzaj. Nie jest to ogólna reguła o liczbie wierszy złączenia.

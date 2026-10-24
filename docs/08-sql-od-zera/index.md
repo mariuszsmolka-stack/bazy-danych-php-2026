@@ -30,15 +30,19 @@ Kolumny mają określony **typ danych**. `INT` przechowuje liczbę całkowitą, 
 
 ## Gdzie będziemy pracować?
 
-**XAMPP** pozwala uruchomić serwer bazy danych na Twoim komputerze. W jego panelu uruchom usługę oznaczoną jako **MySQL**. W tym kursie udostępnia ona bazę MariaDB.
-
-Otwórz w przeglądarce `http://localhost/phpmyadmin`. **phpMyAdmin** to strona, na której możesz obejrzeć bazę i wpisywać polecenia SQL.
+**XAMPP** uruchamia potrzebne usługi na Twoim komputerze. Apache obsługuje stronę phpMyAdmin. Usługa oznaczona w panelu jako **MySQL** uruchamia serwer bazy MariaDB. W standardowej konfiguracji kursu obie usługi muszą działać, aby korzystać z phpMyAdmin.
 
 Jeśli nie masz jeszcze bazy `Islandia`, wykonaj [instrukcję importu bazy Islandia]({{ '/00-organizacja/01-baza-islandia.html' | relative_url }}). Potem wróć tutaj.
 
-W lewej części phpMyAdmin wybierz bazę **Islandia**. Kliknij tabelę `turysci`, aby zobaczyć jej rekordy.
+1. Uruchom panel XAMPP.
+2. Uruchom **Apache**.
+3. Uruchom **MySQL**.
+4. Otwórz w przeglądarce `http://localhost/phpmyadmin`.
+5. Wybierz bazę **Islandia**.
+6. Otwórz tabelę `turysci`.
+7. Przejdź do zakładki **SQL**.
 
-Na górze wybierz zakładkę **SQL**. W następnym kroku wpiszesz tam pierwsze **zapytanie**, czyli pytanie do bazy zapisane językiem SQL. Uruchomisz je przyciskiem **Wykonaj**.
+Wpiszesz tam pierwsze **zapytanie**, czyli pytanie do bazy zapisane językiem SQL. Uruchomisz je przyciskiem **Wykonaj**.
 
 Nie musisz zapamiętywać definicji słowo w słowo. Spróbuj własnymi słowami powiedzieć, czym różni się tabela od jednego rekordu.
 
@@ -54,6 +58,7 @@ Nie musisz zapamiętywać definicji słowo w słowo. Spróbuj własnymi słowami
 8. [SQL 0H - BETWEEN i NOT BETWEEN]({{ '/08-sql-od-zera/08-between.html' | relative_url }}).
 9. [SQL 0I - NULL, IS NULL i IS NOT NULL]({{ '/08-sql-od-zera/09-null.html' | relative_url }}).
 10. [SQL 0J - AND, OR, NOT i kolejność warunków]({{ '/08-sql-od-zera/10-warunki-logiczne.html' | relative_url }}).
+11. [SQL 0K - DISTINCT. Usuwamy powtórzenia]({{ '/08-sql-od-zera/12-distinct.html' | relative_url }}).
 
 - [ZBIÓR ZADAŃ 1 - SELECT. 20 zadań]({{ '/08-sql-od-zera/11-zadania-select.html' | relative_url }}).
 

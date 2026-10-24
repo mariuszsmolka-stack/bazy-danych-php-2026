@@ -160,6 +160,8 @@ sections:
         url: "08-sql-od-zera/09-null.md"
       - title: "SQL 0J - AND, OR, NOT i kolejność warunków"
         url: "08-sql-od-zera/10-warunki-logiczne.md"
+      - title: "SQL 0K - DISTINCT. Usuwamy powtórzenia"
+        url: "08-sql-od-zera/12-distinct.md"
       - title: "ZBIÓR ZADAŃ 1 - SELECT. 20 zadań"
         url: "08-sql-od-zera/11-zadania-select.md"
   - title: "KLUCZE, RELACJE I ZŁĄCZENIA SQL"

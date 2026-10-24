@@ -157,6 +157,4 @@ Wynik ma **3 rekordy**: Krzysiek (5), Ania (7) i Adam (11).
 
 </details>
 
-To koniec modułu. Możesz wrócić do [wprowadzenia SQL od zera]({{ '/08-sql-od-zera/index.html' | relative_url }}).
-
-[ZBIÓR ZADAŃ 1 - SELECT. 20 zadań]({{ '/08-sql-od-zera/11-zadania-select.html' | relative_url }}).
+**Następny krok:** [SQL 0K - DISTINCT. Usuwamy powtórzenia]({{ '/08-sql-od-zera/12-distinct.html' | relative_url }}).

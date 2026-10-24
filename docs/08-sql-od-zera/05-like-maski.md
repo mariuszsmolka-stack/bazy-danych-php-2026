@@ -8,7 +8,11 @@ W [SQL 0C]({{ '/08-sql-od-zera/03-warunki-i-like.html' | relative_url }}) używa
 
 Pracuj w phpMyAdmin na niezmienionej bazie `Islandia`. Wszystkie pytania dotyczą tabeli `turysci`.
 
-## 1. Zaczyna się od J
+Lekcję możesz rozłożyć na dwa spotkania. Najpierw poznaj podstawowe wzorce, a później znaki specjalne.
+
+## Część I - Podstawowe wzorce
+
+### 1. Zaczyna się od J
 
 Jak znaleźć nicki zaczynające się od `J`?
 
@@ -26,7 +30,7 @@ Nick musi zaczynać się od `J`. Po tej literze może występować dowolna liczb
 
 **Małe pytanie:** Czy `Ewa` pasuje do `'J%'`?
 
-## 2. Dokładnie cztery znaki po J
+### 2. Dokładnie cztery znaki po J
 
 Jak znaleźć nick zaczynający się od `J`, który ma łącznie pięć znaków?
 
@@ -44,7 +48,7 @@ Wzorzec ma literę `J` i cztery znaki `_`. Każdy `_` zastępuje **dokładnie je
 
 **Małe pytanie:** Ile znaków ma `Janek`?
 
-## 3. Dokładnie pięć znaków po J
+### 3. Dokładnie pięć znaków po J
 
 Teraz dodaj jeszcze jeden `_`:
 
@@ -60,7 +64,7 @@ Po `J` występuje dokładnie pięć znaków. Janek ma po `J` tylko cztery znaki,
 
 **Małe pytanie:** Czy oba zapytania z `_` mogą zwrócić ten sam nick?
 
-## 4. Dwa dowolne znaki i litera a
+### 4. Dwa dowolne znaki i litera a
 
 Jak znaleźć trzyznakowe nicki kończące się na `a`?
 
@@ -76,7 +80,7 @@ Dwa pierwsze znaki mogą być dowolne. Trzeci musi być literą `a`. Cały nick 
 
 **Małe pytanie:** Dlaczego `Ania` nie pasuje?
 
-## 5. Kończy się na ek
+### 5. Kończy się na ek
 
 Jak znaleźć nicki kończące się na `ek`, bez narzucania długości?
 
@@ -92,7 +96,7 @@ Litery przed `ek` mogą być dowolne. Nick musi kończyć się dokładnie na `ek
 
 **Małe pytanie:** Czy `Ewa` kończy się na `ek`?
 
-## 6. Fragment w środku
+### 6. Fragment w środku
 
 Znak `%` może stać po obu stronach szukanego fragmentu:
 
@@ -108,7 +112,7 @@ Szukamy nicka zawierającego `ow`. Przed tym fragmentem i po nim może wystąpi�
 
 **Małe pytanie:** Czy `ow` musi być pierwszymi literami nicka?
 
-## 7. Porównaj dwa wzorce
+### 7. Porównaj dwa wzorce
 
 | Wzorzec | Co oznacza? | Pasuje | Nie pasuje i dlaczego |
 | --- | --- | --- | --- |
@@ -127,7 +131,19 @@ Wynik: **0 rekordów**. W tabeli nie ma nicka zapisanego dosłownie jako `J%`.
 
 **Małe pytanie:** Którego zapisu użyjesz, gdy chcesz znaleźć początek nicka: `=` czy `LIKE`?
 
-## 8. Dosłowne znaki % i _
+Gdy chcesz wybrać nicki **niepasujące** do wzorca, użyj `NOT LIKE`:
+
+```sql
+SELECT nick
+FROM turysci
+WHERE nick NOT LIKE 'J%';
+```
+
+Wynik ma **11 rekordów**. Nie ma Janka ani Jowity.
+
+## Część II - Przypadki szczególne
+
+### 8. Dosłowne znaki % i _
 
 Gdy szukasz znaku `%` jako części tekstu, poprzedź go znakiem ucieczki. Po `ESCAPE` podaj ten znak. Tutaj jest nim `!`:
 
@@ -146,6 +162,10 @@ SELECT '50%' LIKE '%!%%' ESCAPE '!' AS pasuje;
 ```
 
 Wynik to `1`, czyli prawda.
+
+`SELECT` może obliczyć wyrażenie bez pobierania danych z tabeli. Dlatego nie ma tu `FROM`.
+Porównujemy tekst `50%` z podanym wzorcem.
+`AS pasuje` nadaje nazwę kolumnie z wynikiem.
 
 Tak samo wyszukasz dosłowny znak `_`:
 
@@ -173,17 +193,7 @@ WHERE nick LIKE 'j%';
 
 W innej bazie wynik może być inny. Nie zakładaj, że `LIKE` zawsze odróżnia małą literę od wielkiej.
 
-Gdy chcesz wybrać nicki **niepasujące** do wzorca, użyj `NOT LIKE`:
-
-```sql
-SELECT nick
-FROM turysci
-WHERE nick NOT LIKE 'J%';
-```
-
-Wynik ma **11 rekordów**. Nie ma Janka ani Jowity.
-
-## 9. Ćwiczenia
+## Ćwiczenia
 
 Najpierw przewidź wynik. Potem uruchom swoje zapytanie w phpMyAdmin i porównaj z rozwiązaniem.
 

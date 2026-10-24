@@ -20,6 +20,26 @@ Wynik ma jeden wiersz z trzema różnymi wartościami. W phpMyAdmin brak wartoś
 
 **Małe pytanie:** Czy z braku wyniku punktowego wolno wywnioskować, że turysta zdobył zero punktów?
 
+W tabeli `obiekty` widać różnicę między pustym tekstem a `NULL`. Sprawdź opisy, w których zapisano pusty tekst:
+
+```sql
+SELECT idObiekt, nazwa
+FROM obiekty
+WHERE opis = '';
+```
+
+Wynik ma **14 rekordów**. Kolumna `opis` ma w nich wartość `''`, czyli tekst o długości zero.
+
+Teraz sprawdź brak wartości:
+
+```sql
+SELECT idObiekt, nazwa
+FROM obiekty
+WHERE opis IS NULL;
+```
+
+Wynik ma **0 rekordów**. W tej kolumnie nie ma wartości `NULL`. Pusty opis nie oznacza braku zapisanej wartości.
+
 ## 2. Szukaj przez IS NULL
 
 Sprawdź, czy w rzeczywistej tabeli komuś nie zapisano punktów:
@@ -51,6 +71,8 @@ SELECT NULL = NULL AS rowne, NULL <> NULL AS rozne;
 ```
 
 Obie kolumny mają wynik `NULL`, czyli **UNKNOWN**. Nie otrzymujemy ani prawdy, ani fałszu. Dlatego do wyszukiwania braku wartości używaj `IS NULL` albo `IS NOT NULL`, a nie `= NULL` czy `<> NULL`.
+
+W ćwiczeniu niżej zobaczysz też `SELECT 5 = NULL AS wynik;`. Taki `SELECT` oblicza samo porównanie, więc nie potrzebuje `FROM`. `AS wynik` nadaje nazwę kolumnie. Jej wartością będzie `NULL`, czyli **UNKNOWN**.
 
 Warunek w `WHERE` przepuszcza tylko rekordy, dla których otrzyma **TRUE**. Odrzuca **FALSE** oraz **UNKNOWN**.
 

@@ -64,6 +64,8 @@ Wynik to **Ania** i **Adam**. Każdy z tych nicków ma cztery znaki.
 
 `=` sprawdza cały tekst, na przykład `nick = 'Ewa'`. `LIKE 'E%'` szuka tekstów pasujących do wzoru. Bez `%` lub `_` nie wyszukujesz fragmentu nazwy.
 
+To pierwsze wprowadzenie do `LIKE`. Znaki `%` i `_` omówimy dokładniej w [SQL 0E - LIKE, NOT LIKE i znaki wzorca]({{ '/08-sql-od-zera/05-like-maski.html' | relative_url }}).
+
 ## 4. Ćwiczenia
 
 Przewidź wynik przed uruchomieniem zapytania. Potem sprawdź go w phpMyAdmin i porównaj z rozwiązaniem.
