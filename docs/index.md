@@ -99,3 +99,15 @@ Ten dział znajduje się tymczasowo na końcu kursu. Możesz zacząć od niego b
 11. [SQL 0J - AND, OR, NOT i kolejność warunków]({{ '/08-sql-od-zera/10-warunki-logiczne.html' | relative_url }}).
 
 - [ZBIÓR ZADAŃ 1 - SELECT. 20 zadań]({{ '/08-sql-od-zera/11-zadania-select.html' | relative_url }}).
+
+### Klucze, relacje i złączenia SQL
+
+1. [Wprowadzenie do modułu]({{ '/09-klucze-i-zlaczenia/index.html' | relative_url }}).
+2. [SQL 1A - Encja, atrybut i klucz główny]({{ '/09-klucze-i-zlaczenia/01-encja-i-klucz-glowny.html' | relative_url }}).
+3. [SQL 1B - Klucz obcy i relacje]({{ '/09-klucze-i-zlaczenia/02-klucz-obcy-i-relacje.html' | relative_url }}).
+4. [SQL 1C - INNER JOIN]({{ '/09-klucze-i-zlaczenia/03-inner-join.html' | relative_url }}).
+5. [SQL 1D - LEFT JOIN]({{ '/09-klucze-i-zlaczenia/04-left-join.html' | relative_url }}).
+6. [SQL 1E - RIGHT JOIN]({{ '/09-klucze-i-zlaczenia/05-right-join.html' | relative_url }}).
+7. [SQL 1F - Pułapki złączeń SQL]({{ '/09-klucze-i-zlaczenia/06-pulapki-zlaczen.html' | relative_url }}).
+8. [SQL 1G - Łączenie trzech tabel]({{ '/09-klucze-i-zlaczenia/07-trzy-tabele.html' | relative_url }}).
+9. [ZBIÓR ZADAŃ 3 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
