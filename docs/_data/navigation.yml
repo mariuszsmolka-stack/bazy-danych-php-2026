@@ -34,6 +34,8 @@ sections:
     lessons:
       - title: "Lekcja 5A - podstawy GROUP BY"
         url: "04-grupowanie-danych/01a-group-by-podstawy.md"
+      - title: "Lekcja 5B - SUM, AVG, MIN i MAX"
+        url: "04-grupowanie-danych/01b-obliczenia-w-grupach.md"
       - title: "GROUP BY - pełne opracowanie"
         url: "04-grupowanie-danych/01-group-by.md"
       - title: "HAVING - filtrowanie grup danych"
