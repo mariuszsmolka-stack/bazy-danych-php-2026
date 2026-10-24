@@ -80,3 +80,13 @@ GitHub Pages prezentuje materiały. Kod PHP działa lokalnie w XAMPP; ta strona 
 ## Odniesienie do egzaminu
 
 Kurs przygotowuje do INF.03. Materiałem odniesienia jest arkusz CKE **INF.03-01-26.06-SG**, egzamin praktyczny z czerwca 2026, dotyczący portalu turystycznego. Stosujemy proceduralne funkcje `mysqli`. Pełny arkusz PDF nie jest częścią publikacji.
+
+### SQL OD ZERA - DLA POCZĄTKUJĄCYCH
+
+Ten dział znajduje się tymczasowo na końcu kursu. Możesz zacząć od niego bez znajomości PHP.
+
+1. [Wprowadzenie]({{ '/08-sql-od-zera/index.html' | relative_url }}).
+2. [SQL 0A - Pierwsze zapytanie SELECT]({{ '/08-sql-od-zera/01-select-podstawy.html' | relative_url }}).
+3. [SQL 0B - WHERE. Wybieramy rekordy]({{ '/08-sql-od-zera/02-where-podstawy.html' | relative_url }}).
+4. [SQL 0C - Kilka warunków i LIKE]({{ '/08-sql-od-zera/03-warunki-i-like.html' | relative_url }}).
+5. [SQL 0D - Sortowanie i ograniczanie wyników]({{ '/08-sql-od-zera/04-sortowanie-limit.html' | relative_url }}).
