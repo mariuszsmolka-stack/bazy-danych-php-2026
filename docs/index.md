@@ -19,12 +19,13 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 8. [Lekcja 5C - GROUP BY z dwiema kolumnami i JOIN]({{ '/04-grupowanie-danych/01c-group-by-i-join.html' | relative_url }}).
 9. [GROUP BY - pełne opracowanie]({{ '/04-grupowanie-danych/01-group-by.html' | relative_url }}).
 10. [Lekcja 6A - podstawy HAVING]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}).
-11. [HAVING - pełne opracowanie]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}).
-12. [Lekcja 7 - DISTINCT i DISTINCTROW - usuwanie powtórzeń w SQL]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
+11. [Lekcja 6B - WHERE i HAVING]({{ '/04-grupowanie-danych/02b-where-i-having.html' | relative_url }}).
+12. [HAVING - pełne opracowanie]({{ '/04-grupowanie-danych/02-having.html' | relative_url }}).
+13. [Lekcja 7 - DISTINCT i DISTINCTROW - usuwanie powtórzeń w SQL]({{ '/04-grupowanie-danych/03-distinct-i-distinctrow.html' | relative_url }}).
 
-13. [Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
+14. [Lekcja 8 - PHP i dynamiczne generowanie HTML z danych MariaDB]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
 
-14. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+15. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
 
 [Od zadania do programu - jak zaplanować rozwiązanie INF.03?]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 
