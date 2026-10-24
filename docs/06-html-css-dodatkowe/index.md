@@ -4,7 +4,7 @@ title: HTML i CSS - materiały dodatkowe INF.03
 
 # HTML i CSS - materiały dodatkowe INF.03
 
-Ten dział jest **uzupełnieniem dla zainteresowanych uczniów**, a nie obowiązkową częścią kursu SQL, MariaDB i PHP. Powstał na podstawie arkusza praktycznego **INF.03-01-26.06-SG - Portal turystyczny Islandii** oraz zasad jego oceniania.
+Ten dział jest **uzupełnieniem dla zainteresowanych uczniów**, a nie obowiązkową częścią kursu SQL, MariaDB i PHP. W tym dziale ćwiczymy strukturę i wygląd portalu Islandii zgodnie z arkuszem **INF.03-01-26.06-SG** oraz zasadami jego oceniania.
 
 W głównym kursie uczymy się pracy z bazą danych i programowania w PHP. Tutaj pokazujemy, **jak przygotować strukturę i wygląd strony**, do której w kolejnych lekcjach będzie można dodać skrypty PHP.
 

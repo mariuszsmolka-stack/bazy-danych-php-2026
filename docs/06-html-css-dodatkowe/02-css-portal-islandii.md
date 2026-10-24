@@ -382,7 +382,7 @@ Szukaj odpowiednio `section`, `aside` i `.miniatury`.
 
 </details>
 
-## 13. Kryteria egzaminacyjne - kontrola
+## 13. Wymagania egzaminacyjne CSS - rezultat R.4
 
 | Kryterium z klucza | Wymaganie | Gdzie w CSS? |
 | --- | --- | --- |

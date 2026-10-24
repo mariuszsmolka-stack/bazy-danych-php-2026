@@ -7,7 +7,7 @@ mermaid: true
 
 **Cel:** odczytać treść polecenia egzaminacyjnego i samodzielnie przygotować zapytanie SQL. Pracujemy na bazie `Islandia` zaimportowanej z `baza1.sql`.
 
-**Źródło zadań:** INF.03-01-26.06-SG, czerwiec 2026, strona 2, część "Operacje na bazie danych". Zachowano zakres i nazwy pól z arkusza. Zapytania i wyniki poniżej dotyczą niezmienionych danych z `baza1.sql`.
+**Źródło zadań:** INF.03-01-26.06-SG, czerwiec 2026, strona 2, część "Operacje na bazie danych". Ćwiczenia wykorzystują zakres i nazwy pól wskazane w arkuszu. Zapytania i wyniki poniżej dotyczą niezmienionych danych z `baza1.sql`.
 
 W phpMyAdmin wybierz bazę `Islandia`, otwórz zakładkę `SQL` i wykonuj zapytania po kolei. **Nie zmieniaj danych w tabelach.**
 

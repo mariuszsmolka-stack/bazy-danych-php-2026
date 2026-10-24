@@ -10,7 +10,7 @@ title: HTML - szkielet portalu Islandii
 
 [Pobierz wszystkie pliki przykładów (ZIP)](portal-islandii-html-css.zip).
 
-Przygotowaliśmy także [gotowy podgląd galerii](przyklady/islandia.html) i [podgląd strony szczegółów](przyklady/obiekty.html). Możesz otworzyć oba przykłady w przeglądarce.
+Otwórz [podgląd galerii](przyklady/islandia.html) i [podgląd strony szczegółów](przyklady/obiekty.html). Możesz otworzyć oba przykłady w przeglądarce.
 
 Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminacyjnych](https://arkusze.pl/zawodowy/inf03-2026-czerwiec-egzamin-zawodowy-praktyczny-zalaczniki.zip). Po rozpakowaniu umieść je w katalogu z plikami HTML i CSS, zachowując oryginalne nazwy.
 
@@ -118,7 +118,7 @@ Arkusz wymaga **jednej listy punktowanej** (`ul`) z dwoma elementami (`li`), a w
 
 **Dlaczego `ol` jest wewnątrz `li`?** Bo „Wodospady:” jest jednym elementem listy głównej, a cztery nazwy są jego podlistą. Gdyby umieścić `ol` poza `li`, powstałaby inna struktura niż wymagana w zadaniu.
 
-W podglądzie nazwy wpisaliśmy na stałe, aby widzieć wynik. W pełnej wersji **skrypty 1 i 2 mają pobierać te nazwy z bazy danych** - listy nie mogą pozostać wpisane ręcznie. Taką wersję zbudujemy na zajęciach PHP.
+W podglądzie nazwy są zapisane bezpośrednio w HTML, aby było widać wynik. W pełnej wersji **skrypty 1 i 2 mają pobierać te nazwy z bazy danych** - listy nie mogą pozostać wpisane ręcznie. Taką wersję zbudujemy na zajęciach PHP.
 
 ## 5. Główna część i sekcja
 
@@ -144,7 +144,7 @@ Na stronie szczegółów:
 </main>
 ```
 
-**Uwaga:** powyższe komentarze wskazują jedynie miejsce przyszłego kodu PHP. Nie są jeszcze rozwiązaniem. W gotowych plikach demonstracyjnych zawartość sekcji wypełniliśmy przykładowymi danymi.
+**Uwaga:** powyższe komentarze wskazują jedynie miejsce przyszłego kodu PHP. Nie są jeszcze rozwiązaniem. W statycznych przykładach sekcje zawierają dane przykładowe.
 
 ## 6. Obraz, tekst alternatywny i dymek
 
@@ -206,7 +206,7 @@ Oprócz wspólnego nagłówka „Opis miejsca” w `<main>` arkusz wymaga **nazw
 </footer>
 ```
 
-`<hr>` tworzy linię. Na **prawdziwym egzaminie** zera trzeba zastąpić numerem zdającego zgodnie z poleceniem. W przygotowanym przykładzie nie umieszczamy danych konkretnej osoby.
+`<hr>` tworzy linię. Na egzaminie zamiast zer w stopce wpisz numer zdającego.
 
 ## 10. Dwa gotowe pliki - sprawdź strukturę
 
@@ -342,7 +342,7 @@ Tak przygotowana sekcja może być później wypełniana danymi pobranymi z Mari
 
 </details>
 
-## 12. Lista kontroli przed zakończeniem
+## 12. Sprawdź samodzielnie swoją stronę
 
 - [ ] `lang="pl"`, `UTF-8`, tytuł `Islandia` i połączenie z `styl.css`.
 - [ ] Nagłówek, blok boczny, główny, sekcja i stopka.
