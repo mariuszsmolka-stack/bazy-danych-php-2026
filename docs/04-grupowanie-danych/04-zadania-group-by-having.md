@@ -4,239 +4,11 @@ title: ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań
 
 # ZBIÓR ZADAŃ 2 - GROUP BY I HAVING. 20 zadań
 
-Dwadzieścia zadań sprawdzi, czy potrafisz samodzielnie obliczać wyniki dla grup. Pracujemy na jednej tabeli naraz.
+Pracuj na niezmienionej bazie `Islandia`. Najpierw napisz własne zapytanie w phpMyAdmin. Potem rozwiń rozwiązanie i sprawdź wynik. Możesz dojść do poprawnego wyniku także innym zapytaniem.
 
-Wykonaj zadania na niezmienionej bazie `Islandia`. Najpierw napisz własne zapytanie w phpMyAdmin. Potem rozwiń rozwiązanie i porównaj wynik.
+## Zadanie 1 - Cechy obiektów
 
-## Zadanie 1 - Turyści dla każdego wyniku
-
-Dla każdej występującej liczby punktów pokaż tę liczbę oraz liczbę turystów, którzy ją zdobyli.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT punkty, COUNT(*) AS liczbaTurystow
-FROM turysci
-GROUP BY punkty
-ORDER BY punkty;
-```
-
-Wynik: **11 grup**. Przykładowe wiersze: `punkty` = `4`, `liczbaTurystow` = `1`; `punkty` = `11`, `liczbaTurystow` = `2`; `punkty` = `23`, `liczbaTurystow` = `2`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 2 - Powtarzające się wyniki
-
-Pokaż tylko takie wyniki punktowe, które zdobyło co najmniej dwóch turystów. Podaj liczbę turystów w każdej grupie.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT punkty, COUNT(*) AS liczbaTurystow
-FROM turysci
-GROUP BY punkty
-HAVING COUNT(*) >= 2
-ORDER BY punkty;
-```
-
-Wynik: **2 grupy**. Przykładowe wiersze: `punkty` = `11`, `liczbaTurystow` = `2`; `punkty` = `23`, `liczbaTurystow` = `2`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 3 - Wyniki występujące raz
-
-Pokaż wyniki punktowe, które występują dokładnie raz. Podaj liczbę turystów dla każdego wyniku.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT punkty, COUNT(*) AS liczbaTurystow
-FROM turysci
-GROUP BY punkty
-HAVING COUNT(*) = 1
-ORDER BY punkty;
-```
-
-Wynik: **9 grup**. Przykładowe wiersze: `punkty` = `4`, `liczbaTurystow` = `1`; `punkty` = `5`, `liczbaTurystow` = `1`; `punkty` = `7`, `liczbaTurystow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 4 - Powtarzające się wysokie wyniki
-
-Uwzględnij tylko turystów, którzy mają co najmniej 20 punktów. Wśród ich wyników pokaż te, które powtarzają się co najmniej dwa razy. Podaj liczbę turystów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT punkty, COUNT(*) AS liczbaTurystow
-FROM turysci
-WHERE punkty >= 20
-GROUP BY punkty
-HAVING COUNT(*) >= 2
-ORDER BY punkty;
-```
-
-Wynik: **1 grupa**. Przykładowe wiersze: `punkty` = `23`, `liczbaTurystow` = `2`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 5 - Obiekty w państwach
-
-Policz obiekty osobno dla każdego państwa. Wyświetl państwo i liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, COUNT(*) AS liczbaObiektow
-FROM obiekty
-GROUP BY panstwo
-ORDER BY panstwo;
-```
-
-Wynik: **12 grup**. Przykładowe wiersze: `panstwo` = `Chiny`, `liczbaObiektow` = `1`; `panstwo` = `Islandia`, `liczbaObiektow` = `9`; `panstwo` = `Japonia`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 6 - Obiekty według rodzaju
-
-Policz obiekty osobno dla każdego identyfikatora rodzaju `idRodzaj`.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT idRodzaj, COUNT(*) AS liczbaObiektow
-FROM obiekty
-GROUP BY idRodzaj
-ORDER BY idRodzaj;
-```
-
-Wynik: **8 grup**. Przykładowe wiersze: `idRodzaj` = `10`, `liczbaObiektow` = `12`; `idRodzaj` = `11`, `liczbaObiektow` = `4`; `idRodzaj` = `12`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 7 - Rodzaje obiektów Islandii
-
-Policz obiekty Islandii w poszczególnych rodzajach. Wyświetl `idRodzaj` i liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT idRodzaj, COUNT(*) AS liczbaObiektow
-FROM obiekty
-WHERE panstwo = 'Islandia'
-GROUP BY idRodzaj
-ORDER BY idRodzaj;
-```
-
-Wynik: **5 grup**. Przykładowe wiersze: `idRodzaj` = `10`, `liczbaObiektow` = `4`; `idRodzaj` = `11`, `liczbaObiektow` = `1`; `idRodzaj` = `13`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 8 - Rodzaje obiektów Polski
-
-Policz obiekty Polski w poszczególnych rodzajach. Wyświetl `idRodzaj` i liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT idRodzaj, COUNT(*) AS liczbaObiektow
-FROM obiekty
-WHERE panstwo = 'Polska'
-GROUP BY idRodzaj
-ORDER BY idRodzaj;
-```
-
-Wynik: **1 grupa**. Przykładowe wiersze: `idRodzaj` = `10`, `liczbaObiektow` = `4`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 9 - Państwa z wieloma obiektami
-
-Wyświetl państwa, w których znajdują się co najmniej dwa obiekty. Podaj liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, COUNT(*) AS liczbaObiektow
-FROM obiekty
-GROUP BY panstwo
-HAVING COUNT(*) >= 2
-ORDER BY panstwo;
-```
-
-Wynik: **3 grupy**. Przykładowe wiersze: `panstwo` = `Islandia`, `liczbaObiektow` = `9`; `panstwo` = `Polska`, `liczbaObiektow` = `4`; `panstwo` = `Tanzania`, `liczbaObiektow` = `3`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 10 - Państwa z jednym obiektem
-
-Wyświetl państwa, dla których zapisano dokładnie jeden obiekt. Podaj liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, COUNT(*) AS liczbaObiektow
-FROM obiekty
-GROUP BY panstwo
-HAVING COUNT(*) = 1
-ORDER BY panstwo;
-```
-
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Chiny`, `liczbaObiektow` = `1`; `panstwo` = `Japonia`, `liczbaObiektow` = `1`; `panstwo` = `Laos`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 11 - Państwo i rodzaj
-
-Policz obiekty dla każdej kombinacji państwa i `idRodzaj`. Wyświetl obie kolumny grupujące oraz liczbę obiektów.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, idRodzaj, COUNT(*) AS liczbaObiektow
-FROM obiekty
-GROUP BY panstwo, idRodzaj
-ORDER BY panstwo, idRodzaj;
-```
-
-Wynik: **18 grup**. Przykładowe wiersze: `panstwo` = `Chiny`, `idRodzaj` = `17`, `liczbaObiektow` = `1`; `panstwo` = `Islandia`, `idRodzaj` = `10`, `liczbaObiektow` = `4`; `panstwo` = `Islandia`, `idRodzaj` = `11`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 12 - Liczniejsze grupy w dwóch państwach
-
-Uwzględnij tylko obiekty Polski i Islandii. Pokaż te kombinacje państwa i rodzaju, które zawierają co najmniej dwa obiekty. Podaj liczebność grup.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, idRodzaj, COUNT(*) AS liczbaObiektow
-FROM obiekty
-WHERE panstwo IN ('Polska', 'Islandia')
-GROUP BY panstwo, idRodzaj
-HAVING COUNT(*) >= 2
-ORDER BY panstwo, idRodzaj;
-```
-
-Wynik: **3 grupy**. Przykładowe wiersze: `panstwo` = `Islandia`, `idRodzaj` = `10`, `liczbaObiektow` = `4`; `panstwo` = `Islandia`, `idRodzaj` = `14`, `liczbaObiektow` = `2`; `panstwo` = `Polska`, `idRodzaj` = `10`, `liczbaObiektow` = `4`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 13 - Liczba obiektów według cechy
-
-Policz obiekty osobno dla każdej wartości `nazwaCechy`. Wyświetl nazwę cechy i liczbę obiektów.
+Policz obiekty osobno dla każdej wartości `nazwaCechy`. Wyświetl nazwę cechy i liczbę obiektów. Posortuj wynik malejąco według liczby obiektów.
 
 <details class="lesson-solution" markdown="1">
 <summary>Pokaż rozwiązanie</summary>
@@ -245,131 +17,131 @@ Policz obiekty osobno dla każdej wartości `nazwaCechy`. Wyświetl nazwę cechy
 SELECT nazwaCechy, COUNT(*) AS liczbaObiektow
 FROM obiekty
 GROUP BY nazwaCechy
-ORDER BY nazwaCechy;
+ORDER BY liczbaObiektow DESC, nazwaCechy;
 ```
 
-Wynik: **6 grup**. Przykładowe wiersze: `nazwaCechy` = `długość`, `liczbaObiektow` = `2`; `nazwaCechy` = `powierzchnia`, `liczbaObiektow` = `2`; `nazwaCechy` = `wysokość`, `liczbaObiektow` = `18`. Kolejność wynika z `ORDER BY`.
+Wynik: **6 grup**. Pierwsze wartości: `wysokość` / `18`; `długość` / `2`; `powierzchnia` / `2`.
 
 </details>
 
-## Zadanie 14 - Wysokość w państwach
+## Zadanie 2 - Wyniki od 10 punktów
 
-Uwzględnij tylko obiekty, dla których `nazwaCechy` to `wysokość`. Policz je osobno dla każdego państwa.
+Uwzględnij turystów mających co najmniej 10 punktów. Dla każdej występującej wartości punktów podaj liczbę turystów, którzy ją zdobyli.
 
 <details class="lesson-solution" markdown="1">
 <summary>Pokaż rozwiązanie</summary>
 
 ```sql
-SELECT panstwo, COUNT(*) AS liczbaObiektow
+SELECT punkty, COUNT(*) AS liczbaTurystow
+FROM turysci
+WHERE punkty >= 10
+GROUP BY punkty
+ORDER BY punkty;
+```
+
+Wynik: **8 grup**. Pierwsze wartości: `11` / `2`; `12` / `1`; `21` / `1`.
+
+</details>
+
+## Zadanie 3 - Państwa z trzema obiektami
+
+Wyświetl państwa, dla których zapisano co najmniej trzy obiekty. Podaj liczbę obiektów oraz najmniejszy identyfikator obiektu w każdym z tych państw.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, COUNT(*) AS liczbaObiektow, MIN(idObiekt) AS pierwszyIdObiekt
+FROM obiekty
+GROUP BY panstwo
+HAVING COUNT(*) >= 3
+ORDER BY panstwo;
+```
+
+Wynik: **3 grupy**. Pierwsze wartości: `Islandia` / `9` / `46`; `Polska` / `4` / `42`; `Tanzania` / `3` / `34`.
+
+</details>
+
+## Zadanie 4 - Suma wysokości według rodzaju
+
+Dla obiektów z cechą `wysokość` oblicz sumę wartości tej cechy osobno dla każdego `idRodzaj`.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT idRodzaj, SUM(wartoscCechy) AS sumaWysokosci
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY idRodzaj
+ORDER BY idRodzaj;
+```
+
+Wynik: **4 grupy**. Pierwsze wartości: `10` / `1937`; `11` / `23818`; `13` / `5267`.
+
+</details>
+
+## Zadanie 5 - Najmniejsza i największa wysokość
+
+Dla obiektów z cechą `wysokość` wyświetl najmniejszą i największą wartość osobno dla każdego państwa.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, MIN(wartoscCechy) AS minimum, MAX(wartoscCechy) AS maksimum
 FROM obiekty
 WHERE nazwaCechy = 'wysokość'
 GROUP BY panstwo
 ORDER BY panstwo;
 ```
 
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Islandia`, `liczbaObiektow` = `6`; `panstwo` = `Japonia`, `liczbaObiektow` = `1`; `panstwo` = `Malezja`, `liczbaObiektow` = `1`. Kolejność wynika z `ORDER BY`.
+Wynik: **9 grup**. Pierwsze wartości: `Islandia` / `30` / `1491`; `Japonia` / `3776` / `3776`; `Malezja` / `700` / `700`.
 
 </details>
 
-## Zadanie 15 - Największa wysokość
+## Zadanie 6 - Średnia wysokość według rodzaju
 
-Dla obiektów z cechą `wysokość` wyświetl największą wartość `wartoscCechy` osobno dla każdego państwa.
+Oblicz średnią wysokość dla poszczególnych `idRodzaj`. Uwzględnij wyłącznie obiekty z cechą `wysokość`. Zaokrąglij średnią do dwóch miejsc po przecinku.
 
 <details class="lesson-solution" markdown="1">
 <summary>Pokaż rozwiązanie</summary>
 
 ```sql
-SELECT panstwo, MAX(wartoscCechy) AS najwiekszaWysokosc
+SELECT idRodzaj, ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
 FROM obiekty
 WHERE nazwaCechy = 'wysokość'
-GROUP BY panstwo
-ORDER BY panstwo;
+GROUP BY idRodzaj
+ORDER BY idRodzaj;
 ```
 
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Islandia`, `najwiekszaWysokosc` = `1491`; `panstwo` = `Japonia`, `najwiekszaWysokosc` = `3776`; `panstwo` = `Malezja`, `najwiekszaWysokosc` = `700`. Kolejność wynika z `ORDER BY`.
+Wynik: **4 grupy**. Pierwsze wartości: `10` / `176.09`; `11` / `5954.50`; `13` / `2633.50`.
 
 </details>
 
-## Zadanie 16 - Najmniejsza wysokość
+## Zadanie 7 - Rodzaje poza Islandią
 
-Dla obiektów z cechą `wysokość` wyświetl najmniejszą wartość `wartoscCechy` osobno dla każdego państwa.
+Pomiń obiekty z Islandii. Dla każdego `idRodzaj` policz pozostałe obiekty i podaj najmniejszy identyfikator obiektu w grupie. Pokaż tylko rodzaje, dla których pozostały co najmniej dwa obiekty.
 
 <details class="lesson-solution" markdown="1">
 <summary>Pokaż rozwiązanie</summary>
 
 ```sql
-SELECT panstwo, MIN(wartoscCechy) AS najmniejszaWysokosc
+SELECT idRodzaj, COUNT(*) AS liczbaObiektow, MIN(idObiekt) AS pierwszyIdObiekt
 FROM obiekty
-WHERE nazwaCechy = 'wysokość'
-GROUP BY panstwo
-ORDER BY panstwo;
+WHERE panstwo <> 'Islandia'
+GROUP BY idRodzaj
+HAVING COUNT(*) >= 2
+ORDER BY idRodzaj;
 ```
 
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Islandia`, `najmniejszaWysokosc` = `30`; `panstwo` = `Japonia`, `najmniejszaWysokosc` = `3776`; `panstwo` = `Malezja`, `najmniejszaWysokosc` = `700`. Kolejność wynika z `ORDER BY`.
+Wynik: **3 grupy**. Pierwsze wartości: `10` / `8` / `29`; `11` / `3` / `30`; `17` / `2` / `32`.
 
 </details>
 
-## Zadanie 17 - Średnia wysokość
+## Zadanie 8 - Liczniejsze pary państwo–rodzaj
 
-Dla obiektów z cechą `wysokość` wyświetl średnią wartość `wartoscCechy` osobno dla każdego państwa. Zaokrąglij średnią do dwóch miejsc po przecinku.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
-FROM obiekty
-WHERE nazwaCechy = 'wysokość'
-GROUP BY panstwo
-ORDER BY panstwo;
-```
-
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Islandia`, `sredniaWysokosc` = `355.67`; `panstwo` = `Japonia`, `sredniaWysokosc` = `3776.00`; `panstwo` = `Malezja`, `sredniaWysokosc` = `700.00`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 18 - Suma wysokości
-
-Dla obiektów z cechą `wysokość` oblicz sumę `wartoscCechy` osobno dla każdego państwa. Nie łącz wartości różnych cech.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, SUM(wartoscCechy) AS sumaWysokosci
-FROM obiekty
-WHERE nazwaCechy = 'wysokość'
-GROUP BY panstwo
-ORDER BY panstwo;
-```
-
-Wynik: **9 grup**. Przykładowe wiersze: `panstwo` = `Islandia`, `sumaWysokosci` = `2134`; `panstwo` = `Japonia`, `sumaWysokosci` = `3776`; `panstwo` = `Malezja`, `sumaWysokosci` = `700`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 19 - Państwa ze średnią powyżej 1000
-
-Dla obiektów z cechą `wysokość` pokaż państwa, dla których średnia `wartoscCechy` przekracza 1000. Wyświetl państwo i średnią zaokrągloną do dwóch miejsc po przecinku.
-
-<details class="lesson-solution" markdown="1">
-<summary>Pokaż rozwiązanie</summary>
-
-```sql
-SELECT panstwo, ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
-FROM obiekty
-WHERE nazwaCechy = 'wysokość'
-GROUP BY panstwo
-HAVING AVG(wartoscCechy) > 1000
-ORDER BY panstwo;
-```
-
-Wynik: **4 grupy**. Przykładowe wiersze: `panstwo` = `Japonia`, `sredniaWysokosc` = `3776.00`; `panstwo` = `Nepal`, `sredniaWysokosc` = `8849.00`; `panstwo` = `Pakistan`, `sredniaWysokosc` = `8611.00`; `panstwo` = `Tanzania`, `sredniaWysokosc` = `3001.50`. Kolejność wynika z `ORDER BY`.
-
-</details>
-
-## Zadanie 20 - Wybrane rodzaje w dwóch państwach
-
-Uwzględnij obiekty Polski i Islandii o `idRodzaj` równym 10 lub 11. Pogrupuj je jednocześnie według państwa i rodzaju. Pokaż wyłącznie grupy liczące co najmniej dwa obiekty. Wyświetl państwo, `idRodzaj` i liczbę obiektów.
+Uwzględnij obiekty z Islandii, Polski i Tanzanii. Policz obiekty osobno dla każdej pary państwo–`idRodzaj`. Pokaż tylko pary z co najmniej dwoma obiektami.
 
 <details class="lesson-solution" markdown="1">
 <summary>Pokaż rozwiązanie</summary>
@@ -377,12 +149,256 @@ Uwzględnij obiekty Polski i Islandii o `idRodzaj` równym 10 lub 11. Pogrupuj j
 ```sql
 SELECT panstwo, idRodzaj, COUNT(*) AS liczbaObiektow
 FROM obiekty
-WHERE panstwo IN ('Polska', 'Islandia') AND idRodzaj IN (10, 11)
+WHERE panstwo IN ('Islandia', 'Polska', 'Tanzania')
 GROUP BY panstwo, idRodzaj
 HAVING COUNT(*) >= 2
 ORDER BY panstwo, idRodzaj;
 ```
 
-Wynik: **2 grupy**. Przykładowe wiersze: `panstwo` = `Islandia`, `idRodzaj` = `10`, `liczbaObiektow` = `4`; `panstwo` = `Polska`, `idRodzaj` = `10`, `liczbaObiektow` = `4`. Kolejność wynika z `ORDER BY`.
+Wynik: **3 grupy**. Pierwsze wartości: `Islandia` / `10` / `4`; `Islandia` / `14` / `2`; `Polska` / `10` / `4`.
+
+</details>
+
+## Zadanie 9 - Największa wysokość ponad 500
+
+Dla obiektów z cechą `wysokość` znajdź największą wartość w każdym państwie. Pokaż tylko państwa, w których ta wartość przekracza 500.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, MAX(wartoscCechy) AS maksimum
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING MAX(wartoscCechy) > 500
+ORDER BY panstwo;
+```
+
+Wynik: **7 grup**. Pierwsze wartości: `Islandia` / `1491`; `Japonia` / `3776`; `Malezja` / `700`.
+
+</details>
+
+## Zadanie 10 - Najmniejsza wysokość poniżej 50
+
+Dla obiektów z cechą `wysokość` znajdź najmniejszą wartość w każdym państwie. Pokaż tylko państwa, w których ta wartość jest mniejsza niż 50.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, MIN(wartoscCechy) AS minimum
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING MIN(wartoscCechy) < 50
+ORDER BY panstwo;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `Islandia` / `30`; `Polska` / `22`.
+
+</details>
+
+## Zadanie 11 - Średnia wysokość ponad 500
+
+Dla obiektów z cechą `wysokość` oblicz średnią wysokość osobno dla każdego państwa. Pokaż tylko państwa ze średnią ponad 500. Zaokrąglij wynik do dwóch miejsc.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING AVG(wartoscCechy) > 500
+ORDER BY panstwo;
+```
+
+Wynik: **6 grup**. Pierwsze wartości: `Japonia` / `3776.00`; `Malezja` / `700.00`; `Nepal` / `8849.00`.
+
+</details>
+
+## Zadanie 12 - Suma wysokości ponad 2000
+
+Dla obiektów z cechą `wysokość` oblicz sumę wartości osobno dla każdego `idRodzaj`. Pokaż tylko rodzaje z sumą ponad 2000.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT idRodzaj, SUM(wartoscCechy) AS sumaWysokosci
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY idRodzaj
+HAVING SUM(wartoscCechy) > 2000
+ORDER BY idRodzaj;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `11` / `23818`; `13` / `5267`.
+
+</details>
+
+## Zadanie 13 - Liczba i suma wysokości
+
+Dla obiektów z cechą `wysokość` pokaż państwa z co najmniej dwoma takimi obiektami. Wyświetl liczbę obiektów i sumę ich wysokości.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, COUNT(*) AS liczbaObiektow, SUM(wartoscCechy) AS sumaWysokosci
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING COUNT(*) >= 2
+ORDER BY panstwo;
+```
+
+Wynik: **3 grupy**. Pierwsze wartości: `Islandia` / `6` / `2134`; `Polska` / `4` / `139`; `Tanzania` / `2` / `6003`.
+
+</details>
+
+## Zadanie 14 - Trzy miary wysokości
+
+Dla każdego `idRodzaj` oblicz najmniejszą, największą i średnią wysokość. Pokaż tylko grupy z co najmniej dwoma obiektami o cesze `wysokość`. Zaokrąglij średnią do dwóch miejsc.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT idRodzaj, MIN(wartoscCechy) AS minimum, MAX(wartoscCechy) AS maksimum,
+       ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY idRodzaj
+HAVING COUNT(*) >= 2
+ORDER BY idRodzaj;
+```
+
+Wynik: **3 grupy**. Pierwsze wartości: `10` / `22` / `730` / `176.09`; `11` / `463` / `8849` / `5954.50`; `13` / `1491` / `3776` / `2633.50`.
+
+</details>
+
+## Zadanie 15 - Dwa warunki dla średniej
+
+Dla obiektów z cechą `wysokość` pokaż państwa z co najmniej dwoma takimi obiektami i średnią wysokością ponad 300. Wyświetl państwo, liczbę obiektów i średnią zaokrągloną do dwóch miejsc.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, COUNT(*) AS liczbaObiektow,
+       ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING COUNT(*) >= 2 AND AVG(wartoscCechy) > 300
+ORDER BY panstwo;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `Islandia` / `6` / `355.67`; `Tanzania` / `2` / `3001.50`.
+
+</details>
+
+## Zadanie 16 - Państwa poza Islandią
+
+Pomiń obiekty z Islandii. Wyświetl państwa, w których pozostały co najmniej dwa obiekty. Pokaż liczbę obiektów i posortuj malejąco według tej liczby.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, COUNT(*) AS liczbaObiektow
+FROM obiekty
+WHERE panstwo <> 'Islandia'
+GROUP BY panstwo
+HAVING COUNT(*) >= 2
+ORDER BY liczbaObiektow DESC, panstwo;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `Polska` / `4`; `Tanzania` / `3`.
+
+</details>
+
+## Zadanie 17 - Pary występujące raz
+
+Uwzględnij tylko Islandię, Polskę i Tanzanię. Dla każdej pary państwo–`idRodzaj` pokaż kombinacje występujące dokładnie raz.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, idRodzaj, COUNT(*) AS liczbaObiektow
+FROM obiekty
+WHERE panstwo IN ('Islandia', 'Polska', 'Tanzania')
+GROUP BY panstwo, idRodzaj
+HAVING COUNT(*) = 1
+ORDER BY panstwo, idRodzaj;
+```
+
+Wynik: **6 grup**. Pierwsze wartości: `Islandia` / `11` / `1`; `Islandia` / `13` / `1`; `Islandia` / `15` / `1`.
+
+</details>
+
+## Zadanie 18 - Cechy i rodzaje z wieloma obiektami
+
+Dla każdej pary `nazwaCechy`–`idRodzaj` policz obiekty. Pokaż pary występujące przy co najmniej dwóch obiektach. Posortuj od najliczniejszej pary.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT nazwaCechy, idRodzaj, COUNT(*) AS liczbaObiektow
+FROM obiekty
+GROUP BY nazwaCechy, idRodzaj
+HAVING COUNT(*) >= 2
+ORDER BY liczbaObiektow DESC, nazwaCechy, idRodzaj;
+```
+
+Wynik: **4 grupy**. Pierwsze wartości: `wysokość` / `10` / `11`; `wysokość` / `11` / `4`; `długość` / `17` / `2`.
+
+</details>
+
+## Zadanie 19 - Liczne rodzaje z wysokim maksimum
+
+Dla obiektów z cechą `wysokość` pokaż `idRodzaj` z co najmniej dwoma takimi obiektami i największą wysokością ponad 1000. Wyświetl identyfikator rodzaju, liczbę obiektów, minimum i maksimum.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT idRodzaj, COUNT(*) AS liczbaObiektow, MIN(wartoscCechy) AS minimum,
+       MAX(wartoscCechy) AS maksimum
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY idRodzaj
+HAVING COUNT(*) >= 2 AND MAX(wartoscCechy) > 1000
+ORDER BY idRodzaj;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `11` / `4` / `463` / `8849`; `13` / `2` / `1491` / `3776`.
+
+</details>
+
+## Zadanie 20 - Pełne zestawienie wysokości
+
+Dla obiektów z cechą `wysokość` przygotuj zestawienie według państw. Uwzględnij państwa z co najmniej dwoma takimi obiektami i sumą wysokości ponad 2000. Pokaż państwo, liczbę obiektów, sumę, średnią, minimum i maksimum. Zaokrąglij średnią do dwóch miejsc i posortuj malejąco według niej.
+
+<details class="lesson-solution" markdown="1">
+<summary>Pokaż rozwiązanie</summary>
+
+```sql
+SELECT panstwo, COUNT(*) AS liczbaObiektow, SUM(wartoscCechy) AS sumaWysokosci,
+       ROUND(AVG(wartoscCechy), 2) AS sredniaWysokosc,
+       MIN(wartoscCechy) AS minimum, MAX(wartoscCechy) AS maksimum
+FROM obiekty
+WHERE nazwaCechy = 'wysokość'
+GROUP BY panstwo
+HAVING COUNT(*) >= 2 AND SUM(wartoscCechy) > 2000
+ORDER BY sredniaWysokosc DESC, panstwo;
+```
+
+Wynik: **2 grupy**. Pierwsze wartości: `Tanzania` / `2` / `6003` / `3001.50` / `108` / `5895`; `Islandia` / `6` / `2134` / `355.67` / `30` / `1491`.
 
 </details>
