@@ -1,5 +1,5 @@
 ---
-title: Ściąga INF.03 - HTML semantyczny i CSS transition
+title: Ściąga INF.03 - znaczniki HTML i płynne zmiany CSS
 ---
 
 # Ściąga INF.03 - HTML i CSS z arkusza egzaminacyjnego
@@ -8,9 +8,9 @@ title: Ściąga INF.03 - HTML semantyczny i CSS transition
 
 Ta ściąga obejmuje elementy wymienione w obu tabelach. Nie jest wykazem wszystkich znaczników HTML ani właściwości CSS. Na egzaminie kieruj się tabelami znajdującymi się w swoim arkuszu - ich zawartość może być inna.
 
-## 1. Znaczniki semantyczne HTML - tabela 4
+## 1. Który znacznik wybrać do danej części strony?
 
-Znacznik semantyczny informuje, jaką rolę pełni dana część strony. Dzięki temu struktura dokumentu jest czytelniejsza dla programisty, przeglądarki i technologii wspomagających.
+W HTML różne znaczniki wskazują role części strony. Na przykład `<header>` oznacza nagłówek, a `<footer>` stopkę. Takie znaczniki nazywamy semantycznymi. Ich wykaz znajduje się w tabeli 4 arkusza INF.03. Dzięki nim programista, przeglądarka i czytnik ekranu mogą rozpoznać rolę danej części.
 
 | Znacznik z arkusza | Znaczenie | Kiedy go użyć? |
 | --- | --- | --- |
@@ -58,13 +58,14 @@ Powyższy fragment pokazuje **role bloków**, a nie kompletną stronę egzaminac
 
 ```html
 <figure>
+    <img src="Strokkur.jpg" alt="Strokkur">
     <figcaption>Gejzer Strokkur na Islandii</figcaption>
 </figure>
 ```
 
 ## 2. Właściwość transition - tabela 3
 
-`transition` opisuje **płynne przejście** pomiędzy wartościami właściwości CSS, gdy wartość tej właściwości się zmienia.
+`transition` pozwala płynnie zmieniać wartość właściwości CSS, na przykład przez jedną sekundę.
 
 Arkusz przedstawia zapis skrócony:
 
@@ -72,7 +73,7 @@ Arkusz przedstawia zapis skrócony:
 transition: property duration timing-function delay;
 ```
 
-Oraz dwie osobne wartości ogólne: `initial` i `inherit`. Nie są one dodatkowymi czasami ani nazwami właściwości.
+Arkusz podaje też dwie osobne wartości ogólne: `initial` i `inherit`. Nie są one dodatkowymi czasami ani nazwami właściwości.
 
 | Pozycja z arkusza | Do czego służy? | Przykładowa wartość |
 | --- | --- | --- |

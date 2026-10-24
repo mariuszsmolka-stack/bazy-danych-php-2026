@@ -6,7 +6,7 @@ title: CSS - wygląd portalu Islandii
 
 > Materiał dodatkowy. Na lekcjach SQL i PHP korzystamy z gotowego arkusza stylów; tutaj możesz zrozumieć i samodzielnie zmodyfikować jego reguły.
 
-**Cel:** uzyskać wygląd portalu z arkusza INF.03-01-26.06-SG, wiedzieć, jakie reguły CSS odpowiadają poszczególnym cechom oraz potrafić skontrolować wynik w przeglądarce. Nie uczymy tutaj PHP.
+**Cel:** uzyskać wygląd portalu z arkusza INF.03-01-26.06-SG, wiedzieć, jakie reguły CSS odpowiadają poszczególnym cechom oraz potrafić sprawdzić wynik w przeglądarce. Nie uczymy tutaj PHP.
 
 [Pobierz wszystkie pliki przykładów (ZIP)](portal-islandii-html-css.zip).
 
@@ -16,7 +16,7 @@ Zdjęcia wykorzystane w zadaniu pobierz z [oryginalnych załączników egzaminac
 
 ## 1. HTML jest konstrukcją, CSS jest wyglądem
 
-W części HTML powstały `header`, `aside`, `main`, `section`, `footer`. Domyślnie przeglądarka wyświetliłaby je w swoim standardowym układzie. Arkusz CKE wymaga określonych rozmiarów, kolorów, rozmieszczenia i zachowania miniatur.
+Strona używa znaczników `header`, `aside`, `main`, `section` i `footer`. Domyślnie przeglądarka wyświetliłaby je w swoim standardowym układzie. Arkusz CKE wymaga określonych rozmiarów, kolorów, rozmieszczenia i zachowania miniatur.
 
 **CSS zapisujemy w jednym zewnętrznym pliku `styl.css`.** Obie podstrony korzystają z tej samej wersji arkusza.
 
@@ -43,7 +43,7 @@ aside {
 
 Zapis `header, main` pozwala nadać te same właściwości obu elementom. Zapis `.miniatury` wybiera elementy z `class="miniatury"` - kropka jest tutaj istotna.
 
-## 3. Wspólna czcionka i model pudełkowy
+## 3. Czcionka i rozmiary elementów
 
 ```css
 * {
@@ -54,7 +54,7 @@ Zapis `header, main` pozwala nadać te same właściwości obu elementom. Zapis 
 
 Gwiazdka `*` wybiera wszystkie elementy. `Comic Sans MS` jest pierwszą wskazaną czcionką, a `sans-serif` czcionką zastępczą - tak wymaga arkusz. Napis w cudzysłowie oznacza nazwę kroju zawierającą spacje.
 
-`box-sizing: border-box` jest dodatkiem technicznym: szerokość i wysokość uwzględniają obramowanie oraz padding. Pomaga utrzymać zadane wymiary bez przypadkowego nakładania się bloków. Nie jest osobnym wymaganiem punktowanym w arkuszu.
+Przy `box-sizing: border-box` podana szerokość i wysokość obejmują także obramowanie oraz wewnętrzny odstęp (`padding`). Dzięki temu łatwiej zachować wymiary bloków. Arkusz nie punktuje tej reguły osobno.
 
 **Uwaga:** jeśli komputer nie ma Comic Sans MS, przeglądarka wybierze czcionkę zastępczą. To nie oznacza, że sam zapis reguły jest błędny.
 
@@ -262,7 +262,7 @@ Gotowy plik: [styl.css](przyklady/styl.css).
 4. Przewiń zawartość sekcji - pasek powinien pojawić się przy przepełnieniu.
 5. Otwórz narzędzia deweloperskie przeglądarki (zwykle `F12`) i wybierz jeden z obrazów; sprawdź, czy ma klasę `miniatury`.
 
-W przypadku innej rozdzielczości rozmiary i proporcje strony mogą wyglądać inaczej niż na ilustracji egzaminacyjnej. Weryfikuj więc **konkretne wymagane właściwości**, a nie wyłącznie podobieństwo wizualne.
+Przy innej rozdzielczości strona może wyglądać inaczej niż na ilustracji egzaminacyjnej. Sprawdź wymagane reguły CSS. Sam podobny wygląd strony nie wystarczy.
 
 ## 12. Ćwiczenia
 

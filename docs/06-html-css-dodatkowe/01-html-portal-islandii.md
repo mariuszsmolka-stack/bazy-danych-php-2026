@@ -47,7 +47,7 @@ Arkusz **INF.03-01-26.06-SG** wymaga czterech obszarów: nagłówka, bloku boczn
 | `<section>` | wydzielona część głównej treści | miniatury lub dane obiektu |
 | `<footer>` | stopka | linia i napis „Autor: ...” |
 
-Nie zastępuj tych znaczników przypadkowymi `<div>`, skoro zadanie wyraźnie wymaga semantycznego HTML5.
+W zadaniu wskazano konkretne znaczniki. Użyj ich zamiast `<div>`. Takie znaczniki nazywamy semantycznymi, bo ich nazwy mówią, jaką rolę pełnią części strony.
 
 ## 2. Minimalny poprawny dokument HTML
 
@@ -88,7 +88,7 @@ W arkuszu cały tekst „Zwiedzaj Islandię” ma prowadzić do strony głównej
 
 `<h1>` oznacza główny nagłówek strony. `<a>` tworzy odnośnik, a `href` podaje plik, który ma się otworzyć.
 
-**W pliku demonstracyjnym** link prowadzi do `islandia.html`, ponieważ jeszcze nie uruchamiamy PHP. **W rozwiązaniu egzaminacyjnym** będzie prowadził do `islandia.php`. To celowa różnica.
+W zadaniu egzaminacyjnym link prowadzi do `islandia.php`. W przykładzie bez PHP prowadzi do `islandia.html`.
 
 ## 4. Blok boczny - lista w liście
 
@@ -181,11 +181,11 @@ Po pobraniu umieść wszystkie pliki zdjęć **w tym samym katalogu co HTML**, a
 
 Po kliknięciu przeglądarka otworzy `obiekty.php` i przekaże parametr `id=46`. Właśnie to ćwiczyliśmy w **lekcji 9 o GET**.
 
-W statycznym podglądzie używamy adresu `obiekty.html?id=46`, który pokazuje sposób zapisu URL, ale **HTML bez PHP nie odczytuje tego identyfikatora i nie zmienia automatycznie treści strony**. Strona demonstracyjna szczegółów pokazuje zawsze Godafoss. Dopiero wersja PHP wybierze właściwy rekord z MariaDB.
+W statycznym podglądzie używamy adresu `obiekty.html?id=46`. Pokazuje on sposób zapisu URL, ale **HTML bez PHP nie odczytuje tego identyfikatora i nie zmienia automatycznie treści strony**. Podgląd strony szczegółów zawsze pokazuje Godafoss. Dopiero PHP wybierze właściwy rekord z MariaDB.
 
 ## 8. Strona szczegółów - właściwe nagłówki
 
-Wewnątrz `section` w docelowej aplikacji mają znaleźć się:
+Na stronie szczegółów, wewnątrz `section`, mają znaleźć się:
 
 ```html
 <img src="godafoss.jpg" alt="Godafoss">
@@ -214,7 +214,7 @@ Oprócz wspólnego nagłówka „Opis miejsca” w `<main>` arkusz wymaga **nazw
 - [Otwórz kompletny przykład `obiekty.html`](przyklady/obiekty.html)
 - [Otwórz `styl.css`](przyklady/styl.css)
 
-W przykładach zdjęcia, nazwy i listy są stałe - **to demonstracja warstwy HTML/CSS, nie rozwiązanie PHP**.
+W tych przykładach zdjęcia, nazwy i listy są wpisane na stałe. W pełnej wersji pobierzemy dane z bazy przez PHP. To jeszcze nie jest kompletne rozwiązanie zadania egzaminacyjnego.
 
 ## 11. Ćwiczenia
 
@@ -352,6 +352,6 @@ Tak przygotowana sekcja może być później wypełniana danymi pobranymi z Mari
 - [ ] `h2`, `h3` i paragrafy na stronie szczegółów.
 - [ ] Linia i informacja o autorze/numerze zdającego w stopce.
 
-**Powiązanie z kryteriami egzaminacyjnymi:** R.2.1–R.2.9 oraz R.3.3–R.3.5. Część kryteriów wymaga działających skryptów PHP; wersja demonstracyjna HTML jeszcze ich nie spełnia.
+**Powiązanie z kryteriami egzaminacyjnymi:** R.2.1–R.2.9 oraz R.3.3–R.3.5. Część kryteriów wymaga działających skryptów PHP. Sam podgląd HTML jeszcze ich nie spełnia.
 
 [Dalej: CSS - wygląd portalu Islandii](02-css-portal-islandii.html) | [Materiały dodatkowe - spis](index.html)

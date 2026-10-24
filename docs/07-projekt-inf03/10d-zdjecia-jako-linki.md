@@ -4,17 +4,17 @@ title: Lekcja 10D - Zdjęcie jako link do obiektu
 
 # Lekcja 10D - Zdjęcie jako link do obiektu
 
-W [lekcji 10C]({{ '/07-projekt-inf03/10c-galeria-w-petli.html' | relative_url }}) pętla utworzyła dziewięć zdjęć. Teraz każde zdjęcie otrzyma własny adres. Numer w adresie pochodzi z rekordu, z którego powstał obraz.
+W [lekcji 10C]({{ '/07-projekt-inf03/10c-galeria-w-petli.html' | relative_url }}) pętla utworzyła dziewięć zdjęć. Teraz każde zdjęcie będzie linkiem do strony wybranego obiektu. Numer po `id=` pochodzi z tego samego rekordu co zdjęcie.
 
 **Jeden rekord => jedno zdjęcie => jeden link.**
 
-| Obiekt | Adres zdjęcia |
+| Obiekt | Adres strony po kliknięciu zdjęcia |
 | --- | --- |
 | Strokkur | `obiekty.php?id=46` |
 | Skogafoss | `obiekty.php?id=47` |
 | Hekla | `obiekty.php?id=52` |
 
-Liczba po `id=` wskazuje obiekt. Znasz taki parametr z [lekcji 9]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}). W tamtej lekcji plik nazywał się `obiekt.php`; w przykładzie portalu używamy nazwy `obiekty.php`.
+Parametr `id` znasz z [lekcji 9]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}). W tamtej lekcji plik nazywał się `obiekt.php`; w przykładzie portalu używamy nazwy `obiekty.php`.
 
 ## Zobacz jeden zwykły link
 
