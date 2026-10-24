@@ -31,7 +31,8 @@ Znasz podstawy Pythona? W tym kursie poznasz składnię PHP i nauczysz się odcz
 19. [Lekcja 8C - tabela danych z MariaDB]({{ '/05-php-i-html/01c-php-tabela-z-bazy.html' | relative_url }}).
 20. [Lekcja 8 - pełne opracowanie]({{ '/05-php-i-html/01-generowanie-html-z-bazy.html' | relative_url }}).
 
-21. [Lekcja 9 - PHP i GET - parametry w adresie URL]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
+21. [Lekcja 9A - podstawy GET]({{ '/05-php-i-html/02a-get-podstawy.html' | relative_url }}).
+22. [Lekcja 9 - pełne opracowanie]({{ '/05-php-i-html/02-get-parametry-url.html' | relative_url }}).
 
 [Od zadania do programu - jak zaplanować rozwiązanie INF.03?]({{ '/07-projekt-inf03/01-jak-zaplanowac-zadanie.html' | relative_url }}).
 
