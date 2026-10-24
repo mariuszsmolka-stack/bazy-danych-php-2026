@@ -44,6 +44,8 @@ sections:
         url: "04-grupowanie-danych/02a-having-podstawy.md"
       - title: "Lekcja 6B - WHERE i HAVING"
         url: "04-grupowanie-danych/02b-where-i-having.md"
+      - title: "Lekcja 6C - HAVING i JOIN"
+        url: "04-grupowanie-danych/02c-having-i-join.md"
       - title: "HAVING - pełne opracowanie"
         url: "04-grupowanie-danych/02-having.md"
       - title: "DISTINCT i DISTINCTROW"
