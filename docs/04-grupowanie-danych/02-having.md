@@ -5,6 +5,10 @@ mermaid: true
 
 # Lekcja 6 - HAVING - filtrowanie grup danych
 
+Jeśli dopiero poznajesz `HAVING`, zacznij od [krótkiej lekcji 6A]({{ '/04-grupowanie-danych/02a-having-podstawy.html' | relative_url }}).
+
+Tutaj znajdziesz więcej przykładów i trudniejsze zadania.
+
 **Cel:** wybrać tylko te grupy, których wynik obliczeń spełnia warunek. Nauczysz się odróżniać filtrowanie rekordów przez `WHERE` od filtrowania grup przez `HAVING`.
 
 Pracujemy w phpMyAdmin na bazie `Islandia`, zaimportowanej z niezmienionego `baza1.sql`. Wykonuj zapytania pojedynczo w zakładce SQL. Wszystkie wyniki dotyczą oryginalnych danych. Niczego nie usuwamy ani nie dopisujemy.
