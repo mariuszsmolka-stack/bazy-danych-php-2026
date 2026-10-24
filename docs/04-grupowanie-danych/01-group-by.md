@@ -5,24 +5,23 @@ mermaid: true
 
 # Lekcja 5 - GROUP BY - grupowanie danych krok po kroku
 
-## Zanim zaczniemy
+Chcemy sprawdzić, ilu turystów zdobyło tyle samo punktów. Najpierw zobaczysz, czym jest grupa i jak policzyć należące do niej osoby. Potem przejdziesz do obiektów i trudniejszych przykładów.
 
-**Cel:** zrozumieć, czym jest grupa w SQL, kiedy w wyniku pojawia się jeden wiersz, dlaczego niektóre wiersze znikają oraz jak prawidłowo policzyć elementy każdej grupy.
+Ta lekcja ma trzy poziomy. Wybierz je po kolei:
 
-- Pracujemy w phpMyAdmin, na bazie `Islandia` zaimportowanej z pliku `baza1.sql`.
-- Używamy prawdziwych tabel `turysci`, `obiekty` i `rodzaje`.
-- Znamy już `SELECT`, `FROM`, `WHERE`, `ORDER BY` i podstawy `JOIN`.
-- Zapytania wykonujemy pojedynczo w zakładce SQL. Niczego nie dodajemy ani nie usuwamy.
-- Podane wyniki odnoszą się do niezmienionego pliku `baza1.sql`.
-- Nie uczymy się jeszcze `HAVING`. To będzie osobna lekcja.
+- **Podstawy:** sekcje 1-3 i 5-7 oraz ćwiczenia 1-3. Nauczysz się tworzyć grupy i liczyć rekordy.
+- **Dalsza nauka:** sekcje 4, 8-9 i 11 oraz ćwiczenia 4-6. Poznasz inne obliczenia, dwie kolumny i łączenie tabel.
+- **Rozszerzenia:** przykłady 2 i 4 w sekcji 4, sekcje 10 i 12 oraz ćwiczenie dodatkowe. Wróć do nich po opanowaniu podstaw.
 
-**Jedno zdanie do zapamiętania:** `GROUP BY` zbiera wiersze mające tę samą wartość wskazanej kolumny lub ten sam zestaw wskazanych wartości i tworzy jeden wiersz wyniku dla każdej grupy.
+Pracujemy w phpMyAdmin na bazie `Islandia` z pliku `baza1.sql`. Użyjemy tabel `turysci`, `obiekty` i `rodzaje`. Przydadzą się znane już `SELECT`, `FROM`, `WHERE`, `ORDER BY` i podstawy `JOIN`.
+
+Wykonuj zapytania pojedynczo w zakładce SQL. Nie zmieniaj danych. Podane wyniki dotyczą niezmienionej bazy.
+
+`HAVING` poznamy na następnej lekcji.
 
 ## 1. Po co nam grupowanie?
 
-Wyobraź sobie trzynastu turystów. Chcesz ustalić, ile osób zdobyło tyle samo punktów. Nie interesują Cię już nazwiska wszystkich osób, tylko **grupy o tej samej liczbie punktów**.
-
-W tabeli `turysci` występują między innymi takie rekordy:
+W tabeli `turysci` jest 13 osób. Spójrz na kilka z nich:
 
 | nick | punkty |
 | --- | ---: |
@@ -32,7 +31,9 @@ W tabeli `turysci` występują między innymi takie rekordy:
 | Adam | 11 |
 | Monika | 4 |
 
-Jeżeli grupujemy według pola `punkty`, otrzymujemy między innymi:
+Ewa i Paula mają po 23 punkty. Tworzą jedną grupę. Jowita i Adam mają po 11 punktów, więc tworzą drugą. Monika należy do grupy osób z 4 punktami.
+
+Podzielmy turystów według pola `punkty`:
 
 ```text
 23 punkty => Ewa, Paula   => 2 osoby
@@ -40,7 +41,7 @@ Jeżeli grupujemy według pola `punkty`, otrzymujemy między innymi:
  4 punkty => Monika       => 1 osoba
 ```
 
-`GROUP BY` nie łączy fizycznie turystów w bazie i niczego w niej nie zmienia. Przygotowuje **wynik zapytania**.
+`GROUP BY` tworzy takie grupy w wyniku zapytania. Rekordy o tej samej liczbie punktów należą do jednej grupy. Dane w tabeli pozostają bez zmian.
 
 ## 2. Najprostszy przykład - GROUP BY bez liczenia
 
@@ -52,7 +53,7 @@ FROM turysci
 ORDER BY punkty;
 ```
 
-Zapytanie zwraca **13 wierszy**, bo tylu turystów zapisano w tabeli. Widzimy również powtarzające się liczby `11` i `23`.
+Zapytanie zwraca **13 wierszy** - po jednym dla każdego turysty. Liczby `11` i `23` się powtarzają.
 
 ### Krok 2 - pogrupuj wartości
 
@@ -79,14 +80,16 @@ Wynik:
 | 46 |
 | 51 |
 
-**Co się wydarzyło?**
+Porównaj oba wyniki:
 
 - W pierwszym zapytaniu widzieliśmy 13 wierszy.
 - W drugim widzimy 11 wierszy.
 - Każda wartość `punkty` pojawia się tylko raz.
 - Powtarzające się wartości `11` i `23` utworzyły po jednej grupie.
 
-**Ważne:** jeżeli wybieramy tylko jedną kolumnę i nie liczymy elementów, taki wynik przypomina `SELECT DISTINCT punkty`. Do poznania prawdziwej siły grupowania potrzebujemy funkcji agregującej, np. `COUNT()`.
+Każda grupa daje jeden wiersz wyniku. Dlatego 13 turystów dało 11 grup. To nadal 13 rekordów w tabeli.
+
+Gdy wybieramy tylko `punkty` bez liczenia, wynik przypomina `SELECT DISTINCT punkty`. Teraz policzymy osoby w każdej grupie przez `COUNT(*)`.
 
 <details class="lesson-hint" markdown="1">
 <summary>Sprawdź - czy GROUP BY usunęło rekordy z tabeli?</summary>
@@ -97,7 +100,7 @@ Nie. Liczba rekordów w tabeli `turysci` nie zmieniła się. Zmienił się tylko
 
 ## 3. GROUP BY razem z COUNT(*)
 
-Teraz chcemy wiedzieć nie tylko **jakie grupy istnieją**, ale również **ile rekordów należy do każdej z nich**.
+`GROUP BY` tworzy grupy. `COUNT(*)` liczy rekordy w każdej z nich. Wynik pokaże liczbę osób dla każdej wartości punktów.
 
 ```sql
 SELECT punkty, COUNT(*) AS liczbaTurystow
@@ -130,7 +133,7 @@ Przeczytajmy instrukcje po kolei:
 - `AS liczbaTurystow` - nadajemy obliczonej kolumnie czytelną nazwę.
 - `ORDER BY punkty` - ustawiamy grupy w kolejności rosnących punktów.
 
-**Uwaga:** liczba **wierszy wyniku** to `11`, a suma wartości w kolumnie `liczbaTurystow` to `13`. To nie jest sprzeczność: jeden wiersz wyniku opisuje całą grupę.
+Wynik ma **11 wierszy** - po jednym dla każdej grupy. Suma liczb w kolumnie `liczbaTurystow` wynosi **13**, bo tylu turystów jest w tabeli. Liczba grup nie jest liczbą turystów.
 
 ### Porównanie - COUNT(*) bez GROUP BY
 
@@ -148,9 +151,11 @@ COUNT(*) z GROUP BY   => osobny wynik dla każdej grupy
 
 ## 4. Funkcje agregujące - obliczenia na wielu rekordach
 
+To dalsza część nauki. Jeśli dopiero poznajesz `GROUP BY`, wróć do niej po opanowaniu `COUNT(*)`.
+
 ### Po co są funkcje agregujące?
 
-Zwykły `SELECT` pokazuje wartości zapisane w poszczególnych wierszach. Czasami jednak nie potrzebujemy wszystkich wartości osobno. Chcemy odpowiedzieć na pytania:
+Zwykły `SELECT` pokazuje dane z kolejnych wierszy. `COUNT(*)` daje jedną liczbę: ile tych wierszy jest. Możemy też wykonać inne obliczenia na wartościach:
 
 - Ilu turystów znajduje się w bazie?
 - Ile punktów zdobyli łącznie?
@@ -158,7 +163,7 @@ Zwykły `SELECT` pokazuje wartości zapisane w poszczególnych wierszach. Czasam
 - Jaka jest najmniejsza i największa liczba punktów?
 - Ile obiektów znajduje się w każdym państwie?
 
-Do takich obliczeń służą **funkcje agregujące**. Przetwarzają wartości z wielu wierszy i zwracają podsumowanie.
+Takie obliczenia wykonują **funkcje agregujące**. `SUM()` dodaje liczby, a `AVG()` oblicza średnią. `MIN()` i `MAX()` znajdują najmniejszą i największą wartość.
 
 | Funkcja | Co oblicza? | Jakie dane możemy podać? |
 | --- | --- | --- |
@@ -169,7 +174,7 @@ Do takich obliczeń służą **funkcje agregujące**. Przetwarzają wartości z 
 | `MIN(kolumna)` | Najmniejszą wartość | Liczby, teksty, daty |
 | `MAX(kolumna)` | Największą wartość | Liczby, teksty, daty |
 
-**Zapamiętaj:** tylko `SUM()` i `AVG()` wymagają wartości, dla których obliczenia liczbowe mają sens. `MIN()` i `MAX()` mogą porównywać również teksty, a `COUNT()` nie musi dotyczyć liczb.
+`SUM()` i `AVG()` mają sens dla danych liczbowych. `MIN()` i `MAX()` mogą też porównywać teksty lub daty. `COUNT()` nie musi dotyczyć liczb.
 
 Dla dat `MIN()` wskazuje najwcześniejszą, a `MAX()` najpóźniejszą datę.
 
@@ -218,17 +223,19 @@ W naszej bazie wynik to `13` i `13`.
 - `COUNT(nick)` liczy tylko te wiersze, w których `nick` nie ma wartości `NULL`.
 - Pusty tekst `''` nie jest wartością `NULL`, więc `COUNT(nick)` uwzględniłby taki pusty tekst.
 
-`NULL` oznacza brak wartości, a nie zero. `SUM()`, `AVG()`, `MIN()` i `MAX()` również pomijają `NULL`. `AVG()` dzieli sumę przez liczbę wartości różnych od `NULL`, a nie przez wszystkie wiersze. Jeśli nie ma żadnej wartości do obliczeń, te cztery funkcje zwracają `NULL`; `COUNT()` zwraca zero.
+`NULL` oznacza brak wartości, a nie zero. `SUM()`, `AVG()`, `MIN()` i `MAX()` pomijają takie wartości. `AVG()` dzieli sumę przez liczbę wartości różnych od `NULL`, nie przez liczbę wszystkich wierszy.
+
+Jeśli nie ma wartości do obliczenia, te cztery funkcje zwracają `NULL`. `COUNT()` zwraca wtedy zero.
 
 Oba wyniki są tutaj identyczne, ponieważ żaden z 13 rekordów nie ma wartości `NULL` w polu `nick`.
 
 ### Przykład 3 - GROUP BY zmienia zakres obliczeń
 
-Bez `GROUP BY` funkcja podsumowuje cały wybrany zbiór. Z `GROUP BY` obliczenie powtarza się osobno dla każdej grupy. Zobaczmy tę różnicę na wysokościach wodospadów. Pełny przykład liczenia obiektów według państw znajdziesz dalej w sekcji 6.
+Bez `GROUP BY` funkcja podsumowuje wszystkie wybrane rekordy razem. Z `GROUP BY` oblicza wynik dla każdej grupy osobno. Zobacz to na wysokościach wodospadów. Prostsze liczenie obiektów według państw znajdziesz w sekcji 6.
 
 ### MIN, MAX, AVG i SUM w grupach
 
-W tabeli `obiekty` pole `wartoscCechy` zawiera różne wielkości, np. wysokość, długość lub powierzchnię. Nie wolno bez zastanowienia obliczać z nich jednej średniej, ponieważ oznaczają różne jednostki i rodzaje pomiarów.
+W tabeli `obiekty` pole `wartoscCechy` może oznaczać wysokość, długość lub powierzchnię. Te wielkości mają różne jednostki. Nie należy liczyć z nich jednej średniej.
 
 Dlatego wybierzemy tylko **wodospady, dla których zapisana cecha to wysokość**, i porównamy Polskę oraz Islandię:
 
@@ -255,7 +262,7 @@ Oczekiwany wynik:
 | Islandia | 3 | 30 | 60 | 50.00 | 150 |
 | Polska | 4 | 22 | 70 | 34.75 | 139 |
 
-**Dlaczego dla Islandii są trzy wodospady, choć poznaliśmy cztery islandzkie wodospady?** Rekord `Dettifoss` ma w polu `nazwaCechy` wartość `przepustowość metry sześcienne`, a nie `wysokość`. Został więc odrzucony przez `WHERE`, zanim powstały grupy.
+Dlaczego wynik pokazuje trzy islandzkie wodospady, choć w bazie są cztery? Dla `Dettifoss` pole `nazwaCechy` ma wartość `przepustowość metry sześcienne`, a nie `wysokość`. Warunek `WHERE` pomija ten rekord przed grupowaniem.
 
 Teraz odczytajmy działanie zapytania:
 
@@ -268,7 +275,7 @@ FROM obiekty
     => ORDER BY: ustalenie kolejności wyników
 ```
 
-Dodaliśmy `SUM(wartoscCechy)`, aby zobaczyć, jak suma jest obliczana **osobno dla każdej grupy**. To tylko ćwiczenie rachunkowe: sumowanie wysokości różnych wodospadów zwykle nie odpowiada użytecznemu pytaniu geograficznemu. **Poprawność SQL nie oznacza automatycznie sensowności obliczenia.**
+`SUM(wartoscCechy)` liczy sumę **osobno dla każdej grupy**. Sumowanie wysokości różnych wodospadów jest tu tylko ćwiczeniem rachunkowym. Zwykle nie jest użytecznym wskaźnikiem geograficznym, choć zapytanie SQL jest poprawne.
 
 ### Przykład 4 - funkcja MIN lub MAX dla tekstu
 
@@ -284,7 +291,7 @@ W tej bazie otrzymujemy `Adam` i `Tomek`. To przykład użycia funkcji agregują
 
 #### Ćwiczenie A1 - punkty turystów
 
-Wyświetl liczbę turystów, sumę ich punktów i średnią liczbę punktów zaokrągloną do dwóch miejsc po przecinku.
+Policz turystów z tabeli `turysci`. Oblicz sumę ich punktów. Pokaż też średnią zaokrągloną do dwóch miejsc po przecinku.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie A1</summary>
@@ -309,7 +316,7 @@ Wynik: `13`, `290`, `22.31`.
 
 #### Ćwiczenie A2 - liczba obiektów w poszczególnych państwach
 
-Wyświetl liczbę obiektów dla każdego państwa. Uporządkuj państwa alfabetycznie.
+Policz obiekty w każdym państwie. Uporządkuj państwa alfabetycznie.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie A2</summary>
@@ -334,7 +341,7 @@ Wynik ma 12 wierszy. Islandia ma 9 obiektów, Polska 4, Tanzania 3.
 
 #### Ćwiczenie A3 - najniższe i najwyższe wodospady
 
-Dla wodospadów z Polski i Islandii, dla których podano wysokość, wyświetl najmniejszą i największą wysokość w każdym państwie.
+Wybierz wodospady z Polski i Islandii, dla których podano wysokość. W każdym państwie znajdź najmniejszą i największą wysokość.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie A3</summary>
@@ -376,11 +383,11 @@ Przepis ma trzy podstawowe czynności:
 2. Tworzymy grupy wierszy o takiej samej wartości tej kolumny.
 3. Dla każdej grupy obliczamy wynik, np. liczbę wierszy.
 
-Wybór kolumny ma znaczenie. Jeżeli każdy rekord ma inny identyfikator, to grupowanie po unikatowym identyfikatorze utworzy tyle grup, ile rekordów. Nie uzyskamy wtedy ciekawego podsumowania.
+Wybór kolumny ma znaczenie. Każdy obiekt ma inny identyfikator. Grupowanie po nim utworzy więc tyle grup, ile jest obiektów. Taki wynik nie pomoże nam policzyć obiektów w państwach.
 
 ## 6. Przykład z obiektami - ile obiektów jest w każdym państwie?
 
-Przechodzimy do tabeli `obiekty`. Wykonaj:
+Teraz policzmy obiekty w każdym państwie. Użyjemy tabeli `obiekty`:
 
 ```sql
 SELECT panstwo, COUNT(*) AS liczbaObiektow
@@ -408,18 +415,18 @@ Wynik na danych kursowych:
 
 **Co warto zauważyć?**
 
-- Tabela zawiera 25 obiektów, a wynik tylko 12 wierszy.
+- Tabela zawiera 25 obiektów, ale wynik ma 12 wierszy - po jednym dla każdej wartości pola `panstwo`.
 - Dla Islandii istnieje grupa 9 obiektów.
 - Dla Polski istnieje grupa 4 obiektów.
-- Wartość `Nairobi` pojawia się dlatego, że właśnie taki tekst znajduje się w polu `panstwo` jednego rekordu źródłowego. SQL nie ocenia, czy ta wartość jest nazwą państwa. **Nie poprawiamy danych na potrzeby ćwiczenia.**
+- W polu `panstwo` jednego obiektu zapisano `Nairobi`. SQL pokazuje tę wartość jako osobną grupę. Nie sprawdza, czy jest to nazwa państwa. **Nie zmieniamy danych na potrzeby ćwiczenia.**
 
 ### Dlaczego nie ma tutaj nazw obiektów?
 
-Ponieważ pytamy o liczbę obiektów **w państwie**, a nie o listę poszczególnych obiektów. Jedna grupa może zawierać wiele różnych nazw. Ich wszystkich nie da się uczciwie pokazać w jednej zwykłej kolumnie `nazwa` bez określenia, co z nimi zrobić.
+Pytamy o liczbę obiektów **w państwie**, a nie o ich nazwy. Jedna grupa może zawierać wiele nazw. Nie można wybrać jednej wartości `nazwa` bez ustalenia, którą z nich pokazać.
 
 ## 7. WHERE działa przed GROUP BY
 
-A co, jeśli interesuje nas tylko Islandia? Najpierw wybierzmy te rekordy, a następnie je pogrupujmy.
+Chcemy policzyć rodzaje obiektów tylko w Islandii. Najpierw wybieramy obiekty z Islandii. Potem dzielimy je na grupy według rodzaju.
 
 ```sql
 SELECT idRodzaj, COUNT(*) AS liczbaObiektow
@@ -439,11 +446,11 @@ Wynik:
 | 14 | 2 |
 | 15 | 1 |
 
-Wyjaśnienie:
+Czytaj zapytanie krok po kroku:
 
-1. Z tabeli `obiekty` wybieramy tylko rekordy, w których `panstwo = 'Islandia'` - zostaje **9 rekordów**.
-2. Dzielimy te dziewięć rekordów na grupy według `idRodzaj` - powstaje **5 grup**.
-3. `COUNT(*)` liczy elementy każdej grupy - otrzymujemy `4 + 1 + 1 + 2 + 1 = 9`.
+1. `WHERE` wybiera obiekty z Islandii. Zostaje **9 rekordów**.
+2. `GROUP BY` tworzy grupy według `idRodzaj`. Powstaje **5 grup**.
+3. `COUNT(*)` liczy rekordy w każdej grupie. Razem jest ich `4 + 1 + 1 + 2 + 1 = 9`.
 
 ### Co jeśli grupujemy tylko po państwie, ale wybraliśmy już Islandię?
 
@@ -454,7 +461,7 @@ WHERE panstwo = 'Islandia'
 GROUP BY panstwo;
 ```
 
-Wynik to **jeden wiersz: `Islandia => 9`**. Po `WHERE` wszystkie pozostałe rekordy mają taką samą wartość pola `panstwo`, więc powstaje dokładnie jedna grupa.
+Wynik to **jeden wiersz: `Islandia => 9`**. Po użyciu `WHERE` zostały tylko rekordy z Islandii. Wszystkie należą do jednej grupy według pola `panstwo`.
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
@@ -479,7 +486,7 @@ Nie próbuj w tym miejscu filtrować grup według wyniku `COUNT()`. Temat filtro
 
 ## 8. Grupowanie według dwóch kolumn
 
-Czasami jedna kolumna nie wystarczy. Chcemy na przykład policzyć **każdy rodzaj obiektu osobno w każdym państwie**.
+To dalsza część nauki. Czasami jedna kolumna nie wystarczy. Chcemy policzyć **każdy rodzaj obiektu osobno w każdym państwie**.
 
 ```sql
 SELECT panstwo, idRodzaj, COUNT(*) AS liczbaObiektow
@@ -506,13 +513,15 @@ Wynik:
 - `Islandia` + `11` to inna grupa.
 - `Polska` + `10` to jeszcze inna grupa.
 
-Dwa wiersze należą do tej samej grupy tylko wtedy, gdy mają taki sam **cały zestaw wskazanych wartości**.
+Dwa wiersze trafią do tej samej grupy, jeśli mają to samo państwo **i** ten sam rodzaj.
 
 To bardzo przydatne, gdy w zadaniu pojawiają się słowa **"w każdym państwie i dla każdego rodzaju"**.
 
 ## 9. GROUP BY z JOIN - zadanie z INF.03
 
-W arkuszu **INF.03-01-26.06-SG** trzeba podać rodzaj obiektu i liczbę obiektów każdego rodzaju. Nazwa rodzaju znajduje się w tabeli `rodzaje`, a obiekty w tabeli `obiekty`.
+Ile obiektów mamy każdego rodzaju? Takie pytanie występuje w arkuszu **INF.03-01-26.06-SG**.
+
+Nazwa rodzaju jest w tabeli `rodzaje`. Dane obiektów są w tabeli `obiekty`. Potrzebujemy więc obu tabel.
 
 Przypomnienie relacji:
 
@@ -530,7 +539,7 @@ JOIN obiekty AS o ON r.idRodzaj = o.idRodzaj
 ORDER BY r.idRodzaj, o.idObiekt;
 ```
 
-Na tym etapie w wyniku pojawia się **25 wierszy**. Wiele wierszy ma tę samą nazwę rodzaju: `wodospad`, `szczyt`, `wulkan` itd.
+Po połączeniu tabel wynik ma **25 wierszy**. Nazwy rodzajów się powtarzają, na przykład `wodospad` i `szczyt`.
 
 ### Krok 2 - zamiast nazw pojedynczych obiektów policz grupy
 
@@ -555,21 +564,21 @@ Wynik:
 | park narodowy | 1 |
 | jaskinia | 2 |
 
-Suma: **25 obiektów**. Wynik ma **8 grup**.
+Wynik ma **8 grup**. Łącznie jest w nich **25 obiektów**.
 
-**Po co `GROUP BY r.idRodzaj, r.rodzaj`?** Grupujemy według identyfikatora i nazwy rodzaju. Dzięki temu wszystkie wyświetlane zwykłe kolumny są jednoznacznie związane z grupą, a nazwa `rodzaj` nie jest wybierana przypadkowo.
+`GROUP BY r.idRodzaj, r.rodzaj` tworzy grupę dla każdego rodzaju. Grupujemy zarówno po jego identyfikatorze, jak i nazwie. Dzięki temu nazwa `rodzaj` jest określona dla każdej grupy. Nie jest wybierana przypadkowo.
 
-**Po co `COUNT(o.idObiekt)` zamiast `COUNT(*)`?** W tym zapytaniu z wewnętrznym `JOIN` oba zapisy dadzą tę samą liczbę. W następnym przykładzie ta różnica będzie bardzo ważna.
+W tym zapytaniu z `JOIN` zapisy `COUNT(o.idObiekt)` i `COUNT(*)` dają tę samą liczbę. Przy `LEFT JOIN` będzie inaczej. To trudniejszy przykład z następnej sekcji.
 
 ### Co się stało z rodzajem `rzeka`?
 
-Sprawdź tabelę `rodzaje`: zawiera **9 rodzajów**, w tym `rzeka` (`idRodzaj = 18`). Tymczasem powyższy wynik ma tylko **8 rodzajów**.
+W tabeli `rodzaje` jest **9 rodzajów**, w tym `rzeka` (`idRodzaj = 18`). Wynik zapytania pokazuje tylko **8 rodzajów**.
 
-To nie jest błąd. W tabeli `obiekty` **nie ma ani jednego rekordu** z `idRodzaj = 18`. Zwykły `JOIN` zwraca tu tylko rodzaje mające pasujący obiekt.
+W tabeli `obiekty` **nie ma rekordu** z `idRodzaj = 18`. Zwykły `JOIN` pokazuje tylko rodzaje, do których pasuje co najmniej jeden obiekt. Dlatego nie widzimy rzeki.
 
 ## 10. Kiedy chcemy zobaczyć również grupę z zerem?
 
-To przykład rozszerzający. Nie jest konieczny do pierwszego zapamiętania `GROUP BY`, ale bardzo dobrze wyjaśnia różnicę między brakiem grupy a grupą z liczbą zero.
+To rozszerzenie. Nie musisz znać go przy pierwszym ćwiczeniu z `GROUP BY`. Pokazuje, jak otrzymać w wyniku rodzaj, do którego nie należy żaden obiekt.
 
 Zmień `JOIN` na `LEFT JOIN`:
 
@@ -607,7 +616,7 @@ ORDER BY r.idRodzaj;
 
 Dla rodzaju `rzeka` zobaczysz **1**, a nie 0.
 
-Nie oznacza to, że pojawiła się rzeka. `LEFT JOIN` tworzy w wyniku **jeden wiersz z danymi rodzaju i pustymi polami obiektu**, a `COUNT(*)` liczy ten wiersz.
+Wynik `1` nie oznacza, że znaleziono rzekę. `LEFT JOIN` zachowuje **jeden wiersz z danymi rodzaju**, mimo że pola obiektu są puste. `COUNT(*)` liczy ten wiersz.
 
 ```text
 LEFT JOIN + COUNT(*)          => liczy wiersze wyniku, także bez obiektu
@@ -627,11 +636,13 @@ GROUP BY idRodzaj
 ORDER BY liczbaObiektow DESC, idRodzaj ASC;
 ```
 
-Najpierw zobaczysz grupę `10` z **12 obiektami**, potem grupę `11` z **4 obiektami**, a następnie grupy mające po **2 obiekty**. `idRodzaj ASC` ustala kolejność grup o tej samej liczbie obiektów.
+Najpierw zobaczysz grupę `10` z **12 obiektami**. Potem pojawi się grupa `11` z **4 obiektami**. Dalej będą grupy z **2 obiektami**. Dla grup o tej samej liczbie obiektów kolejność ustala `idRodzaj ASC`.
 
-W MariaDB `GROUP BY` może w prostych przypadkach domyślnie porządkować wynik według grupowanych wyrażeń, ale nie należy mylić tego z wymaganiem na kolejność prezentacji. **Jeśli konkretna kolejność jest istotna, zapisz `ORDER BY` jawnie.**
+MariaDB może czasem pokazać grupy w kolejności grupowanych wartości. Nie polegaj na tym układzie. **Jeśli kolejność ma znaczenie, użyj `ORDER BY`.**
 
 ## 12. Typowe błędy i pułapki
+
+To rozszerzenie. Wróć do niego, gdy potrafisz już tworzyć grupy i liczyć rekordy.
 
 ### Błąd 1 - wybieranie kolumny, której nie pogrupowaliśmy
 
@@ -643,7 +654,7 @@ FROM obiekty
 GROUP BY panstwo;
 ```
 
-**Problem:** w grupie `Islandia` jest dziewięć obiektów o różnych nazwach. Wynik ma zawierać jeden wiersz dla tego państwa. Którą z dziewięciu wartości `nazwa` należałoby pokazać?
+W grupie `Islandia` jest dziewięć obiektów o różnych nazwach. Wynik ma pokazać jeden wiersz dla tego państwa. Którą nazwę miałby wybrać SQL?
 
 - `panstwo` jest jednoznaczne, ponieważ określa grupę.
 - `COUNT(*)` jest jednoznaczne, ponieważ liczy elementy całej grupy.
@@ -674,7 +685,7 @@ GROUP BY panstwo, nazwa
 ORDER BY panstwo, nazwa;
 ```
 
-Ale uwaga: to **inne pytanie**. Wynik przedstawia teraz grupy określone przez pary `panstwo + nazwa`, a nie wyłącznie państwa. Na przykład dwa rekordy o nazwie `Wiktorii` w Tanzanii należą do tej samej grupy.
+To odpowiada na **inne pytanie**. Teraz grupę określa para `panstwo + nazwa`, a nie samo państwo. Dwa obiekty o nazwie `Wiktorii` w Tanzanii należą do jednej grupy.
 
 **Poprawka 3 - chcemy jedną, jednoznacznie wybraną nazwę na grupę.** Można zastosować `MIN(nazwa)` lub `MAX(nazwa)`, ale otrzymamy nazwę wybraną według reguł porównywania tekstu, a nie listę wszystkich nazw.
 
@@ -686,7 +697,7 @@ FROM obiekty
 GROUP BY panstwo;
 ```
 
-Nie dodajemy kolumn do `GROUP BY` mechanicznie tylko po to, aby zapytanie przestało zgłaszać błąd. **Najpierw ustalamy, co powinien oznaczać jeden wiersz wyniku.**
+Nie dopisuj kolumn do `GROUP BY` tylko po to, by usunąć błąd. **Najpierw ustal, co ma oznaczać jeden wiersz wyniku.**
 
 ### Ćwiczenia - znaczenie jednego wiersza wyniku
 
@@ -724,7 +735,7 @@ Kolumnę `nazwa` usunięto, ponieważ wynik ma zawierać liczbę obiektów dla c
 
 #### Ćwiczenie B2 - poprawa grupowania
 
-Zmień poprzednie, niejednoznaczne zapytanie tak, aby wynik pokazywał jedną grupę dla każdej pary `panstwo + nazwa`. Wyjaśnij, dlaczego wynik różni się od grupowania wyłącznie po państwie.
+Zmień poprzednie zapytanie. Utwórz osobną grupę dla każdej pary `panstwo + nazwa`. Wyjaśnij, dlaczego wynik różni się od grupowania tylko po państwie.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie B2</summary>
@@ -837,11 +848,13 @@ Szczególnie uważaj na różnicę między pytaniami **„ile rekordów”** a *
 
 ## 14. Ćwiczenia samodzielne
 
-Wykonuj je w phpMyAdmin, na bazie `Islandia`. Każde zadanie ma ukrytą podpowiedź i rozwiązanie. Najpierw spróbuj sam.
+Wykonuj ćwiczenia w phpMyAdmin na bazie `Islandia`. Każde ma ukrytą podpowiedź i rozwiązanie. Najpierw spróbuj sam.
+
+Ćwiczenia 1-3 utrwalają podstawy. Ćwiczenia 4-6 są na dalszą naukę. Ostatnie ćwiczenie jest dodatkowe.
 
 ### Ćwiczenie 1 - różne wartości punktów
 
-Wyświetl wszystkie różne liczby punktów występujące w tabeli `turysci`. Wynik uporządkuj rosnąco. Użyj `GROUP BY`, a nie `DISTINCT`.
+Pokaż różne liczby punktów z tabeli `turysci`. Uporządkuj je rosnąco. Użyj `GROUP BY`, a nie `DISTINCT`.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 1</summary>
@@ -866,7 +879,7 @@ Oczekiwany wynik: **11 wierszy**.
 
 ### Ćwiczenie 2 - liczba obiektów na kontynentach
 
-Policz obiekty dla każdego `idKontynent` w tabeli `obiekty`. Wyświetl identyfikator i liczbę obiektów, a wynik uporządkuj według identyfikatora kontynentu.
+W tabeli `obiekty` policz obiekty dla każdego `idKontynent`. Pokaż identyfikator i liczbę obiektów. Uporządkuj wynik według `idKontynent`.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 2</summary>
@@ -891,7 +904,7 @@ Wynik: `1 => 6`, `2 => 5`, `3 => 1`, `6 => 13`. Razem 25 obiektów. Pozostałe k
 
 ### Ćwiczenie 3 - rodzaje obiektów z Polski
 
-Policz obiekty każdego rodzaju tylko dla Polski. Wyświetl identyfikator rodzaju oraz jego liczność.
+Wybierz obiekty z Polski. Policz je według `idRodzaj`. Pokaż identyfikator rodzaju i liczbę obiektów.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 3</summary>
@@ -916,7 +929,7 @@ Wynik: jeden wiersz `idRodzaj = 10`, `liczbaObiektow = 4`.
 
 ### Ćwiczenie 4 - czego brakuje w wyniku?
 
-Tabela `rodzaje` zawiera rodzaj `rzeka`. Wyjaśnij, dlaczego zwykłe grupowanie tabeli `obiekty` według `idRodzaj` nie pokazuje grupy 18. Nie zmieniaj danych.
+Tabela `rodzaje` zawiera rodzaj `rzeka`. Sprawdź, dlaczego grupowanie tabeli `obiekty` według `idRodzaj` nie pokazuje grupy 18. Nie zmieniaj danych.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 4</summary>
@@ -941,7 +954,7 @@ Wynik ma **8 grup** i nie zawiera `18`, ponieważ nie ma żadnego takiego obiekt
 
 ### Ćwiczenie 5 - dwa kryteria grupowania
 
-Dla Islandii i Polski wyświetl liczbę obiektów w każdym połączeniu wartości `panstwo` i `idRodzaj`. Wynik uporządkuj według obu tych kolumn.
+Wybierz obiekty z Islandii i Polski. Policz je dla każdej pary `panstwo` i `idRodzaj`. Uporządkuj wynik według obu kolumn.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie 5</summary>
@@ -967,7 +980,7 @@ Wynik: **6 wierszy**. Islandia tworzy 5 grup, Polska jedną.
 
 ### Ćwiczenie 6 - zadanie egzaminacyjne INF.03
 
-Wyświetl nazwy rodzajów obiektów z tabeli `rodzaje` oraz liczbę obiektów należących do każdego rodzaju. Kolumnie z liczbą nadaj alias `Liczba obiektów`. Wykorzystaj relację tabel `rodzaje` i `obiekty`, a następnie grupowanie.
+Połącz tabele `rodzaje` i `obiekty`. Pokaż nazwę każdego rodzaju i liczbę należących do niego obiektów. Kolumnę z liczbą nazwij `Liczba obiektów`. Użyj grupowania.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź 1 - ćwiczenie 6</summary>
@@ -1000,7 +1013,7 @@ Wynik: **8 rodzajów, łącznie 25 obiektów**. Brak wiersza `rzeka` jest prawid
 
 ### Ćwiczenie dodatkowe - co oznacza zero?
 
-Zmodyfikuj ostatnie zapytanie tak, aby w wyniku pojawiała się również `rzeka` z liczbą `0`. Następnie wyjaśnij, dlaczego w tym przypadku użycie `COUNT(*)` może wprowadzać w błąd.
+Zmień ostatnie zapytanie, aby wynik zawierał też `rzeka => 0`. Wyjaśnij, dlaczego `COUNT(*)` może tu pokazać mylącą liczbę.
 
 <details class="lesson-hint" markdown="1">
 <summary>Podpowiedź - ćwiczenie dodatkowe</summary>
