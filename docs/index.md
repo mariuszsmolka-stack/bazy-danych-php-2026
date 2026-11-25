@@ -45,6 +45,10 @@ Materiały przygotowują do egzaminu INF.03.
 8. [SQL 1G - Łączenie trzech tabel]({{ '/09-klucze-i-zlaczenia/07-trzy-tabele.html' | relative_url }}).
 9. [ZBIÓR ZADAŃ 2 - Klucze i JOIN. 20 zadań]({{ '/09-klucze-i-zlaczenia/08-zadania-klucze-i-join.html' | relative_url }}).
 
+### Projekt bazy danych
+
+[Budujemy bazę uczniowie_ZS5 - od projektu do tabel]({{ '/10-projekt-bazy/01-uczniowie-zs5.html' | relative_url }}) - od sytuacji szkolnej do pięciu pustych tabel w MariaDB.
+
 ### 01 - Podstawy PHP
 
 1. [Lekcja 1 - podstawy PHP i pierwsze tablice]({{ '/01-podstawy-php/01-podstawy-php.html' | relative_url }}) - uruchamianie skryptów, zmienne, pętle i tablice.
