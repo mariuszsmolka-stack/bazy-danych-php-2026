@@ -49,6 +49,8 @@ Materiały przygotowują do egzaminu INF.03.
 
 [Budujemy bazę uczniowie_ZS5 - od projektu do tabel]({{ '/10-projekt-bazy/01-uczniowie-zs5.html' | relative_url }}) - od sytuacji szkolnej do pięciu pustych tabel w MariaDB.
 
+[Wypełniamy bazę uczniowie_ZS5 - INSERT krok po kroku]({{ '/10-projekt-bazy/02-uczniowie-zs5-insert.html' | relative_url }}) - słowniki, uczniowie, spotkania i dwa warianty importu danych.
+
 ### 01 - Podstawy PHP
 
 1. [Lekcja 1 - podstawy PHP i pierwsze tablice]({{ '/01-podstawy-php/01-podstawy-php.html' | relative_url }}) - uruchamianie skryptów, zmienne, pętle i tablice.

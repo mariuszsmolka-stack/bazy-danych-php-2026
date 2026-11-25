@@ -67,6 +67,8 @@ sections:
     lessons:
       - title: "Budujemy bazę uczniowie_ZS5 - od projektu do tabel"
         url: "10-projekt-bazy/01-uczniowie-zs5.md"
+      - title: "Wypełniamy bazę uczniowie_ZS5 - INSERT krok po kroku"
+        url: "10-projekt-bazy/02-uczniowie-zs5-insert.md"
   - title: "01 - Podstawy PHP"
     url: "01-podstawy-php/01-podstawy-php.md"
     lessons:
