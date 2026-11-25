@@ -7,7 +7,7 @@ mermaid: true
 
 ## Zaczynamy od zmiany sali
 
-Wyobraź sobie zajęcia w ZS5 przy ul. Ogrodowej w Wałbrzychu. Fikcyjna klasa `3TI` liczy w naszym przykładzie 28 uczniów. Ma bazy danych w sali `205`. Jedne konkretne zajęcia zostają przeniesione do sali `32`.
+Wyobraź sobie zajęcia w ZS5 przy ul. Ogrodowej w Wałbrzychu. Klasa `3TI` liczy w naszym przykładzie 28 uczniów. Ma bazy danych w sali `205`. Jedne konkretne zajęcia zostają przeniesione do sali `32`. Klasy, uczniowie i plan w tej lekcji są fikcyjne.
 
 Gdyby numer sali tych zajęć zapisano osobno przy każdym uczniu, ile wpisów trzeba byłoby poprawić? Co się stanie, jeśli poprawisz tylko część z nich?
 
@@ -23,23 +23,33 @@ Policz powtórzenia tej samej informacji. Zmiana dotyczy jednych zajęć całej 
 
 Trzeba byłoby poprawić 28 wpisów dotyczących tych samych zajęć. Pominięcie części uczniów zostawiłoby sprzeczne informacje. Lepiej zapisać jedne zajęcia klasy w jednym wierszu i wskazać w nim salę.
 
-To opis problemu, nie dane już zapisane w bazie. W tej lekcji utworzymy tylko pustą strukturę. Klasy, uczniowie i plan w przykładach są fikcyjne.
-
 </details>
 
 ## Dwa tryby tej samej pracy
 
-**Z nauczycielem:** przed każdym etapem odpowiedz na pytanie do klasy. Nauczyciel omawia decyzję i pokazuje pierwszą tabelę. Przy kolejnych tabelach najpierw zapisz własny pomysł. Wykonaj krok i zatrzymaj się na kontroli. Porównaj rezultat przed przejściem dalej.
-
-**Bez nauczyciela:** czytaj etapy po kolei. Każdy zawiera wymagane kolumny, oczekiwany wynik i kontrolę. Spróbuj samodzielnie zapisać polecenie. Podpowiedź otwórz, gdy utkniesz. Osobne rozwiązanie otwórz dopiero po próbie. Nie uruchamiaj drugi raz polecenia, jeśli tabela już powstała.
-
-W obu trybach wykonujemy ten sam ciąg: potrzeba szkoły => znaczenie wiersza => tabele => typy i klucze => kolejność tworzenia => sprawdzenie wyniku. Notujesz powody decyzji, nie całą stronę.
+Na zajęciach przechodź przez etapy w tempie ustalonym dla grupy. Jeśli pracujesz samodzielnie, wykonaj każdy krok, sprawdź wynik i dopiero w razie potrzeby otwórz podpowiedź lub rozwiązanie.
 
 ## Co chcemy zapisywać i czym jest jeden wiersz?
 
-Potrzebujemy informacji o klasach, uczniach, salach, przedmiotach i konkretnych zajęciach. Na potrzeby tego modelu uczeń należy do jednej klasy, a jedne zajęcia dotyczą całej klasy, jednego przedmiotu i jednej sali.
+Chcemy zapisywać klasy, uczniów, sale, przedmioty i terminy spotkań.
 
-Nazwy przedmiotów z naszego przykładu to: **bazy danych**, **programowanie obiektowe**, **testowanie aplikacji** i **aplikacje mobilne**. Numery sal to `205` i `32`. Nie przepisuj tych wartości do każdej tabeli.
+Nazwy przedmiotów z naszego przykładu to: **bazy danych**, **programowanie obiektowe**, **testowanie aplikacji** i **aplikacje mobilne**. Numery sal to `205` i `32`.
+
+Klasa `3TI` ma bazy danych we wtorek i w czwartek. Ile wierszy potrzebujesz w tabeli `przedmioty`, a ile w `zajecia`, aby opisać te dwa spotkania? Zapisz odpowiedź, zanim przejdziesz do opisu tabel.
+
+<details markdown="1" class="lesson-hint">
+<summary>Pokaż podpowiedź - przedmiot a spotkania</summary>
+
+Porównaj nazwę przedmiotu z datami obu spotkań. Która informacja pozostaje ta sama, a która odróżnia jedno spotkanie od drugiego?
+
+</details>
+
+<details markdown="1" class="lesson-solution">
+<summary>Pokaż rozwiązanie - przedmiot a spotkania</summary>
+
+W `przedmioty` potrzebujesz jednego wiersza: bazy danych. W `zajecia` potrzebujesz dwóch wierszy, po jednym na wtorkowe i czwartkowe spotkanie. Oba będą wskazywać ten sam przedmiot, ale każde będzie miało własny termin.
+
+</details>
 
 | Tabela | Znaczenie jednego wiersza |
 | --- | --- |
@@ -48,10 +58,6 @@ Nazwy przedmiotów z naszego przykładu to: **bazy danych**, **programowanie obi
 | `sale` | Jedna sala, np. sala o numerze `205`. |
 | `przedmioty` | Jeden przedmiot, np. bazy danych. |
 | `zajecia` | Jedno konkretne spotkanie klasy na przedmiocie, w sali, w danym dniu i o danej godzinie. |
-
-Wiersz `zajecia` nie oznacza całego tygodniowego planu ani samej nazwy przedmiotu. Dwa spotkania z tego samego przedmiotu w różnych dniach będą dwoma wierszami.
-
-**Pytanie do klasy:** „Czy `bazy danych` i konkretne zajęcia z baz danych w przyszły wtorek to ten sam rodzaj informacji? Co musi odróżnić dwa spotkania?”.
 
 <figure class="lesson-diagram">
 <pre class="mermaid-source" hidden>
@@ -75,7 +81,7 @@ W interfejsie wykonaj:
 
 **Nowa => nazwa `uczniowie_ZS5` => metoda porównywania napisów `utf8mb4_polish_ci` => Utwórz**.
 
-Zachowaj dokładną pisownię nazwy, także wielkie `ZS`. Jeśli taka baza już istnieje i zawiera tabele, nie usuwaj ich. Zatrzymaj się i uzgodnij z nauczycielem przygotowanie pustej bazy o wymaganej nazwie.
+Zachowaj dokładną pisownię nazwy, także wielkie `ZS`. Jeśli taka baza już istnieje i zawiera tabele, nie usuwaj ich. Zatrzymaj pracę, dopóki nie masz do dyspozycji pustej bazy o wymaganej nazwie.
 
 ### Zapis znaków a ich porównywanie
 
@@ -112,11 +118,9 @@ Wszystkie nasze tabele będą dziedziczyć sprawdzone ustawienia bazy. W ich def
 
 Jeden wiersz oznacza jedną klasę. Potrzebujemy trwałego identyfikatora i czytelnego oznaczenia. Nazwa `3TI` jest tekstem. Identyfikator będzie liczbą generowaną przez bazę.
 
-**Pytanie do klasy:** „Czy dwie klasy powinny mieć ten sam identyfikator? A to samo oznaczenie? Dlaczego oznaczenie nie jest liczbą do obliczeń?”.
-
 ### Wykonanie
 
-Nauczyciel pokazuje ten pełny przykład. Pracując samodzielnie, również wykonaj go jako pierwszy:
+Pierwszą tabelę wykonaj według omówionego przykładu:
 
 ```sql
 CREATE TABLE klasy (
@@ -148,7 +152,9 @@ SHOW CREATE TABLE klasy;
 SELECT COUNT(*) AS liczba_wierszy FROM klasy;
 ```
 
-Oczekiwany wynik licznika to `0`. Informacja o początkowej wartości autonumeru nie jest zapisanym uczniem ani klasą. Działanie autonumeru na danych zobaczymy dopiero przy późniejszym dodawaniu rekordów.
+W wyniku `SHOW CREATE TABLE klasy` znajdź, co identyfikuje wiersz, a co nie pozwala powtórzyć oznaczenia `3TI`. Wskaż odpowiednie fragmenty definicji.
+
+Oczekiwany wynik licznika to `0`. Utworzenie tabeli nie dodało klasy. Działanie autonumeru na danych sprawdzisz przy późniejszym dodawaniu rekordów.
 
 ### Krótka notatka
 
@@ -158,7 +164,16 @@ Oczekiwany wynik licznika to `0`. Informacja o początkowej wartości autonumeru
 
 ### Decyzja
 
-Jeden wiersz opisuje jednego ucznia. Zapisz identyfikator ucznia, imię, nazwisko i wskazanie jego klasy.
+Przyjrzyj się dwóm fikcyjnym osobom. To przykład do rozumowania, nie rekordy zapisane już w bazie.
+
+| Osoba | Imię | Nazwisko | Klasa |
+| --- | --- | --- | --- |
+| A | Anna | Przykładowa | 3TI |
+| B | Anna | Przykładowa | 3TI |
+
+Która wartość musi odróżniać te osoby: `id_ucznia` czy `id_klasy`? Która może być wspólna? Zapisz odpowiedź, a potem dobierz ograniczenia na podstawie wymagań tabeli.
+
+Jeden wiersz ma opisywać jednego ucznia:
 
 | Kolumna | Wymaganie |
 | --- | --- |
@@ -167,18 +182,14 @@ Jeden wiersz opisuje jednego ucznia. Zapisz identyfikator ucznia, imię, nazwisk
 | `nazwisko` | `VARCHAR(80)`, `NOT NULL`. |
 | `id_klasy` | `INT`, `NOT NULL`, klucz obcy do `klasy.id_klasy`. |
 
-`id_ucznia` identyfikuje osobę w naszym modelu. `id_klasy` wskazuje jej klasę. Wielu uczniów ma prawo wskazywać tę samą klasę. Imię i nazwisko nie muszą być unikalne: dwie różne osoby mogą nazywać się tak samo.
-
-**Pytanie do klasy:** „Czy przy 28 uczniach jednej klasy powinno wystąpić 28 różnych wartości `id_klasy`? Która kolumna odróżni dwie osoby o takim samym imieniu i nazwisku?”.
-
 ### Wykonanie
 
-Napisz i wykonaj definicję według tabeli wymagań. Użyj `ENGINE=InnoDB` i jawnego zapisu `FOREIGN KEY (...) REFERENCES ...`. Kolumna wskazująca klasę ma ten sam typ `INT` co wskazywany klucz. Nie dodawaj `UNIQUE` do imienia, nazwiska ani `id_klasy`.
+Napisz i wykonaj definicję według tabeli wymagań. Użyj `ENGINE=InnoDB` i jawnego zapisu `FOREIGN KEY (...) REFERENCES ...`. Sprawdź, czy twoja definicja pozwala zapisać obie osoby z przykładu.
 
 <details markdown="1" class="lesson-hint">
 <summary>Pokaż podpowiedź - uczniowie</summary>
 
-Zacznij od wzoru pierwszej tabeli. Dodaj pola opisowe, a po kolumnach ograniczenie wskazujące klasę. Własny identyfikator ucznia i wskazanie jego klasy pełnią różne role.
+Wróć do znaczenia klucza głównego. Sprawdź, czy wspólne imię, nazwisko lub klasa nie uniemożliwią zapisania drugiej osoby.
 
 </details>
 
@@ -196,7 +207,9 @@ CREATE TABLE uczniowie (
 ) ENGINE=InnoDB;
 ```
 
-`CONSTRAINT fk_uczniowie_klasy` nadaje ograniczeniu nazwę. Dalej `FOREIGN KEY` wskazuje kolumnę tej tabeli, a `REFERENCES` tabelę i kolumnę docelową. `NOT NULL` sprawia, że wskazanie klasy jest obowiązkowe. Klucz obcy wymaga istnienia wskazywanej klasy przy późniejszym zapisywaniu danych.
+Osoby A i B muszą mieć różne `id_ucznia`. Mogą mieć wspólne `id_klasy`, bo należą do tej samej klasy. Nie wymuszamy unikalności imienia ani nazwiska.
+
+`CONSTRAINT fk_uczniowie_klasy` nadaje ograniczeniu nazwę. `FOREIGN KEY` wskazuje kolumnę tej tabeli, a `REFERENCES` tabelę i kolumnę docelową. `NOT NULL` wymaga wskazania klasy, a klucz obcy wymaga, aby wskazywana klasa istniała.
 
 </details>
 
@@ -212,21 +225,19 @@ Oczekujesz jednego klucza głównego z autonumerem i jednego klucza obcego, bez 
 
 ### Krótka notatka
 
-Zapisz jednym zdaniem, dlaczego `id_ucznia` nie zastępuje `id_klasy`, oraz dlaczego dwie osoby mogą mieć to samo nazwisko.
+Opisz role obu identyfikatorów na przykładzie osób A i B.
 
 ## Etap 3 - sale
 
 ### Decyzja
 
-Jeden wiersz oznacza jedną salę. Jej identyfikator to liczba. Numer widoczny na drzwiach to etykieta: `32`, `205`, a w innym budynku mógłby wystąpić `32A`.
+Spójrz na oznaczenia `205`, `32` i hipotetyczne `32A`. Wybierz typ kolumny `numer_sali`: `INT` czy `VARCHAR`? Uzasadnij wybór na podstawie wszystkich trzech przykładów. Zapisz propozycję przed otwarciem rozwiązania.
 
-Wybierz `id_sali INT` z autonumerem i kluczem głównym oraz `numer_sali VARCHAR(10) NOT NULL UNIQUE`.
-
-**Pytanie do klasy:** „Czy do numeru sali dodajemy liczbę 1, aby znaleźć kolejną salę? Jak przechowasz `32A` w typie całkowitym?”.
+Jeden wiersz tabeli będzie opisywać jedną salę.
 
 ### Wykonanie
 
-Utwórz tabelę z dwiema kolumnami według decyzji. Ustaw `InnoDB`. Uzasadnij wybór `VARCHAR`, odnosząc się osobno do `32`, `205` i hipotetycznego `32A`.
+Utwórz `id_sali INT` z autonumerem i kluczem głównym oraz obowiązkowy, unikalny `numer_sali`. Dla numeru przyjmij limit 10 znaków i wybrany wcześniej typ. Ustaw `InnoDB`.
 
 <details markdown="1" class="lesson-hint">
 <summary>Pokaż podpowiedź - sale</summary>
@@ -245,7 +256,7 @@ CREATE TABLE sale (
 ) ENGINE=InnoDB;
 ```
 
-Wszystkie trzy etykiety mieszczą się w tekście o długości do 10 znaków. `INT` nie pomieści litery w `32A`. Numer sali nie służy do sumowania. `UNIQUE` dotyczy etykiety, a klucz główny osobnego identyfikatora sali.
+Numer z drzwi jest etykietą. `VARCHAR(10)` mieści wszystkie trzy przykłady, w tym literę w `32A`, której nie zapiszesz w `INT`. `UNIQUE` dotyczy numeru, a klucz główny osobnego identyfikatora sali.
 
 </details>
 
@@ -261,7 +272,7 @@ Oczekujesz tabeli z zerem wierszy. Powstanie tabeli nie zapisuje jeszcze numeró
 
 ### Krótka notatka
 
-`numer_sali => etykieta => VARCHAR(10)`, a potem własne uzasadnienie obejmujące możliwość wystąpienia litery.
+Zapisz wybrany typ `numer_sali` i jeden przykład, który uzasadnia ten wybór.
 
 ## Etap 4 - przedmioty
 
@@ -269,20 +280,18 @@ Oczekujesz tabeli z zerem wierszy. Powstanie tabeli nie zapisuje jeszcze numeró
 
 Jeden wiersz to jeden przedmiot. Potrzebujesz `id_przedmiotu INT` z autonumerem i kluczem głównym oraz obowiązkowej, unikalnej kolumny `nazwa` typu `VARCHAR`.
 
-Dobierz jej długość na podstawie nazw:
+Sprawdź poniższe nazwy:
 
-- `bazy danych` - 11 znaków.
-- `programowanie obiektowe` - 23 znaki.
-- `testowanie aplikacji` - 20 znaków.
-- `aplikacje mobilne` - 17 znaków.
+- `bazy danych`.
+- `programowanie obiektowe`.
+- `testowanie aplikacji`.
+- `aplikacje mobilne`.
 
-Spacja też jest znakiem. Przyjmij limit, który pomieści te nazwy i pozostawi zapas na dłuższe nazwy. Nie istnieje jedna długość właściwa dla każdej możliwej szkoły. W rozwiązaniu przyjmiemy 80 znaków.
-
-**Pytanie do klasy:** „Która z naszych nazw nie zmieściłaby się w `VARCHAR(20)`? Dlaczego nie dobieramy długości tylko do najkrótszego przykładu?”.
+Która z nich nie mieści się w `VARCHAR(20)`? Policz znaki, uwzględniając spacje. Zapisz najdłuższą nazwę i zaproponuj limit z zapasem na inne przedmioty.
 
 ### Wykonanie
 
-Zapisz wybrany limit z uzasadnieniem i utwórz tabelę. Pamiętaj o `NOT NULL`, `UNIQUE` i `InnoDB`. Aby uzyskać dokładnie tę samą strukturę co w pliku na końcu lekcji, użyj `VARCHAR(80)`.
+Zapisz uzasadnienie proponowanej długości. Następnie porównaj ją z ustalonym wariantem w rozwiązaniu i utwórz tabelę zgodną z nim. Pamiętaj o `NOT NULL`, `UNIQUE` i `InnoDB`.
 
 <details markdown="1" class="lesson-hint">
 <summary>Pokaż podpowiedź - przedmioty</summary>
@@ -301,7 +310,7 @@ CREATE TABLE przedmioty (
 ) ENGINE=InnoDB;
 ```
 
-Limit 80 mieści najdłuższy przykład i pozostawia zapas. `NOT NULL` odrzuca brak wartości `NULL`. Samo to ograniczenie nie odrzuca pustego napisu. `UNIQUE` pilnuje niepowtarzalności nazwy zgodnie z regułą porównywania bazy.
+Nazwa `programowanie obiektowe` ma 23 znaki, więc nie mieści się w limicie 20. Ustalony `VARCHAR(80)` mieści ją i pozostawia zapas. Ten sam limit obowiązuje w pliku SQL do pobrania.
 
 </details>
 
@@ -323,7 +332,13 @@ Zapisz najdłuższy przykład, jego długość i uzasadnienie przyjętego zapasu
 
 ### Decyzja
 
-Teraz zapisujemy jedno konkretne spotkanie. Wybieramy klasę, salę i przedmiot przez ich identyfikatory. Dodajemy datę i godzinę rozpoczęcia.
+Teraz opiszesz jedno konkretne spotkanie klasy.
+
+W tabeli `sale` sala `205` ma przykładowe `id_sali = 7`. Którą wartość zapiszesz w `zajecia.id_sali`? Zapisz odpowiedź, zanim przejdziesz do definicji.
+
+To przykład do rozumowania. W naszej pustej bazie nie zapisano jeszcze sali ani takiego identyfikatora.
+
+Tabela ma mieć następujące kolumny:
 
 | Kolumna | Wymaganie |
 | --- | --- |
@@ -335,10 +350,6 @@ Teraz zapisujemy jedno konkretne spotkanie. Wybieramy klasę, salę i przedmiot 
 | `godzina_rozpoczecia` | `TIME NOT NULL`, godzina rozpoczęcia. |
 
 `DATE` przechowuje datę, np. zapisaną jako `2026-12-01`. `TIME` przechowuje tu godzinę, np. `08:00:00`. To przykłady znaczenia typów, nie dane do dodania w tym etapie.
-
-Nie przepisujemy tu nazwy przedmiotu ani numeru sali. Te informacje mają własne tabele. Kilka zajęć może wskazywać tę samą salę, przedmiot lub klasę, więc ich klucze obce nie są unikalne.
-
-**Pytanie do klasy:** „Dlaczego `id_sali` nie musi mieć wartości `205`, nawet gdy zajęcia są w sali `205`? Które tabele muszą już istnieć, aby utworzyć te relacje?”.
 
 ### Wykonanie
 
@@ -371,7 +382,9 @@ CREATE TABLE zajecia (
 ) ENGINE=InnoDB;
 ```
 
-Tę tabelę tworzymy po `klasy`, `sale` i `przedmioty`, ponieważ serwer musi odnaleźć cele jej kluczy obcych. Dlatego nasza kolejność to `klasy => uczniowie => sale => przedmioty => zajecia`. `uczniowie` wymaga tylko wcześniejszej tabeli `klasy`.
+W przykładzie do `zajecia.id_sali` wpisalibyśmy `7`. To identyfikator wskazujący salę o numerze `205`. Nazwa przedmiotu i numer sali pozostają w swoich tabelach. Kilka spotkań może wskazywać te same rekordy, dlatego klucze obce nie są tu unikalne.
+
+Tabelę `zajecia` tworzymy po `klasy`, `sale` i `przedmioty`, aby serwer mógł odnaleźć cele kluczy obcych. Nasza kolejność to `klasy => uczniowie => sale => przedmioty => zajecia`. `uczniowie` wymaga tylko wcześniejszej tabeli `klasy`.
 
 </details>
 
@@ -476,13 +489,9 @@ Odbiór: pięć pustych tabel, pięć kluczy głównych z autonumerem, cztery kl
 - Ustawienie unikalności imienia i nazwiska, choć różni uczniowie mogą mieć takie same dane.
 - Mylenie utworzenia tabeli z dodaniem wiersza albo ponowne uruchomienie jej definicji.
 
-## Kiedy tego użyć?
+## Co dziś powstało?
 
-Gdy z opisu sytuacji chcesz zbudować nową strukturę relacyjnej bazy. Najpierw ustalasz znaczenie wiersza i powiązania, a potem zapisujesz typy i ograniczenia w SQL.
-
-## Kiedy wybrać coś innego?
-
-Jeżeli struktura już istnieje i chcesz tylko odczytać dane, użyj poznanych zapytań `SELECT`. Ponowne tworzenie tych samych tabel nie jest sposobem odczytu ani dopisania danych.
+Dziś utworzyliśmy strukturę: pięć pustych tabel i ich powiązania. Dane dodamy przez `INSERT` w następnej lekcji.
 
 ## Plik do sprawdzenia lub odtworzenia struktury
 
